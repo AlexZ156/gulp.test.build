@@ -77,10 +77,10 @@ gulp.task('default', function() {
 		}
 	});*/
 	gulp.watch('./scss/**/*.scss', ['sass']);
-	gulp.watch('./**/*.html', ['reloadPage']);
-	gulp.watch('./**/*.js', ['reloadPage']);
-	watch('./sourceimages/**', function() {
+	gulp.watch('./*.html', ['reloadPage']);
+	gulp.watch('./js/*.js', ['reloadPage']);
+	/*watch('./sourceimages/**', function() {
 		gulp.src('./sourceimages/**')
 			.pipe(gulp.dest('./images'));
-	});
+	});*/
 });

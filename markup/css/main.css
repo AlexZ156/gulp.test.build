@@ -10,9 +10,11 @@ body {
 body {
   color: #000;
   width: 10px;
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  transform: translateX(0);
   background: #000; }
 
 .box {
   height: 30px; }
+
+div {
+  color: #000; }
