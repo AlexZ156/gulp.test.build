@@ -44,11 +44,8 @@
 /* 0 */
 /***/ function(module, exports) {
 
+	// let inc = x => x+1;
 	"use strict";
-
-	var inc = function inc(x) {
-	  return x + 1;
-	};
 
 /***/ }
 /******/ ]);

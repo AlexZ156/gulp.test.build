@@ -9,6 +9,7 @@ var autoprefixer = require('autoprefixer');
 var cssbeautify = require('gulp-cssbeautify');
 var imageop = require('gulp-image-optimization');
 var settings = require('./gulp-settings.js');
+var readyToBuildSass = true;
 
 /*gulp.task('webpack', function(cb) {
 	webpack(webpackconfig, cb);
@@ -30,18 +31,36 @@ gulp.task('default', ['webpack'], function() {
 	}]);
 });*/
 
-gulp.task('sass', function() {
+function sassHandler(cb) {
 	var postcssPlagins = [
 		autoprefixer({
 			browsers: ['last 2 version']
 		})
 	];
 
-	return gulp.src('./scss/main.scss')
+	gulp.src(settings.scssDir.sassEntry)
 		.pipe(sass().on('error', sass.logError))
 		.pipe(postcss(postcssPlagins))
-		.pipe(gulp.dest('./css'))
+		.pipe(gulp.dest(settings.scssDir.cssOutput))
 		.pipe(browserSync.stream());
+
+	setTimeout(function() {
+		readyToBuildSass = true;
+	}, 500);
+
+	typeof cb === 'function' && cb();
+}
+
+gulp.task('sass', function(cb) {
+	if (readyToBuildSass) {
+		setTimeout(function() {
+			sassHandler(cb);
+		}, 100);
+		readyToBuildSass = false;
+	} else {
+		cb();
+		console.log('\n\n\n !!!!!!  Timer hasn\'t completed, let\'s try again  !!!!!! \n *** this bug will be fixed in a future, sorry ***');
+	}
 });
 
 gulp.task('reloadPage', function() {
@@ -69,16 +88,30 @@ gulp.task('images', function(cb) {
 
 gulp.task('rfq', ['beautify', 'images']);
 
-gulp.task('default', function() {
+var buildScripts = (function() {
+	var timer;
+	var delay = 500;
+
+	return function(cb) {
+		clearTimeout(timer);
+		timer = setTimeout(function() {
+			webpack(webpackConfig(), cb);
+		}, delay);
+	};
+}())
+
+gulp.task('webpack', buildScripts);
+
+gulp.task('default', ['webpack'], function(cb) {
 	/*browserSync.init({
 		server: {
 			baseDir: "./",
+			port: 3010,
 			directory: true
 		}
 	});*/
-	gulp.watch('./scss/**/*.scss', ['sass']);
-	gulp.watch('./*.html', ['reloadPage']);
-	gulp.watch('./js/*.js', ['reloadPage']);
+	gulp.watch(settings.scssDir.watch, ['sass']);
+	gulp.watch(['./*.html', './js/*.js'], ['reloadPage']);
 	/*watch('./sourceimages/**', function() {
 		gulp.src('./sourceimages/**')
 			.pipe(gulp.dest('./images'));
