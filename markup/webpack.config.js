@@ -30,7 +30,7 @@ module.exports = {
 		]
 	},
 
-	plugins: [
+	/*plugins: [
 		new CopyWebpackPlugin([
 				{
 					from: __dirname + '/sourceimages',
@@ -39,5 +39,5 @@ module.exports = {
 			], {
 				copyUnmodified: true
 			})
-	]
+	]*/
 };
