@@ -7,5 +7,10 @@ module.exports = {
 		sassEntry: './scss/main.scss',
 		cssOutput: './css',
 		watch: './scss/**/*.scss'
+	},
+	pugDir: {
+		entry: './dev/*.pug',
+		output: './',
+		watch: './dev/**/*.pug',
 	}
 };

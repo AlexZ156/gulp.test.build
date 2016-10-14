@@ -1,0 +1,94 @@
+header#header(data-class="scroll-on")
+	.container-fluid
+		.pull-left.hidden-xs.hidden-sm
+			nav.nav-menu
+				ul
+					li(class={active: activeClass === 'art-design'})
+						a(href="#") ART+DESIGN
+					li(class={active: activeClass === 'fashion'})
+						a(href="#") FASHION
+					li(class={active: activeClass === 'music'})
+						a(href="#") MUSIC
+					li.visible-lg(class={active: activeClass === 'skate'})
+						a(href="#") SKATE
+		.pull-right
+			nav.nav-menu.hidden-xs.hidden-sm
+				ul
+					li.hidden-lg(class={active: activeClass === 'skate'})
+						a(href="#") SKATE
+					li.visible-lg(class={active: activeClass === 'events'})
+						a(href="#") EVENTS
+					li(class={active: activeClass === 'store'})
+						a(href="#") STORE
+			ul.social-list.visible-lg-inline-block
+				li
+					a.icon-facebook(href="#" target="_blank")
+				li
+					a.icon-instagram(href="#" target="_blank")
+				li
+					a.icon-twitter(href="#" target="_blank")
+				li
+					a.icon-youtube(href="#" target="_blank")
+			.language-block
+				select
+					option usa
+					option fr
+		.logo
+			a(href="#")
+				img.hidden-xs(src="images/logo.gif", alt="Unrated")
+				img.img-scroll(src="images/logo-white.gif", alt="Unrated")
+	.side-panel
+		a.nav-opener(href="#"): span
+		.search-popup.visible-lg
+			a.icon-search.opener(href="#")
+			form.slide
+				fieldset
+					input.form-control.input-focus(type="search")
+	.nav-drop
+		.container-fluid.align-height.jcf-scrollable
+			.nav-holder
+				.widget.widget_nav_menu
+					span.title UNRATED
+					ul
+						li: a(href="#") ABOUT
+						li: a(href="#") ADVERTISING
+						li: a(href="#") CONTACT
+						li: a(href="#") JOBS
+						li: a(href="#") TERMS &amp; CONDITIONS
+						li: a(href="#") PRIVACY POLICY
+				.widget.widget_nav_menu
+					span.title ALL SECTIONS
+					ul
+						li: a(href="#") FEATURES
+						li: a(href="#") STORIES
+						li: a(href="#") CURATORS
+						li: a(href="#") UNRTD TV
+						li: a(href="#") UNRTD CLUB
+						li: a(href="#") ONLINE STORE
+				.widget.widget_nav_menu
+					span.title CATEGORIES
+					ul
+						li: a(href="#") ART+DESIGN
+						li: a(href="#") FASHION
+						li: a(href="#") MUSIC
+						li: a(href="#") SKATE
+						li: a(href="#") SNEAKERS
+						li: a(href="#") ENTERTAINMENT
+						li: a(href="#") GARAGE
+						li: a(href="#") LIFESTYLE
+						li: a(href="#") PHOTOGRAPHY
+				.widget.widget_nav_menu
+					span.title SOCIAL MEDIA
+					ul
+						li: a(href="#") FACEBOOK
+						li: a(href="#") INSTAGRAM
+						li: a(href="#") TWITTER
+						li: a(href="#") YOUTUBE
+						li: a(href="#") TUMBLR
+						li: a(href="#") SOUNDCLOUD
+						li: a(href="#") NEWSLETTER
+						li: a(href="#") RSS
+			span.copy
+				| © 2016
+				a(href="#")  Unrated
+				| . All rights reserved.

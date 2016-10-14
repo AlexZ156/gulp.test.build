@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var webpack = require('webpack');
-var webpackconfig = require('./webpack.config.js')
+var webpackconfig = require('./webpack.config.js');
 var browserSync = require('browser-sync').create();
 var watch = require('gulp-watch');
 var sass = require('gulp-sass');
@@ -11,26 +11,7 @@ var imageop = require('gulp-image-optimization');
 var settings = require('./gulp-settings.js');
 var readyToBuildSass = true;
 var gutil = require('gulp-util');
-
-/*gulp.task('webpack', function(cb) {
-	webpack(webpackconfig, cb);
-});
-
-gulp.task('default', ['webpack'], function() {
-	browserSync.init({
-		server: {
-			baseDir: "./build",
-			directory: true
-		},
-		port: 8080,
-		files: ['./build/index.js'],
-		notify: false
-	});
-
-	gulp.watch('./dev/index.js', ['webpack', function() {
-		browserSync.reload();
-	}]);
-});*/
+var pug = require('gulp-pug');
 
 function sassHandler(cb) {
 	var postcssPlagins = [
@@ -53,7 +34,7 @@ function sassHandler(cb) {
 }
 
 function reloadPage() {
-	// browserSync.reload();
+	browserSync.reload();
 }
 
 gulp.task('sass', function(cb) {
@@ -102,16 +83,23 @@ gulp.task('webpack', function(callback) {
 	});
 });
 
-gulp.task('')
+gulp.task('pug', function(cb) {
+	return gulp.src(settings.pugDir.entry)
+			.pipe(pug({
+				pretty: '\t'
+			}).on('error', function(err) {
+				console.log(err);
+				cb();
+			}))
+			.pipe(gulp.dest(settings.pugDir.output));
+});
 
 gulp.task('watch', function() {
 	gulp.watch(settings.scssDir.watch, ['sass']);
-	// gulp.watch(['./js/*.js', './*.html'], ['reloadPage']);
+	gulp.watch(settings.pugDir.watch, ['pug']);
 	gulp.watch(['./dev/*.js'], ['webpack']);
 	watch('./sourceimages/**').pipe(gulp.dest('./images'));
-	watch(['./js/*.js', './*.html'], function() {
-		console.log(12111111)
-	})
+	watch(['./js/*.js', './*.html'], reloadPage);
 });
 
 gulp.task('server', function() {
@@ -124,4 +112,4 @@ gulp.task('server', function() {
 	});
 });
 
-gulp.task('default', ['webpack', 'watch', /*'server'*/]);
+gulp.task('default', ['webpack', 'watch', 'pug'/*, 'server'*/]);

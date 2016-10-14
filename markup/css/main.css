@@ -11,10 +11,11 @@ body {
   color: #000;
   width: 10px;
   transform: translateX(0);
-  background: #000; }
+  background: #fff; }
 
 .box {
-  height: 30px; }
+  height: 30px;
+  background: #000; }
 
 div {
   color: #000; }
