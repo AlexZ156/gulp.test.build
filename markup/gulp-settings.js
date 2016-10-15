@@ -1,16 +1,24 @@
+'use strict';
+const entryDir = __dirname + '/dev';
+const outputDir = __dirname + '/build';
+
 module.exports = {
 	imagesDir: {
-		entry: './sourceimages/',
-		output: './images/'
+		entry: entryDir + '/images/',
+		output: outputDir + '/images/'
 	},
 	scssDir: {
-		sassEntry: './scss/main.scss',
-		cssOutput: './css',
-		watch: './scss/**/*.scss'
+		sassEntry: entryDir + '/scss/main.scss',
+		cssOutput: outputDir + '/css',
+		watch: entryDir + '/scss/**/*.scss'
 	},
 	pugDir: {
-		entry: './dev/*.pug',
-		output: './',
-		watch: './dev/**/*.pug',
+		entry: entryDir + '/*.pug',
+		output: outputDir + '/',
+		watch: entryDir + '/**/*.pug',
+	},
+	jsEs2015Dir: {
+		entry: entryDir + '/js/main.js',
+		output: outputDir + '/js/'
 	}
 };

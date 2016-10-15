@@ -49,7 +49,7 @@
 	var inc = function inc(x) {
 	  return x + 1;
 	};
-	var a = '111assdasdasdasdasdasd';
+	var a = '13da';
 
 	// alert(2)
 

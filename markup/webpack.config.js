@@ -1,13 +1,17 @@
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+const settings = require('./gulp-settings.js');
 
+
+console.log(settings.jsEs2015Dir)
+console.log(settings.jsEs2015Dir.outputDir)
 module.exports = {
-	entry: __dirname + "/dev/index.js",
+	entry: settings.jsEs2015Dir.entry,
 
 	output: {
 		// Make sure to use [name] or [id] in output.filename
 		//  when using multiple entry points
-		filename: "index.js",
-		path: __dirname + "/build/"
+		filename: 'main.js',
+		path: settings.jsEs2015Dir.output
 	},
 
 	// watch: true,

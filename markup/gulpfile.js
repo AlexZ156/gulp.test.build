@@ -1,20 +1,20 @@
-var gulp = require('gulp');
-var webpack = require('webpack');
-var webpackconfig = require('./webpack.config.js');
-var browserSync = require('browser-sync').create();
-var watch = require('gulp-watch');
-var sass = require('gulp-sass');
-var postcss = require('gulp-postcss');
-var autoprefixer = require('autoprefixer');
-var cssbeautify = require('gulp-cssbeautify');
-var imageop = require('gulp-image-optimization');
-var settings = require('./gulp-settings.js');
-var readyToBuildSass = true;
-var gutil = require('gulp-util');
-var pug = require('gulp-pug');
-
-function sassHandler(cb) {
-	var postcssPlagins = [
+'use strict';
+const gulp = require('gulp');
+const webpack = require('webpack');
+const webpackconfig = require('./webpack.config.js');
+const browserSync = require('browser-sync').create();
+const watch = require('gulp-watch');
+const sass = require('gulp-sass');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssbeautify = require('gulp-cssbeautify');
+const imageop = require('gulp-image-optimization');
+const settings = require('./gulp-settings.js');
+let readyToBuildSass = true;
+const gutil = require('gulp-util');
+const pug = require('gulp-pug');
+let sassHandler = cb => {
+	const postcssPlagins = [
 		autoprefixer({
 			browsers: ['last 2 version']
 		})
@@ -26,20 +26,17 @@ function sassHandler(cb) {
 		.pipe(gulp.dest(settings.scssDir.cssOutput))
 		.pipe(browserSync.stream());
 
-	setTimeout(function() {
+	setTimeout(() => {
 		readyToBuildSass = true;
 	}, 500);
 
 	typeof cb === 'function' && cb();
-}
+};
+let reloadPage =() => browserSync.reload();
 
-function reloadPage() {
-	browserSync.reload();
-}
-
-gulp.task('sass', function(cb) {
+gulp.task('sass', cb => {
 	if (readyToBuildSass) {
-		setTimeout(function() {
+		setTimeout(() => {
 			sassHandler(cb);
 		}, 100);
 		readyToBuildSass = false;
@@ -51,7 +48,7 @@ gulp.task('sass', function(cb) {
 
 gulp.task('reloadPage', reloadPage);
 
-gulp.task('beautify', function() {
+gulp.task('beautify', () => {
 	return gulp.src('./css/main.css')
 		.pipe(cssbeautify({
 			indent: '  '
@@ -59,9 +56,9 @@ gulp.task('beautify', function() {
 		.pipe(gulp.dest('./css'));
 });
 
-gulp.task('images', function(cb) {
-	var imgEntry = settings.imagesDir.entry;
-	var imgOutput = settings.imagesDir.output;
+gulp.task('images', cb => {
+	const imgEntry = settings.imagesDir.entry;
+	const imgOutput = settings.imagesDir.output;
 
 	gulp.src([imgEntry + '**/*.png', imgEntry + '**/*.jpg', imgEntry + '**/*.gif', imgEntry + '**/*.svg']).pipe(imageop({
 		optimizationLevel: 5,
@@ -72,40 +69,40 @@ gulp.task('images', function(cb) {
 
 // gulp.task('rfq', ['beautify', 'images']);
 
-gulp.task('webpack', function(callback) {
-	webpack(webpackconfig, function(err, stats) {
+gulp.task('webpack', cb => {
+	webpack(webpackconfig, (err, stats) => {
 		if (err) throw new gutil.PluginError('webpack', err);
 		gutil.log('[webpack]', stats.toString({
 			// output options
 		}));
-		callback();
+		cb();
 		reloadPage();
 	});
 });
 
-gulp.task('pug', function(cb) {
+gulp.task('pug', cb => {
 	return gulp.src(settings.pugDir.entry)
 			.pipe(pug({
 				pretty: '\t'
-			}).on('error', function(err) {
+			}).on('error', err => {
 				console.log(err);
 				cb();
 			}))
 			.pipe(gulp.dest(settings.pugDir.output));
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', () => {
 	gulp.watch(settings.scssDir.watch, ['sass']);
 	gulp.watch(settings.pugDir.watch, ['pug']);
-	gulp.watch(['./dev/*.js'], ['webpack']);
+	gulp.watch(['./dev/js/*.js'], ['webpack']);
 	watch('./sourceimages/**').pipe(gulp.dest('./images'));
 	watch(['./js/*.js', './*.html'], reloadPage);
 });
 
-gulp.task('server', function() {
+gulp.task('server', () => {
 	browserSync.init({
 		server: {
-			baseDir: "./",
+			baseDir: './',
 			port: 3010,
 			directory: true
 		}
