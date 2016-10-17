@@ -14,7 +14,7 @@ const settings = require('./gulp-settings.js');
 let readyToBuildSass = true;
 const gutil = require('gulp-util');
 const pug = require('gulp-pug');
-const imageWatchUrl = settings.imagesDir.entry + '/**/*';
+const imageWatchUrl = `${settings.imagesDir.entry}/**/*`;
 const copyImage = () => gulp.src(imageWatchUrl).pipe(gulp.dest(settings.imagesDir.output));
 const sourcemaps = require('gulp-sourcemaps');
 const cache = require('gulp-cache');
@@ -67,7 +67,9 @@ gulp.task('sass', cb => {
 		readyToBuildSass = false;
 	} else {
 		cb();
-		console.log('\n\n\n !!!!!!  Timer hasn\'t completed, let\'s try again  !!!!!! \n *** this bug will be fixed in a future, sorry ***');
+		console.log(`\n\n\n
+	!!!!!!  Timer hasn\'t completed, let\'s try again  !!!!!!
+	   *** this bug will be fixed in a future, sorry ***`);
 	}
 });
 
@@ -101,7 +103,7 @@ gulp.task('watch', () => {
 	watch(['./js/*.js', './*.html'], reloadPage);
 });
 
-// run server
+// server
 gulp.task('server', () => {
 	browserSync.init({
 		// https: true,
@@ -120,7 +122,7 @@ gulp.task('server', () => {
 
 // css beautify
 gulp.task('beautify', () => {
-	return gulp.src([settings.scssDir.cssOutput + '*.css', '!' + settings.scssDir.cssOutput + '*min.css'])
+	return gulp.src([`${settings.scssDir.cssOutput}*.css`, `!${settings.scssDir.cssOutput}*min.css`])
 		.pipe(cssbeautify({
 			indent: '  '
 		}))
@@ -131,8 +133,9 @@ gulp.task('beautify', () => {
 gulp.task('imagesOptimize', cb => {
 	const imgEntry = settings.imagesDir.entry;
 	const imgOutput = settings.imagesDir.output;
+	const src = 
 
-	gulp.src(imgEntry + '**/*.+(png|jpg|gif|svg)')
+	gulp.src(`${imgEntry}**/*.+(png|jpg|gif|svg)`)
 		.pipe(cache(imagemin()))
 		.pipe(gulp.dest(imgOutput));
 });
@@ -142,7 +145,7 @@ gulp.task('webpackDist', webpackHandler());
 
 // remove CSS source map
 gulp.task('removeScssSourceMap', () => {
-	return gulp.src(__dirname + '/*.css.map', {
+	return gulp.src(`${__dirname}/*.css.map`, {
 			read: false
 		})
 		.pipe(clean());

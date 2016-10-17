@@ -2,30 +2,21 @@ h1 {
   color: #000;
   background: #000;
   width: 100px;
-  font-style: normal;
-}
+  font-style: normal; }
 
 body {
-  background: #000;
-}
-
-h4 {
-  background: #000;
-}
+  background: red; }
 
 body {
   color: #000;
   transform: translateX(0);
-  background: #fff;
-}
+  background: #fff; }
 
 .box {
   height: 30px;
-  background: #000;
-}
+  background: #f00; }
 
 div {
-  color: #000;
-}
+  color: #000; }
 
 /*# sourceMappingURL=../main.css.map */
