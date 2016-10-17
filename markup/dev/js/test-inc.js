@@ -1,1 +1,0 @@
-export default {abbb: 123321};

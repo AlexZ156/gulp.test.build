@@ -50,7 +50,7 @@ const webpackHandler = (dev) => {
 				// output options
 			}));
 			cb();
-			reloadPage();
+			// reloadPage();
 		});
 	}
 }
@@ -72,9 +72,6 @@ gulp.task('sass', cb => {
 	   *** this bug will be fixed in a future, sorry ***`);
 	}
 });
-
-// reload page
-gulp.task('reloadPage', reloadPage);
 
 // compile ES-2015 to ES5;
 gulp.task('webpackDev', webpackHandler(true));
