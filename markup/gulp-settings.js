@@ -1,6 +1,6 @@
 'use strict';
 const entryDir = __dirname + '/dev';
-const outputDir = __dirname + '/build';
+const outputDir = __dirname;
 
 module.exports = {
 	imagesDir: {
@@ -9,7 +9,7 @@ module.exports = {
 	},
 	scssDir: {
 		sassEntry: entryDir + '/scss/main.scss',
-		cssOutput: outputDir + '/css',
+		cssOutput: outputDir + '/css/',
 		watch: entryDir + '/scss/**/*.scss'
 	},
 	pugDir: {
