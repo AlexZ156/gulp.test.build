@@ -8,7 +8,7 @@ const watch = require('gulp-watch');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
-const cssbeautify = require('gulp-cssbeautify');
+const csscomb = require('gulp-csscomb');
 const imagemin = require('gulp-imagemin');
 const settings = require('./gulp-settings.js');
 let readyToBuildSass = true;
@@ -120,9 +120,7 @@ gulp.task('server', () => {
 // css beautify
 gulp.task('beautify', () => {
 	return gulp.src([`${settings.scssDir.cssOutput}*.css`, `!${settings.scssDir.cssOutput}*min.css`])
-		.pipe(cssbeautify({
-			indent: '  '
-		}))
+		.pipe(csscomb())
 		.pipe(gulp.dest(settings.scssDir.cssOutput));
 });
 
@@ -130,7 +128,6 @@ gulp.task('beautify', () => {
 gulp.task('imagesOptimize', cb => {
 	const imgEntry = settings.imagesDir.entry;
 	const imgOutput = settings.imagesDir.output;
-	const src = 
 
 	gulp.src(`${imgEntry}**/*.+(png|jpg|gif|svg)`)
 		.pipe(cache(imagemin()))
@@ -153,5 +150,5 @@ gulp.task('removeScssSourceMap', () => {
  * run main development tasks
 */
 gulp.task('clear', done => cache.clearAll(done));
-gulp.task('dist', ['webpackDist', 'imagesOptimize', 'removeScssSourceMap', 'beautify']);
+gulp.task('dist', [/*'webpackDist', 'imagesOptimize', 'removeScssSourceMap', */'beautify']);
 gulp.task('default', ['webpackDev', 'sass', 'copyImages', 'watch', 'pug', 'server']);

@@ -12,7 +12,8 @@ module.exports = function(dev) {
 		devtool: dev ? "cheep-inline-module-source-map" : '',
 
 		module: {
-			loaders: [{
+			loaders: [
+				{
 					test: /\.js$/,
 					exclude: /(node_modules|bower_components)/,
 					loader: 'babel-loader',
