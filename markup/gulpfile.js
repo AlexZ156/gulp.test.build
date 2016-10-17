@@ -9,7 +9,7 @@ const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssbeautify = require('gulp-cssbeautify');
-const imageop = require('gulp-image-optimization');
+const imagemin = require('gulp-imagemin');
 const settings = require('./gulp-settings.js');
 let readyToBuildSass = true;
 const gutil = require('gulp-util');
@@ -18,6 +18,8 @@ const imageWatchUrl = settings.imagesDir.entry + '/**/*';
 const copyImage = () => gulp.src(imageWatchUrl).pipe(gulp.dest(settings.imagesDir.output));
 const sourcemaps = require('gulp-sourcemaps');
 const cache = require('gulp-cache');
+let reloadPage =() => browserSync.reload();
+// sass handler
 let sassHandler = cb => {
 	const postcssPlagins = [
 		autoprefixer({
@@ -39,43 +41,7 @@ let sassHandler = cb => {
 
 	typeof cb === 'function' && cb();
 };
-let reloadPage =() => browserSync.reload();
-
-gulp.task('sass', cb => {
-	if (readyToBuildSass) {
-		setTimeout(() => {
-			sassHandler(cb);
-		}, 100);
-		readyToBuildSass = false;
-	} else {
-		cb();
-		console.log('\n\n\n !!!!!!  Timer hasn\'t completed, let\'s try again  !!!!!! \n *** this bug will be fixed in a future, sorry ***');
-	}
-});
-
-gulp.task('reloadPage', reloadPage);
-
-gulp.task('beautify', () => {
-	return gulp.src([settings.scssDir.cssOutput + '*.css', '!' + settings.scssDir.cssOutput + '*min.css'])
-		.pipe(cssbeautify({
-			indent: '  '
-		}))
-		.pipe(gulp.dest(settings.scssDir.cssOutput));
-});
-
-gulp.task('imagesOptimize', cb => {
-	const imgEntry = settings.imagesDir.entry;
-	const imgOutput = settings.imagesDir.output;
-
-	gulp.src(imgEntry + '**/*.+(png|jpg|gif|svg)')
-		.pipe(cache(imageop({
-			optimizationLevel: 5,
-			progressive: true,
-			interlaced: true
-		})))
-		.pipe(gulp.dest(imgOutput));
-});
-
+// ES-2015 handler
 const webpackHandler = (dev) => {
 	return cb => {
 		webpack(webpackconfig(dev), (err, stats) => {
@@ -89,9 +55,29 @@ const webpackHandler = (dev) => {
 	}
 }
 
-gulp.task('webpackDev', webpackHandler(true));
-gulp.task('webpackDist', webpackHandler());
+/*
+ * all development tasks
+*/
+// compile from sass to css
+gulp.task('sass', cb => {
+	if (readyToBuildSass) {
+		setTimeout(() => {
+			sassHandler(cb);
+		}, 100);
+		readyToBuildSass = false;
+	} else {
+		cb();
+		console.log('\n\n\n !!!!!!  Timer hasn\'t completed, let\'s try again  !!!!!! \n *** this bug will be fixed in a future, sorry ***');
+	}
+});
 
+// reload page
+gulp.task('reloadPage', reloadPage);
+
+// compile ES-2015 to ES5;
+gulp.task('webpackDev', webpackHandler(true));
+
+// compile from pug to html
 gulp.task('pug', cb => {
 	return gulp.src(settings.pugDir.entry)
 			.pipe(pug({
@@ -103,8 +89,10 @@ gulp.task('pug', cb => {
 			.pipe(gulp.dest(settings.pugDir.output));
 });
 
+// copy images
 gulp.task('copyImages', copyImage);
 
+// watch files
 gulp.task('watch', () => {
 	gulp.watch(settings.scssDir.watch, ['sass']);
 	gulp.watch(settings.pugDir.watch, ['pug']);
@@ -113,13 +101,7 @@ gulp.task('watch', () => {
 	watch(['./js/*.js', './*.html'], reloadPage);
 });
 
-gulp.task('removeScssSourceMap', () => {
-	return gulp.src(__dirname + '/*.css.map', {
-			read: false
-		})
-		.pipe(clean());
-});
-
+// run server
 gulp.task('server', () => {
 	browserSync.init({
 		// https: true,
@@ -131,6 +113,45 @@ gulp.task('server', () => {
 	});
 });
 
-gulp.task('dist', [/*'webpackDist', 'imagesOptimize', */'removeScssSourceMap', 'beautify']);
 
+/*
+ * optimization on gulp dist
+*/
+
+// css beautify
+gulp.task('beautify', () => {
+	return gulp.src([settings.scssDir.cssOutput + '*.css', '!' + settings.scssDir.cssOutput + '*min.css'])
+		.pipe(cssbeautify({
+			indent: '  '
+		}))
+		.pipe(gulp.dest(settings.scssDir.cssOutput));
+});
+
+// image optimization
+gulp.task('imagesOptimize', cb => {
+	const imgEntry = settings.imagesDir.entry;
+	const imgOutput = settings.imagesDir.output;
+
+	gulp.src(imgEntry + '**/*.+(png|jpg|gif|svg)')
+		.pipe(cache(imagemin()))
+		.pipe(gulp.dest(imgOutput));
+});
+
+// remove JS source map
+gulp.task('webpackDist', webpackHandler());
+
+// remove CSS source map
+gulp.task('removeScssSourceMap', () => {
+	return gulp.src(__dirname + '/*.css.map', {
+			read: false
+		})
+		.pipe(clean());
+});
+
+
+/*
+ * run main development tasks
+*/
+gulp.task('clear', done => cache.clearAll(done));
+gulp.task('dist', ['webpackDist', 'imagesOptimize', 'removeScssSourceMap', 'beautify']);
 gulp.task('default', ['webpackDev', 'sass', 'copyImages', 'watch', 'pug', 'server']);
