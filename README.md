@@ -40,7 +40,7 @@
 
 ![](https://s3.amazonaws.com/scrstorage/g52910356t7495t0.jpg)
 
-- стрранички `.pug` он же впрошлом `.jade` вкорень папки `assets`
+- странички `.pug` он же в прошлом `.jade` вкорень папки `assets`
 
 ![](https://s3.amazonaws.com/scrstorage/u5fd291u9941j45124.jpg)
 
