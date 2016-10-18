@@ -10,11 +10,11 @@
 `npm -v`
 ![](https://s3.amazonaws.com/scrstorage/5273l2289x46hv9c17.jpg)
 
-В данный момент работают эти версии Gulp
+В данный момент работают эти версии Gulp.
 ![](https://s3.amazonaws.com/scrstorage/5h28018x17r5v87dyv47.jpg)
 
 Далее качаем себе сборку. После того как скачали сборку устанавливаем npm пакеты для этой сборки
-`npm install` или просто `npm i`
+`npm install` или просто `npm i`.
 ![](https://s3.amazonaws.com/scrstorage/p52770715657yf76.jpg)
 Пакеты устанавливаются лишь один раз для конкретной сборки.
 
