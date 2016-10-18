@@ -1,5 +1,5 @@
 'use strict';
-const entryDir = __dirname + '/dev';
+const entryDir = __dirname + '/assets';
 const outputDir = __dirname;
 
 module.exports = {
@@ -17,8 +17,11 @@ module.exports = {
 		output: `${outputDir}/`,
 		watch: `${entryDir}/**/*.pug`,
 	},
-	jsEs2015Dir: {
-		entry: `${entryDir}/js/main.js`,
+	jsDir: {
+		entry: `${entryDir}/js/`,
 		output: `${outputDir}/js/`
+	},
+	jsNames: {
+		names: [`main`, 'jquery.main']
 	}
 };

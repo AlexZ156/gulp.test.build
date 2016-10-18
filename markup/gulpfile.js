@@ -1,6 +1,6 @@
 'use strict';
 const gulp = require('gulp');
-const clean = require('gulp-clean');
+const del = require('del');
 const webpack = require('webpack');
 const webpackconfig = require('./webpack.config.js');
 const browserSync = require('browser-sync').create();
@@ -95,9 +95,9 @@ gulp.task('copyImages', copyImage);
 gulp.task('watch', () => {
 	gulp.watch(settings.scssDir.watch, ['sass']);
 	gulp.watch(settings.pugDir.watch, ['pug']);
-	gulp.watch(['./dev/js/*.js'], ['webpackDev']);
+	gulp.watch([`${settings.jsDir.entry}**/*.js`], ['webpackDev']);
 	watch(imageWatchUrl, copyImage);
-	watch(['./js/*.js', './*.html'], reloadPage);
+	watch([`${settings.jsDir.output}*.js`, './*.html'], reloadPage);
 });
 
 // server
@@ -109,6 +109,36 @@ gulp.task('server', () => {
 			port: 3010,
 			directory: true
 		}
+	});
+});
+
+// build scripts
+gulp.task('build', ['clearScripts'], () => {
+	let jsExceptStr = '';
+
+	settings.jsNames.names.forEach(function(item, index) {
+		jsExceptStr += ((index !== 0 ? '|' : '(') + item + (index === settings.jsNames.names.length - 1 ? ')' : ''))
+	});
+
+	gulp.src([
+		`${settings.jsDir.entry}*`,
+		`!${settings.jsDir.entry}*${jsExceptStr}`,
+		`!${settings.jsDir.entry}modules`
+		])
+		.pipe(gulp.dest(settings.jsDir.output));
+	
+});
+
+// copy scripts
+gulp.task('clearScripts', (cb) => {
+	let jsExceptStr = '';
+
+	settings.jsNames.names.forEach(function(item, index) {
+		jsExceptStr += ((index !== 0 ? '|' : '(') + item + (index === settings.jsNames.names.length - 1 ? ')' : ''))
+	});
+
+	del([`${settings.jsDir.output}*`, `!${settings.jsDir.output}*${jsExceptStr}`]).then(paths => {
+		cb();
 	});
 });
 
@@ -138,11 +168,10 @@ gulp.task('imagesOptimize', cb => {
 gulp.task('webpackDist', webpackHandler());
 
 // remove CSS source map
-gulp.task('removeScssSourceMap', () => {
-	return gulp.src(`${__dirname}/*.css.map`, {
-			read: false
-		})
-		.pipe(clean());
+gulp.task('removeScssSourceMap', (cb) => {
+	del([`${__dirname}/*.css.map`]).then(paths => {
+		cb();
+	});
 });
 
 
@@ -150,5 +179,5 @@ gulp.task('removeScssSourceMap', () => {
  * run main development tasks
 */
 gulp.task('clear', done => cache.clearAll(done));
-gulp.task('dist', [/*'webpackDist', 'imagesOptimize', 'removeScssSourceMap', */'beautify']);
-gulp.task('default', ['webpackDev', 'sass', 'copyImages', 'watch', 'pug', 'server']);
+gulp.task('dist', ['webpackDist', 'imagesOptimize', 'removeScssSourceMap', 'beautify']);
+gulp.task('default', ['build', 'webpackDev', 'sass', 'copyImages', 'watch', 'pug', 'server']);
