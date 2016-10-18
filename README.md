@@ -26,14 +26,25 @@
 - `gulp build` - пока эта команда чистит лишние скрипты из папки `markup/js`
 
 Все препроцессоры находятся в папке `assets`. Всё что не js файл и всё что не препроцессор и не картинки, например фотны, видел или какие-то inc файлы, то забрасываем в корень папочки `markup`. Т.е:
+
+***
 - JS с билдера забрасываем сюда
+
 ![](https://s3.amazonaws.com/scrstorage/d52w89788o607x480.jpg)
+
 - картинки сюда
+
 ![](https://s3.amazonaws.com/scrstorage/ly529066735u187dr0.jpg)
+
 - scss
+
 ![](https://s3.amazonaws.com/scrstorage/g52910356t7495t0.jpg)
+
 - стрранички `.pug` он же впрошлом `.jade` вкорень папки `assets`
+
 ![](https://s3.amazonaws.com/scrstorage/u5fd291u9941j45124.jpg)
+
 - Все `.pug` темплейты, миксины
+
 ![](https://s3.amazonaws.com/scrstorage/52q925lu101i9w4281.jpg)
 
