@@ -49,6 +49,9 @@
 ![](https://s3.amazonaws.com/scrstorage/52q925lu101i9w4281.jpg)
 
 
+## Устанавливаем `sass-lint`;
+
+
 
 
 

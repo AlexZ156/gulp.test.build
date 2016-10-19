@@ -1,19 +1,25 @@
 @import 'vendors/include-media';
+
 body {
   color: #000;
   // width: 10px;
   transform: translateX(0);
-    background: #fff;
+  background: #000;
 }
 
-.box{
+.box {
   height: 30px;
   background: #f00;
   z-index: 1;
   position: relative;
+
+  .qqqq {
+    position: relative;
+  }
 }
 
 div {
-  position: relative;
   top: 0;
+  border: 0;
+  position: relative;
 }

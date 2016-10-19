@@ -10,15 +10,19 @@ body {
 body {
   color: #000;
   transform: translateX(0);
-  background: #fff; }
+  background: #000; }
 
 .box {
   height: 30px;
   background: #f00;
   z-index: 1;
   position: relative; }
+  .box .qqqq {
+    position: relative; }
 
 div {
-  color: #000; }
+  top: 0;
+  border: 0;
+  position: relative; }
 
 /*# sourceMappingURL=../main.css.map */
