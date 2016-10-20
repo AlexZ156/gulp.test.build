@@ -1,0 +1,543 @@
+#header {
+	background: $white;
+	position: fixed;
+	z-index: 99;
+	top: 0;
+	left: 0;
+	right: 0;
+	transition: left 0.3s ease, right 0.3s ease;
+
+	@include media('≥desktop') {
+		transition: background 0.3s ease;
+		background: transparent;
+		transition: none;
+	}
+
+	.nav-active & {
+		left: 236px;
+		right: -236px;
+
+		@include media('≥desktop') {
+			left: 0;
+			right: 0;
+		}
+	}
+
+	&.fixed-position {
+		@include media('≥desktop') {
+			background: $white;
+			border-bottom: 1px solid lighten(desaturate(adjust-hue($gray, -240.0000), 0.4115), 37.4510);
+		}
+
+		.add-nav {
+			@include media('≥desktop') {
+				height: 0;
+				width: 0;
+			}
+		}
+
+		.navbar-brand {
+			@include media('≥desktop') {
+				width: 200px;
+				margin: 3px 0 0 10px;
+			}
+
+			@include media('≥widescreen') {
+				width: 238px;
+				margin: 12px 0 0;
+			}
+		}
+
+		.navbar-header {
+			@include media('≥widescreen') {
+				padding-left: 18px;
+			}
+		}
+
+		.search-popup {
+			@include media('≥desktop') {
+				top: 0;
+			}
+		}
+	}
+
+	.container-fluid {
+		max-width: 100%;
+	}
+
+	.navbar-collapse {
+		text-align: right;
+		position: fixed;
+		border-top: 0;
+		box-shadow: none;
+		padding: 76px 0;
+		width: 236px;
+		left: -236px;
+		top: 0;
+		bottom: 0;
+		overflow: auto;
+		transition: left 0.3s ease;
+		background: lighten(saturate(adjust-hue($black, 0.0000), 0.0000), 11.3725);
+
+		@include media('≥desktop') {
+			margin: 0 (-$grid-gutter-width / 2) 0 0;
+			background: transparent;
+			position: static;
+			width: auto;
+			padding: 0;
+			overflow: visible;
+		}
+
+		.nav-active & {
+			left: 0;
+		}
+	}
+
+	.navbar-header {
+		padding: 0 0 8px;
+		position: relative;
+
+		@include media('≥desktop') {
+			padding: 0;
+			position: static;
+		}
+
+		@include media('≥widescreen') {
+			padding-left: 21px;
+			margin-left: 0;
+		}
+	}
+}
+
+.mobile-style {
+	display: table;
+	padding: 0 0 20px;
+
+	@include media('≥desktop') {
+		display: block;
+		padding: 0;
+	}
+}
+
+.navbar {
+	border: 0;
+}
+
+.navbar-toggle {
+	float: left;
+	border: 0;
+	padding: 0;
+	border-radius: 0;
+	margin: 10px 0 0;
+	width: 30px;
+	height: 30px;
+
+	&:hover {
+		.icon-bar {
+			background: $red;
+		}
+	}
+
+	.nav-active & {
+		.icon-bar {
+			transform: rotate(45deg);
+			top: 50%;
+			left: 0;
+			right: 0;
+
+			&:first-child {
+				opacity: 0;
+			}
+
+			&:nth-child(2) {
+				transform: rotate(-45deg);
+			}
+
+			+ .icon-bar {
+				margin-top: -2px;
+			}
+		}
+	}
+
+	.icon-bar {
+		@extend %transition;
+		width: 23px;
+		transition: background 0.3s ease;
+
+		+ .icon-bar {
+			margin-top: 5px;
+		}
+	}
+}
+
+.navbar-brand {
+	height: 100%;
+	margin: 9px auto 0;
+	display: block;
+	width: 138px;
+	float: none;
+
+	@include media('≥desktop') {
+		float: left;
+		margin: 32px 0 0;
+		width: 200px;
+	}
+
+	@include media('≥widescreen') {
+		width: 311px;
+	}
+
+	img {
+		width: 100%;
+		max-width: none;
+	}
+}
+
+.add-nav {
+	font-size: 13px;
+	line-height: 13px;
+	overflow: hidden;
+	display: table-footer-group;
+	text-align: right;
+	font-weight: 500;
+
+	@include media('≥desktop') {
+		font-weight: 700;
+		display: block;
+		font-size: 10px;
+		line-height: 14px;
+	}
+
+	@include media('≥widescreen') {
+		font-size: 11px;
+	}
+
+	ul {
+		@extend %listreset;
+
+		@include media('≥desktop') {
+			padding: 5px 10px;
+			background: rgba($black, 0.5);
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		@include media('≥widescreen') {
+			padding: 7px 15px;
+		}
+
+		li {
+			color: $navbar-default-link-color;
+
+			@include media('≥desktop') {
+				margin: 0 8px;
+				display: inline-block;
+				vertical-align: top;
+				color: rgba($white, 0.5);
+			}
+
+			@include media('≥widescreen') {
+				margin: 0 13px;
+			}
+
+			&.active,
+			&:hover {
+				color: $navbar-default-link-hover-color;
+				background: $navbar-default-link-hover-bg;
+
+				@include media('≥desktop') {
+					color: $white;
+					background: transparent;
+				}
+			}
+		}
+
+		a {
+			color: inherit;
+			padding: $nav-link-padding;
+			display: block;
+			border-top: 1px solid lighten(saturate(adjust-hue($black, 0.0000), 0.0000), 23.9216);
+
+			@include media('≥tablet') {
+				border-top: 0;
+			}
+
+			@include media('≥desktop') {
+				padding: 0;
+			}
+		}
+	}
+}
+
+.nav-holder {
+	font-size: 13px;
+	line-height: 16px;
+	font-weight: 500;
+
+	@include media('≥desktop') {
+		font-weight: 700;
+		display: flex;
+		text-align: left;
+		justify-content: flex-end;
+		padding: 0 60px 0 0;
+		font-size: 10px;
+		line-height: 16px;
+	}
+
+	@include media('≥widescreen') {
+		font-size: 14px;
+		line-height: 18px;
+		padding: 0 89px 0 0;
+	}
+}
+
+#nav {
+	@include media('≥desktop') {
+		background: rgba($white, 0.8);
+		display: flex;
+		align-items: center;
+		padding: 20px 10px 17px;
+	}
+
+	@include media('≥widescreen') {
+		padding: 35px 30px 27px;
+	}
+
+	.navbar-nav {
+		float: none;
+
+		@include media('≥desktop') {
+			margin: 0 -7px;
+			display: flex;
+		}
+
+		@include media('≥widescreen') {
+			margin: 0 -17px;
+		}
+
+		> li {
+			float: none;
+
+			@include media('≥desktop') {
+				margin: 0 7px;
+				color: $dark-gray;
+			}
+
+			@include media('≥widescreen') {
+				margin: 0 17px;
+			}
+
+			&.active,
+			&:hover {
+				color: $red;
+
+				> a {
+					&:before {
+						width: 100%;
+					}
+				}
+			}
+
+			> a {
+				position: relative;
+				border-bottom: 1px solid lighten(saturate(adjust-hue($black, 0.0000), 0.0000), 23.9216);
+
+				@include media('≥desktop') {
+					display: inline-block;
+					background: transparent;
+					vertical-align: top;
+					color: inherit;
+					border: 0;
+					padding: 0;
+				}
+
+				&:before {
+					@include media('≥desktop') {
+						content: "";
+						position: absolute;
+						left: 0;
+						bottom: -21px;
+						width: 0;
+						height: 4px;
+						background: $red;
+						transition: width 0.3s ease;
+					}
+
+					@include media('≥widescreen') {
+						bottom: -31px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.dropdown-parent {
+	@include media('≥desktop') {
+		display: flex;
+	}
+
+	&.open {
+		.open-dropdown {
+			.caret {
+				&:before {
+					content: "\e912";
+				}
+			}
+		}
+	}
+
+	&.hover {
+		.dropdown-menu {
+			display: block;
+		}
+	}
+
+	.dropdown-menu {
+		@extend %listreset;
+		top: 100%;
+		min-width: 0;
+		margin: 0;
+		font-size: 11px;
+		line-height: 16px;
+		border-radius: 0;
+		border: 0;
+		padding: 10px 15px;
+		box-shadow: none;
+		position: static;
+		width: 100%;
+		text-align: right;
+
+		@include media('≥desktop') {
+			position: absolute;
+			text-align: left;
+		}
+
+		@include media('≥widescreen') {
+			padding: 27px 15px 27px 23px;
+			font-size: 14px;
+			line-height: 18px;
+		}
+
+		> li {
+			+ li {
+				margin-top: 6px;
+
+				@include media('≥widescreen') {
+					margin-top: 17px;
+				}
+			}
+
+			> a {
+				white-space: normal;
+				line-height: inherit;
+				font-weight: inherit;
+				padding: 0;
+			}
+		}
+	}
+}
+
+.open-dropdown {
+	background: transparent;
+	border: 0;
+	transition: background 0.3s ease;
+	color: $white;
+	width: 100%;
+	display: block;
+	padding: $nav-link-padding;
+	text-align: right;
+
+	@include media('≥desktop') {
+		padding: 10px 5px 10px 5px;
+		text-align: center;
+		background: $white;
+		transition: color 0.3s ease;
+		width: 130px;
+		color: $red;
+	}
+
+	@include media('≥widescreen') {
+		width: 201px;
+		padding-top: 13px;
+	}
+
+	&:hover {
+		background: $navbar-default-link-hover-bg;
+		color: $navbar-default-link-hover-color;
+
+		@include media('≥desktop') {
+			color: $dark-gray;
+			background: $white;
+		}
+
+		.caret {
+			color: $navbar-default-link-hover-color;
+
+			@include media('≥desktop') {
+				color: $dark-gray;
+			}
+		}
+	}
+
+	.caret {
+		margin: 0 -18px 0 4px;
+		border: 0;
+		width: auto;
+		height: auto;
+		font-size: 8px;
+		line-height: 14px;
+		color: $white;
+
+		@include media('≥desktop') {
+			color: $dark-gray;
+			font-size: 4px;
+			line-height: 14px;
+			margin-right: 0;
+		}
+
+		@include media('≥widescreen') {
+			font-size: 10px;
+			margin-left: 8px;
+		}
+
+		&:before {
+			content: "\e900";
+			font-family: 'icomoon' !important;
+		}
+	}
+}
+
+.share-this {
+	display: none;
+	@extend %listreset;
+	position: fixed;
+	right: 0;
+	top:50%;
+	transform:translateY(-50%);
+
+	@include media('≥tablet') {
+		display: block;
+	}
+
+	li {
+		margin: 0 0 1px;
+
+		span {
+			display: block;
+			width: 34px;
+			height: 37px;
+			line-height: 37px;
+			font-size: 20px;
+			color: $white;
+			text-align: center;
+			background: lighten(desaturate(adjust-hue($gray, -240.0000), 0.4115), 11.9608);
+			transition: background .3s;
+			cursor: pointer;
+
+			&:hover {
+				background: darken(desaturate(adjust-hue($gray, -240.0000), 0.4115), 7.2549);
+			}
+		}
+	}
+}

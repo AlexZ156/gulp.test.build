@@ -28,16 +28,16 @@ let sassHandler = cb => {
 	];
 
 	gulp.src(settings.scssDir.sassEntry)
-		.pipe(sourcemaps.init())
+		// .pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(postcss(postcssPlagins))
-		.pipe(sourcemaps.write('../', {includeContent: true}))
+		// .pipe(sourcemaps.write('../', {includeContent: true}))
 		.pipe(gulp.dest(settings.scssDir.cssOutput))
 		.pipe(browserSync.stream());
 
 	setTimeout(() => {
 		readyToBuildSass = true;
-	}, 500);
+	}, 100);
 
 	typeof cb === 'function' && cb();
 };

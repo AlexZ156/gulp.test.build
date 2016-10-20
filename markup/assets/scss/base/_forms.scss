@@ -1,0 +1,484 @@
+textarea,
+input[type='tel'],
+input[type='email'],
+input[type='search'],
+input[type='password'],
+input[type='text'] {
+	border: 1px solid $input-border;
+	height: $input-height-base;
+	color: $input-color;
+	display: block;
+	width: 100%;
+	transition: border-color 0.3s ease;
+}
+
+textarea,
+input[type='tel'],
+input[type='email'],
+input[type='search'],
+input[type='password'],
+input[type='text'],
+.form-control {
+	padding: 1px 18px;
+	font-size: 11px;
+	line-height: 50px;
+	text-transform: uppercase;
+	font-weight: 700;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+	box-shadow: none;
+	outline: none;
+
+	&:focus {
+		box-shadow: 0 0 15px 0 rgba($black, 0.2);
+		outline: none;
+		border-color: $input-border;
+	}
+
+	@include placeholder {
+		opacity: 1;
+		color: $input-color;
+	}
+
+	.search-bar &,
+	.search-popup &,
+	.form-search-autocomplete &,
+	.bg-gray & {
+		border-color: $white;
+	}
+}
+
+fieldset {
+	min-width: 0;
+	width: 100%;
+}
+
+@-moz-document url-prefix() {
+	fieldset {
+		display: table-cell;
+		vertical-align: top;
+	}
+}
+
+input[type="search"]::-ms-clear{display:none;}
+
+textarea {
+	min-height: 127px;
+	height: 127px;
+	max-height: 320px;
+	resize: vertical;
+	width: 100%;
+	line-height: 18px;
+	padding: 16px 18px;
+}
+
+input[type="submit"] {
+	background: $red;
+	height: 55px;
+	padding: 1px 18px;
+	text-align: center;
+	border: 0;
+	color: $white;
+	text-transform: uppercase;
+	font-size: 14px;
+	line-height: 50px;
+	font-weight: 700;
+	width: 100%;
+	display: block;
+	cursor: pointer;
+	transition: box-shadow 0.3s ease;
+	outline: none;
+	-webkit-border-radius: 0;
+	-webkit-appearance: none;
+	border-radius:0;
+
+	@include media('≥tablet') {
+		width: 275px;
+	}
+
+	&:hover {
+		box-shadow: 0 0 15px 0 rgba(1,2,2,0.25);
+	}
+}
+
+.search-popup {
+	float: right;
+	margin-top: 15px;
+
+	@include media('≥desktop') {
+		position: absolute;
+		top: 24px;
+		right: 0;
+		width: 60px;
+		height: 55px;
+		margin-top: 0;
+		float: none;
+	}
+
+	@include media('≥widescreen') {
+		width: 89px;
+		height: 80px;
+		top: 28px;
+	}
+
+	.search-form {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: -15px;
+		z-index: 4;
+		width: 260px;
+		box-shadow: 0 0 15px 0 rgba($black, 0.2);
+
+		@include media('≥desktop') {
+			margin-top: 0;
+			width: 290px;
+			right: 0;
+		}
+
+		fieldset {
+			height: 100%;
+		}
+
+		.form-control {
+			height: 100%;
+			padding-right: 50px;
+
+			@include media('≥desktop') {
+				padding-right: 59px;
+			}
+
+			@include media('≥widescreen') {
+				padding-right: 75px;
+			}
+		}
+
+		.btn-submit {
+			padding: 0;
+			background: transparent;
+			border: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			color: $input-color;
+			transition: color 0.3s ease;
+			font-size: 19px;
+			line-height: 50px;
+			height: 100%;
+			width: 50px;
+
+			@include media('≥desktop') {
+				width: 60px;
+				font-size: 24px;
+				line-height: 1;
+			}
+
+			@include media('≥widescreen') {
+				width: 89px;
+			}
+
+			&:before {
+				position: absolute;
+				right:50%;
+				top:50%;
+				transform:translate(50%,-50%);
+			}
+
+			&:focus {
+				outline: none;
+			}
+
+			&:hover {
+				color: $red;
+			}
+		}
+	}
+}
+
+.btn-search {
+	position: absolute;
+	top: 0;
+	right: -15px;
+	z-index: 1;
+	color: #333e47;
+	font-size: 19px;
+	line-height: 20px;
+	height: 50px;
+	width: 50px;
+	display: block;
+
+	@include media('≥desktop') {
+		background: $red;
+		display: block;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		color: $white;
+		font-size: 24px;
+		right: 0;
+	}
+
+	&:hover {
+		@include media('≥desktop') {
+			color: $white;
+		}
+
+		&:after {
+			@include media('≥desktop') {
+				width: 100%;
+			}
+		}
+	}
+
+	&:before {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&:after {
+		@include media('≥desktop') {
+			content: "";
+			left: 0;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 0;
+			background: $dark-gray;
+			transition: width 0.3s ease;
+			z-index: -1;
+		}
+	}
+}
+
+div.wpcf7 {
+	margin: 0 0 30px;
+
+	@include media('≥tablet') {
+		margin-bottom: 0;
+	}
+
+	.wpcf7-form-control-wrap {
+		display: block;
+		position: relative;
+	}
+
+	span.wpcf7-form-control-wrap {
+		margin-bottom: 24px;
+	}
+
+	.wpcf7-not-valid-tip,
+	.text-error {
+		transition: opacity 0.3s ease;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: $white;
+		color: $red;
+		padding: 1px 18px;
+		font-size: 11px;
+		line-height: 14px;
+		font-weight: 700;
+		text-transform: uppercase;
+		border: 1px solid $red;
+		display: flex;
+		align-items: center;
+	}
+
+	.wpcf7-not-valid {
+		textarea,
+		input[type='tel'],
+		input[type='email'],
+		input[type='search'],
+		input[type='password'],
+		input[type='text'] {
+			//border-color: $red;
+		}
+
+		.wpcf7-form-control-wrap {
+			overflow: hidden;
+		}
+	}
+
+	.ajax-loader {
+		position: absolute;
+		right:50%;
+		transform:translateX(50%);
+	}
+}
+
+.jcf-select {
+	display: block;
+	position: relative;
+	border: 1px solid $input-border;
+	background: $white;
+	height: $input-height-base;
+
+	.bg-gray & {
+		border-color: $white;
+	}
+
+	select {
+		z-index: 1;
+		left: 0;
+		top: 0;
+	}
+
+	.jcf-select-text {
+		text-overflow:ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		cursor: default;
+		display: block;
+		font-size: 11px;
+		line-height: $input-height-base;
+		font-weight: 700;
+		margin: 0 35px 0 18px;
+		text-transform: uppercase;
+	}
+
+	.jcf-select-opener {
+		position: absolute;
+		text-align: center;
+		right: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 9px;
+		cursor: pointer;
+
+		&:before {
+			content: "\e900";
+			font-family: 'icomoon' !important;
+		}
+	}
+
+	.jcf-select-drop {
+		position: absolute;
+		margin-top: 0px;
+		z-index: 9999;
+		top: 100%;
+		left: -1px;
+		right: -1px;
+	}
+
+	.jcf-drop-flipped {
+		bottom: 100%;
+		top: auto;
+	}
+}
+
+body {
+	> .jcf-select-drop {
+		position: absolute;
+		margin: -1px 0 0;
+		z-index: 9999;
+
+		&.jcf-drop-flipped {
+			margin: 1px 0 0;
+		}
+	}
+}
+
+.jcf-select-drop {
+	.jcf-select-drop-content {
+		border: 1px solid $white;
+	}
+
+	.jcf-hover {
+		background: #e6e6e6;
+		color: $black;
+	}
+}
+
+.jcf-list-box {
+	overflow: hidden;
+	display: inline-block;
+	border: 1px solid #b8c3c9;
+	min-width: 200px;
+	margin: 0 15px;
+
+	.jcf-selected {
+		background: #e6e6e6;
+		color: $black;
+	}
+}
+
+.jcf-list {
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	background: #fff;
+	line-height: 14px;
+	font-size: 12px;
+	width: 100%;
+
+	.jcf-list-content {
+		vertical-align: top;
+		display: inline-block;
+		overflow: auto;
+		width: 100%;
+	}
+
+	ul {
+		@extend %listreset;
+
+		li {
+			overflow: hidden;
+		}
+	}
+
+	.jcf-overflow {
+		overflow: auto;
+	}
+
+	.jcf-option {
+		overflow: hidden;
+		cursor: default;
+		display: block;
+		padding: 5px 18px;
+		color: $input-color;
+		font-size: 11px;
+		line-height: 14px;
+		font-weight: 700;
+		text-transform: uppercase;
+		height: 1%;
+	}
+
+	.jcf-disabled {
+		background: $white !important;
+		color: #aaa !important;
+	}
+
+	.jcf-optgroup-caption {
+		white-space: nowrap;
+		font-weight: bold;
+		display: block;
+		padding: 5px 9px;
+		cursor: default;
+		color: $black;
+	}
+
+	.jcf-optgroup {
+		.jcf-option {
+			padding-left: 30px;
+		}
+	}
+}
+
+.jcf-disabled {
+	background: $gray !important;
+}
+.jcf-focus {
+	box-shadow: 0 0 15px 0 rgba($black, 0.2) !important;
+}
+
+div.wpcf7-validation-errors {
+	border-color: $red !important;
+}
+
+div.wpcf7-mail-sent-ok {
+	border-color: $dark-gray;
+}

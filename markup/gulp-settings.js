@@ -8,7 +8,7 @@ module.exports = {
 		output: `${outputDir}/images/`
 	},
 	scssDir: {
-		sassEntry: `${entryDir}/scss/main.scss`,
+		sassEntry: `${entryDir}/scss/*.scss`,
 		cssOutput: `${outputDir}/css/`,
 		watch: `${entryDir}/scss/**/*.scss`
 	},
