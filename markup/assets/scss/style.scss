@@ -10,7 +10,9 @@ Text Domain: pgbuildingglass
 Tags: one-column, two-columns
 Theme URI:
 */
-
+.aaa {
+  display: none
+}
 // devices viewport width starts at:
 $breakpoints: (
   xs-phone: 320px,
@@ -54,5 +56,6 @@ $media-expressions: (
 body {
   background: #f00 !important;
 }
+
 
 

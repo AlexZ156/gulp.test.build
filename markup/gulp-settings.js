@@ -1,27 +1,21 @@
-'use strict';
-const entryDir = __dirname + '/assets';
-const outputDir = __dirname;
-
 module.exports = {
 	imagesDir: {
-		entry: `${entryDir}/images/`,
-		output: `${outputDir}/images/`
+		entry: 'assets/images/',
+		output: 'images/'
 	},
 	scssDir: {
-		sassEntry: `${entryDir}/scss/*.scss`,
-		cssOutput: `${outputDir}/css/`,
-		watch: `${entryDir}/scss/**/*.scss`
+		entry: 'assets/scss/',
+		output: 'css/'
 	},
 	pugDir: {
-		entry: `${entryDir}/*.pug`,
-		output: `${outputDir}/`,
-		watch: `${entryDir}/**/*.pug`,
+		entry: 'assets/',
+		output: ''
 	},
 	jsDir: {
-		entry: `${entryDir}/js/`,
-		output: `${outputDir}/js/`
+		entry: 'assets/js/',
+		output: 'js/'
 	},
 	jsNames: {
-		names: [`main`, 'jquery.main']
+		names: ['main', 'jquery.main']
 	}
 };

@@ -1,9 +1,10 @@
 'use strict';
 const settings = require('./gulp-settings.js');
+const path = require('path');
 let entryObj = {};
 
 settings.jsNames.names.forEach(function(item) {
-	entryObj[item] = settings.jsDir.entry + item;
+	entryObj[item] = path.resolve(__dirname, settings.jsDir.entry + item);
 });
 
 module.exports = function(dev) {
@@ -12,7 +13,7 @@ module.exports = function(dev) {
 
 		output: {
 			filename: '[name].js',
-			path: settings.jsDir.output
+			path: path.resolve(__dirname, settings.jsDir.output)
 		},
 
 		devtool: dev ? "cheep-inline-module-source-map" : '',
