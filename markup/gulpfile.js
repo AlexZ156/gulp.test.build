@@ -15,7 +15,12 @@ const settings = require('./gulp-settings.js');
 const gutil = require('gulp-util');
 const pug = require('gulp-pug');
 const sourcemaps = require('gulp-sourcemaps');
-const cache = require('gulp-cache');
+const cache = require('gulp-cached');
+const postcssPlagins = [
+	autoprefixer({
+		browsers: ['last 2 version']
+	})
+];
 // ES-2015 handler
 const webpackHandler = (dev, cb) => {
 	webpack(webpackconfig(dev), (err, stats) => {
@@ -24,51 +29,40 @@ const webpackHandler = (dev, cb) => {
 			// output options
 		}));
 		cb();
-		// reloadPage();
 	});
 }
 
 const allSass = () => {
-	const postcssPlagins = [
-		autoprefixer({
-			browsers: ['last 2 version']
-		})
-	];
-
 	return gulp.src(
-			[
-				path.resolve(__dirname, settings.scssDir.entry + '**/*.scss'),
-				'!' + path.resolve(__dirname, settings.scssDir.entry + settings.scssDir.mainFileName + '.scss')
-			],
-			{
-				base: path.resolve(__dirname, settings.scssDir.entry)
-			}
-		)
-		.pipe(sass().on('error', sass.logError))
-		.pipe(postcss(postcssPlagins))
-		.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.output)));
+		[
+			path.resolve(__dirname, settings.scssDir.entry + '*.scss'),
+			'!' + path.resolve(__dirname, settings.scssDir.entry + settings.scssDir.mainFileName + '.scss')
+		],
+		{
+			base: path.resolve(__dirname, settings.scssDir.entry)
+		}
+	)
+	.pipe(sass().on('error', sass.logError))
+	.pipe(cache(postcss(postcssPlagins)))
+	.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.output)));
 };
 
 const mainSass = () => {
-	const postcssPlagins = [
-		autoprefixer({
-			browsers: ['last 2 version']
-		})
-	];
+	const scssUrl = path.resolve(__dirname, settings.scssDir.entry + settings.scssDir.mainFileName);
 
 	return gulp.src(
-			path.resolve(__dirname, settings.scssDir.entry + settings.scssDir.mainFileName + '.scss'),
-			{
-				base: path.resolve(__dirname, settings.scssDir.entry + settings.scssDir.mainFileName)
-			}
-		)
-		.pipe(sourcemaps.init())
-		.pipe(sass().on('error', sass.logError))
-		.pipe(postcss(postcssPlagins))
-		.pipe(sourcemaps.write('./', {includeContent: true}))
-		.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.mainFileOutput + settings.scssDir.mainFileName)))
-		.pipe(browserSync.stream());
-	};
+		scssUrl + '.scss',
+		{
+			base: scssUrl
+		}
+	)
+	.pipe(sourcemaps.init())
+	.pipe(sass().on('error', sass.logError))
+	.pipe(cache(postcss(postcssPlagins)))
+	.pipe(sourcemaps.write('./', {includeContent: true}))
+	.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.mainFileOutput + settings.scssDir.mainFileName)))
+	.pipe(browserSync.stream());
+};
 
 /*
  * all development tasks
@@ -202,20 +196,37 @@ gulp.task('build', gulp.series(clearScripts, function(done) {
  * optimization on gulp dist
 */
 
-// css beautify
-gulp.task(function beautify() {
+const beautifyMainCss = () => {
+	const cssUrl = path.resolve(__dirname, settings.scssDir.mainFileOutput + settings.scssDir.mainFileName);
+
 	return gulp.src(
-			[
-				path.resolve(__dirname, settings.scssDir.output + '*.css'),
-				'!' + path.resolve(__dirname, settings.scssDir.output + '*min.css')
-			],
+			`${cssUrl}.css`,
 			{
 				base: path.resolve(__dirname, settings.scssDir.output)
 			}
 		)
 		.pipe(csscomb())
-		.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.output)));
-});
+		.pipe(gulp.dest(cssUrl));
+};
+
+const beautifyOtherCss = () => {
+	const cssUrl = path.resolve(__dirname, settings.scssDir.output);
+
+	return gulp.src(
+			[
+				`${cssUrl}*.css`,
+				`!${cssUrl}*min.css`
+			],
+			{
+				base: cssUrl
+			}
+		)
+		.pipe(csscomb())
+		.pipe(gulp.dest(cssUrl));
+};
+
+// css beautify
+gulp.task('beautify', gulp.parallel(beautifyMainCss, beautifyOtherCss));
 
 
 // image optimization
@@ -239,7 +250,12 @@ gulp.task(function webpackDist(cb) {
 });
 
 gulp.task(function removeScssSourceMap(cb) {
-	del([path.resolve(settings.scssDir.output, '**/*.css.map')]).then(paths => {
+	del(
+		[
+			path.resolve(settings.scssDir.output, '**/*.css.map'),
+			path.resolve(__dirname, settings.scssDir.mainFileOutput + '*.css.map')
+		]
+	).then(paths => {
 		cb();
 	});
 });
@@ -247,6 +263,9 @@ gulp.task(function removeScssSourceMap(cb) {
 /*
  * run main development tasks
 */
-gulp.task('clear', done => cache.clearAll(done));
-gulp.task('dist', gulp.parallel('webpackDist', 'imagesOptimize', 'removeScssSourceMap', 'beautify'));
-gulp.task('default', gulp.parallel('build', 'webpackDev', 'sassTask', 'copyImages', 'pugTask', 'watch', serve));
+gulp.task('clear', done => {
+	cache.caches = {};
+	done();
+});
+gulp.task('dist', gulp.series('webpackDist', 'imagesOptimize', 'removeScssSourceMap', 'beautify'));
+gulp.task('default', gulp.parallel('clear', 'build', 'webpackDev', 'sassTask', 'copyImages', 'pugTask', 'watch', serve));
