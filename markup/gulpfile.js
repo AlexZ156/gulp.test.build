@@ -5,7 +5,6 @@ const del = require('del');
 const webpack = require('webpack');
 const webpackconfig = require('./webpack.config.js');
 const browserSync = require('browser-sync').create();
-const watch = require('gulp-watch');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
@@ -42,7 +41,6 @@ const allSass = () => {
 			base: path.resolve(__dirname, settings.scssDir.entry)
 		}
 	)
-	.pipe(cache('allSass'))
 	.pipe(sass().on('error', sass.logError))
 	.pipe(postcss(postcssPlagins))
 	.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.output)));
@@ -57,7 +55,6 @@ const mainSass = () => {
 			base: scssUrl
 		}
 	)
-	.pipe(cache('mainSass'))
 	.pipe(sourcemaps.init())
 	.pipe(sass().on('error', sass.logError))
 	.pipe(postcss(postcssPlagins))
@@ -160,7 +157,7 @@ const clearScripts = (cb) => {
 	let jsExceptStr = '';
 
 	settings.jsNames.names.forEach(function(item, index) {
-		jsExceptStr += ((index !== 0 ? '|' : '(') + item + (index === settings.jsNames.names.length - 1 ? ')' : ''))
+		jsExceptStr += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsNames.names.length - 1 ? ')' : ''))
 	});
 
 	del(
@@ -175,10 +172,11 @@ const clearScripts = (cb) => {
 
 // build scripts
 gulp.task('build', gulp.series(clearScripts, function(done) {
+	done();
 	let jsExceptStr = '';
 
 	settings.jsNames.names.forEach(function(item, index) {
-		jsExceptStr += ((index !== 0 ? '|' : '(') + item + (index === settings.jsNames.names.length - 1 ? ')' : ''))
+		jsExceptStr += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsNames.names.length - 1 ? ')' : ''))
 	});
 
 	return gulp.src(
@@ -270,5 +268,5 @@ gulp.task('clear', done => {
 	cache.caches = {};
 	done();
 });
-gulp.task('dist', gulp.series('webpackDist', 'imagesOptimize', 'removeScssSourceMap', 'beautify'));
+gulp.task('dist', gulp.series('build', 'webpackDist', 'imagesOptimize', 'removeScssSourceMap', 'beautify'));
 gulp.task('default', gulp.parallel('clear', 'build', 'webpackDev', 'sassTask', 'copyImages', 'pugTask', 'watch', serve));

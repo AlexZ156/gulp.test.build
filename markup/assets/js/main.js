@@ -1,3 +1,11 @@
-(function() {
-	console.log(55555255666661)
-})
+const serve = (cb) => (
+	browserSync.init({
+		server: {
+			baseDir: './',
+			port: 30103,
+			directory: true,
+			notify: false
+		}
+	}, cb)
+
+);

@@ -44,7 +44,18 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
+
+	var serve = function serve(cb) {
+		return browserSync.init({
+			server: {
+				baseDir: './',
+				port: 30106,
+				directory: true,
+				notify: false
+			}
+		}, cb);
+	};
 
 /***/ }
 /******/ ]);
