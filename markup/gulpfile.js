@@ -42,8 +42,9 @@ const allSass = () => {
 			base: path.resolve(__dirname, settings.scssDir.entry)
 		}
 	)
+	.pipe(cache('allSass'))
 	.pipe(sass().on('error', sass.logError))
-	.pipe(cache(postcss(postcssPlagins)))
+	.pipe(postcss(postcssPlagins))
 	.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.output)));
 };
 
@@ -56,9 +57,10 @@ const mainSass = () => {
 			base: scssUrl
 		}
 	)
+	.pipe(cache('mainSass'))
 	.pipe(sourcemaps.init())
 	.pipe(sass().on('error', sass.logError))
-	.pipe(cache(postcss(postcssPlagins)))
+	.pipe(postcss(postcssPlagins))
 	.pipe(sourcemaps.write('./', {includeContent: true}))
 	.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.mainFileOutput + settings.scssDir.mainFileName)))
 	.pipe(browserSync.stream());
@@ -240,7 +242,8 @@ gulp.task(function imagesOptimize() {
 				base: path.resolve(__dirname, settings.imagesDir.entry)
 			}
 		)
-		.pipe(cache(imagemin()))
+		.pipe(cache('imagesOptimize'))
+		.pipe(imagemin())
 		.pipe(gulp.dest(output));
 })
 
