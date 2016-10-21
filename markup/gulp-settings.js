@@ -5,7 +5,9 @@ module.exports = {
 	},
 	scssDir: {
 		entry: 'assets/scss/',
-		output: 'css/'
+		output: 'css/',
+		mainFileName: 'style',
+		mainFileOutput: './'
 	},
 	pugDir: {
 		entry: 'assets/',
