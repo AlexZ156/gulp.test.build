@@ -1,35 +1,27 @@
-$vertical-rhythm: 1.2em !default;
-$btn-background: #666 !default;
-$btn-color: #fff !default;
+// #main {
+// 	@extend %clearfix;
+// }
 
-/// #main { @extend %clearfix; }
-/// #content { float: left; width: 70%; }
-/// #sidebar { float: right; width: 25%; }
+// #content { 
+// 	float: left; 
+// 	width: 70%;
+// 	&:only-child{
+// 		float:none;
+// 		width:100%;
+// 	}
+// }
 
-img {
-	max-width: 100%;
-	height: auto;
-}
+// #sidebar { 
+// 	float: right;
+// 	width: 25%;
+// 	#wp-calendar {
+// 		width:100%;
+// 	}
+// }
 
-
-input[type='text'],
-input[type='tel'],
-input[type='email'],
-input[type='search'],
-input[type='password'],
-input[type='url'],
-input[type='date'],
-textarea {
-	.comment-form &,
-	.search-form &,
-	.post-password-form & {
-		-webkit-appearance: none;
-		-webkit-border-radius: 0;
-	}
-}
 
 .widget {
-	margin-bottom: 1.2em;
+	margin-bottom: $vertical-rhythm;
 	@extend %clearfix;
 	ul {
 		padding-left: 2em;
@@ -53,59 +45,41 @@ textarea {
 	textarea,
 	input[type='text'] {
 		margin: 0 4px 0 0;
-		max-width: 100%;
-
-		@include media('≥tablet') {
-			max-width: 300px;
-		}
+		max-width: 300px;
+		width:100%;
 	}
 	input[type='submit'] {
 		display: block;
 		float: none;
 	}
 }
-.search-form,
-.post-password-form {
-	margin-bottom: 10px;
 
+.post-password-form {
 	label {
 		display: block;
+		margin-bottom:4px;
 	}
-	input [type='search'],
 	input[type='password'] {
-		margin: 0 0 5px;
-		max-width: 100%;
-
-		@include media('≥tablet') {
-			max-width: 300px;
-		}
+		margin: 0 4px 0 0;
+		max-width: 300px;
+		width:100%;
 	}
 }
 
 .search-form {
+	@extend %clearfix;
+	margin-bottom:15px;
 	input {
+		float: left;
+		height: 2em;
 		&[type='search'] {
-			margin: 0 0 5px;
-			max-width: 100%;
-
-			@include media('≥tablet') {
-				max-width: 300px;
-			}
-
-			.search-popup &,
-			.search-bar & {
-				max-width: none;
-				margin-bottom: 0;
-			}
+			margin: 0 4px 0 0;
+			width: 150px;
 		}
-	}
-
-	.search-popup & {
-		margin-bottom: 0;
 	}
 }
 
-/* .post-password-form {
+.post-password-form {
 	p {
 		@extend %clearfix;
 	}
@@ -116,31 +90,31 @@ textarea {
 			width: 150px;
 		}
 	}
-} */
+}
 
-/* .comment-form,
+.comment-form,
 .post-password-form,
 .search-form {
 	input[type='submit'] {
-		background: #333;
-		color: #fff;
-		height: 32px;
+		background: $btn-background;
+		color: $btn-color;
+		height: 2em;
 		border: none;
 		padding: 0 .5em;
 		&:hover {
 			opacity: 0.8;
 		}
 	}
-} */
+}
 
 .commentlist {
-	margin: 0 0 1.2em;
+	margin: 0 0 $vertical-rhythm;
 	.edit-link {
 		margin: 0;
 	}
 	.avatar-holder {
 		float: left;
-		margin: 0 1.2em 4px 0;
+		margin: 0 $vertical-rhythm 4px 0;
 	}
 }
 
@@ -149,7 +123,6 @@ textarea {
 		padding: 0;
 		@include media(">=tablet") {
 			padding: 0 0 0 2em;
-
 		}
 	}
 }
@@ -161,7 +134,7 @@ textarea {
 
 .commentlist-item .commentlist-item,
 .commentlist-item + .commentlist-item {
-	padding-top: 1.2em;
+	padding-top: $vertical-rhythm;
 }
 
 .widget_calendar {
@@ -193,11 +166,7 @@ textarea {
 		vertical-align: middle;
 		padding: 0 .4em;
 		@include media('<tablet') {
-			padding:0 4px;
-		}
-
-		&.current {
-			color: $red;
+			padding:0 3px;
 		}
 	}
 
@@ -205,20 +174,16 @@ textarea {
 	.prev {
 		display: inline-block;
 		vertical-align: middle;
-		// max-width: 50%;
+		max-width: 48%;
 		background: $btn-background;
 		color: $btn-color;
 		padding: .4em;
 		text-decoration: none;
-		transition: background .3s, color .3s;
-
-		&:hover {
-			background: $red;
-			color: $white;
-		}
-
 		@include media('<tablet') {
 			padding:.2em;
+		}
+		&:hover{
+			opacity:0.8;
 		}
 	}
 }
@@ -230,17 +195,13 @@ textarea {
 	.prev {
 		float: left;
 		vertical-align: middle;
-		max-width: 50%;
+		max-width: 48%;
 		background: $btn-background;
 		color: $btn-color;
 		text-decoration: none;
-		transition: background .3s, color .3s;
-
-		&:hover {
-			background: $red;
-			color: $white;
+		&:hover{
+			opacity:0.8;
 		}
-
 		a {
 			color: inherit;
 			text-decoration: none;
@@ -249,6 +210,7 @@ textarea {
 			@include media('<tablet') {
 				padding:.2em;
 			}
+
 		}
 	}
 	.next {
@@ -259,9 +221,9 @@ textarea {
 .wp-caption {
 	max-width: 100%;
 	clear: both;
-	border: 1px solid #ccc;
+	border: 1px solid $gray;
 	padding: .4em;
-	margin-bottom: 1.2em;
+	margin-bottom: $vertical-rhythm;
 	img {
 		margin: 0;
 		vertical-align: top;
@@ -272,7 +234,7 @@ textarea {
 }
 
 div.aligncenter {
-	margin: 0 auto 1.2em;
+	margin: 0 auto $vertical-rhythm;
 }
 
 img.aligncenter {
@@ -282,16 +244,16 @@ img.aligncenter {
 
 .alignleft {
 	float: left;
-	margin: 0 1.2em 4px 0;
+	margin: 0 $vertical-rhythm 4px 0; 
 }
 
 .alignright {
 	float: right;
-	margin: 0 0 4px 1.2em;
+	margin: 0 0 4px $vertical-rhythm; 
 }
 
 .mejs-container {
-	margin-bottom: 1.2em;
+	margin-bottom: $vertical-rhythm;
 }
 
 .wp-caption-text,
@@ -303,14 +265,20 @@ img.aligncenter {
 	height: auto;
 }
 
-pre {
-	font-size: 12px;
+iframe {
+	@include media("<desktop") {
+		width:100%;
+	}
 }
 
-iframe {
-	width: 100%;
-
-	@include media('≥tablet') {
-		width: auto;
+#wp-calendar {
+	tbody {
+		td {
+			text-align:center;
+		}
+	}
+	td,
+	th {
+		border:1px solid $gray;
 	}
 }

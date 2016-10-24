@@ -1,25 +1,22 @@
 /*
-Theme Name: WOW-It
+Theme Name: Base
 Author: Anonymous
 Author URI:
 Version: 1
-Description: WOW-It
+Description: Base theme for Wordpress
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: pgbuildingglass
+Text Domain: base
 Tags: one-column, two-columns
 Theme URI:
 */
-.aaa {
-  display: none
-}
-// devices viewport width starts at:
+
 $breakpoints: (
-  xs-phone: 320px,
-  phone: 480px,
-  tablet: 768px,
-  desktop: 992px,
-  widescreen: 1480px
+  'xs-phone': 320px,
+  'phone': 480px,
+  'tablet': 768px,
+  'desktop': 1024px,
+  'widescreen': 1200px
 );
 
 // keywords
@@ -36,25 +33,19 @@ $media-expressions: (
 // ligatured operators ≥ ≤
 
 @import 'vendors/include-media';
+@import 'vendors/normalize';
 
-@import "bootstrap-custom";
-@import "vendors/bootstrap/variables";
-@import "vendors/bootstrap/mixins";
-@import "vendors/fonts";
-@import "vendors/icomoon";
-
+@import 'base/variables';
+@import 'base/functions';
 @import 'base/mixins';
 @import 'base/helpers';
-@import "base/wp-reset";
-@import "base/forms";
-@import "base/animation";
-
-@import "layout/header";
-@import "layout/common";
-@import "layout/footer";
+@import 'base/reset';
+@import 'base/cms-reset';
+@import 'base/forms';
+@import 'base/wp-reset';
+@import 'base/typography';
 
 
-
-
-
-
+body {
+	
+}
