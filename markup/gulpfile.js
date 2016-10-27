@@ -104,7 +104,30 @@ gulp.task(function copyImages() {
 	).pipe(gulp.dest(path.resolve(__dirname, settings.imagesDir.output)));
 });
 
+// copy js files
+gulp.task(function copyScripts() {
+	let jsCopyStr = '';
+
+	settings.jsToCopy.names.forEach(function(item, index) {
+		jsCopyStr += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsES6.names.length - 1 ? ')' : ''))
+	});
+
+	console.log(path.resolve(__dirname, settings.jsDir.entry + '**/' + jsCopyStr))
+	return gulp.src(
+		path.resolve(__dirname, settings.jsDir.entry + '**/*' + jsCopyStr),
+		{
+			base: path.resolve(__dirname, settings.jsDir.entry)
+		}
+	).pipe(gulp.dest(path.resolve(__dirname, settings.jsDir.output)));
+});
+
 gulp.task(function watch(cb) {
+	let jsExceptStr = '';
+
+	settings.jsToCopy.names.forEach(function(item, index) {
+		jsExceptStr += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsES6.names.length - 1 ? ')' : ''))
+	});
+
 	gulp.watch(
 		path.resolve(__dirname, settings.scssDir.entry + '**/*.scss'),
 		gulp.series('sassTask')
@@ -116,7 +139,15 @@ gulp.task(function watch(cb) {
 	);
 
 	gulp.watch(
-		path.resolve(__dirname, settings.jsDir.entry + '**/*.js'),
+		path.resolve(__dirname, settings.jsDir.entry + '**/' + jsExceptStr),
+		gulp.series('copyScripts')
+	);
+
+	gulp.watch(
+		[
+			path.resolve(__dirname, settings.jsDir.entry + '**/*.js'),
+			'!' + path.resolve(__dirname, settings.jsDir.entry + '**/' + jsExceptStr)
+		],
 		gulp.series('webpackDev')
 	);
 
@@ -156,8 +187,8 @@ const serve = (cb) => (
 const clearScripts = (cb) => {
 	let jsExceptStr = '';
 
-	settings.jsNames.names.forEach(function(item, index) {
-		jsExceptStr += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsNames.names.length - 1 ? ')' : ''))
+	settings.jsES6.names.forEach(function(item, index) {
+		jsExceptStr += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsES6.names.length - 1 ? ')' : ''))
 	});
 
 	del(
@@ -175,8 +206,8 @@ gulp.task('build', gulp.series(clearScripts, function(done) {
 	done();
 	let jsExceptStr = '';
 
-	settings.jsNames.names.forEach(function(item, index) {
-		jsExceptStr += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsNames.names.length - 1 ? ')' : ''))
+	settings.jsES6.names.forEach(function(item, index) {
+		jsExceptStr += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsES6.names.length - 1 ? ')' : ''))
 	});
 
 	return gulp.src(
@@ -243,7 +274,7 @@ gulp.task(function imagesOptimize() {
 		.pipe(cache('imagesOptimize'))
 		.pipe(imagemin())
 		.pipe(gulp.dest(output));
-})
+});
 
 // remove JS source map
 gulp.task(function webpackDist(cb) {

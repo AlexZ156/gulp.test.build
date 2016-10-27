@@ -3,7 +3,7 @@ const settings = require('./gulp-settings.js');
 const path = require('path');
 let entryObj = {};
 
-settings.jsNames.names.forEach(function(item) {
+settings.jsES6.names.forEach(function(item) {
 	entryObj[item] = path.resolve(__dirname, settings.jsDir.entry + item);
 });
 

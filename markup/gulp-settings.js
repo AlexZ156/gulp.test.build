@@ -17,7 +17,10 @@ module.exports = {
 		entry: 'assets/js/',
 		output: 'js/'
 	},
-	jsNames: {
-		names: ['main', 'jquery.main']
+	jsES6: {
+		names: ['main']
+	},
+	jsToCopy: {
+		names: ['jquery.main']
 	}
 };
