@@ -19,8 +19,5 @@ module.exports = {
 	},
 	jsES6: {
 		names: ['main']
-	},
-	jsToCopy: {
-		names: ['jquery.main']
 	}
 };

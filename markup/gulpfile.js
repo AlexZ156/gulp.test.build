@@ -105,26 +105,10 @@ gulp.task(function copyImages() {
 });
 
 // copy js files
-gulp.task(function copyScripts() {
-	let jsCopyStr = '';
-
-	settings.jsToCopy.names.forEach(function(item, index) {
-		jsCopyStr += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsES6.names.length - 1 ? ')' : ''))
-	});
-
-	console.log(path.resolve(__dirname, settings.jsDir.entry + '**/' + jsCopyStr))
-	return gulp.src(
-		path.resolve(__dirname, settings.jsDir.entry + '**/*' + jsCopyStr),
-		{
-			base: path.resolve(__dirname, settings.jsDir.entry)
-		}
-	).pipe(gulp.dest(path.resolve(__dirname, settings.jsDir.output)));
-});
-
 gulp.task(function watch(cb) {
 	let jsExceptStr = '';
 
-	settings.jsToCopy.names.forEach(function(item, index) {
+	settings.jsES6.names.forEach(function(item, index) {
 		jsExceptStr += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsES6.names.length - 1 ? ')' : ''))
 	});
 
@@ -139,14 +123,18 @@ gulp.task(function watch(cb) {
 	);
 
 	gulp.watch(
-		path.resolve(__dirname, settings.jsDir.entry + '**/' + jsExceptStr),
-		gulp.series('copyScripts')
+		[
+			path.resolve(__dirname, settings.jsDir.entry + '*'),
+			'!' + path.resolve(__dirname, settings.jsDir.entry + '*' + jsExceptStr),
+			'!' + path.resolve(__dirname, settings.jsDir.entry + 'modules')
+		],
+		gulp.series(copyScripts)
 	);
 
 	gulp.watch(
 		[
-			path.resolve(__dirname, settings.jsDir.entry + '**/*.js'),
-			'!' + path.resolve(__dirname, settings.jsDir.entry + '**/' + jsExceptStr)
+			path.resolve(__dirname, settings.jsDir.entry + 'modules/**/*.js'),
+			path.resolve(__dirname, settings.jsDir.entry + '*' + jsExceptStr)
 		],
 		gulp.series('webpackDev')
 	);
@@ -201,9 +189,7 @@ const clearScripts = (cb) => {
 	});
 }
 
-// build scripts
-gulp.task('build', gulp.series(clearScripts, function(done) {
-	done();
+const copyScripts = () => {
 	let jsExceptStr = '';
 
 	settings.jsES6.names.forEach(function(item, index) {
@@ -221,7 +207,9 @@ gulp.task('build', gulp.series(clearScripts, function(done) {
 		}
 	)
 	.pipe(gulp.dest(settings.jsDir.output));
-}));
+}
+// build scripts
+gulp.task('build', gulp.series(clearScripts, copyScripts));
 
 /*
  * optimization on gulp dist
