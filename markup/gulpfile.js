@@ -106,10 +106,10 @@ gulp.task(function copyImages() {
 
 // copy js files
 gulp.task(function watch(cb) {
-	let jsExceptStr = '';
+	let jsES6 = '';
 
 	settings.jsES6.names.forEach(function(item, index) {
-		jsExceptStr += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsES6.names.length - 1 ? ')' : ''))
+		jsES6 += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsES6.names.length - 1 ? ')' : ''))
 	});
 
 	gulp.watch(
@@ -125,7 +125,7 @@ gulp.task(function watch(cb) {
 	gulp.watch(
 		[
 			path.resolve(__dirname, settings.jsDir.entry + '*'),
-			'!' + path.resolve(__dirname, settings.jsDir.entry + '*' + jsExceptStr),
+			'!' + path.resolve(__dirname, settings.jsDir.entry + '*' + jsES6),
 			'!' + path.resolve(__dirname, settings.jsDir.entry + 'modules')
 		],
 		gulp.series(copyScripts)
@@ -134,7 +134,7 @@ gulp.task(function watch(cb) {
 	gulp.watch(
 		[
 			path.resolve(__dirname, settings.jsDir.entry + 'modules/**/*.js'),
-			path.resolve(__dirname, settings.jsDir.entry + '*' + jsExceptStr)
+			path.resolve(__dirname, settings.jsDir.entry + '*' + jsES6)
 		],
 		gulp.series('webpackDev')
 	);
@@ -173,16 +173,16 @@ const serve = (cb) => (
 );
 
 const clearScripts = (cb) => {
-	let jsExceptStr = '';
+	let jsES6 = '';
 
 	settings.jsES6.names.forEach(function(item, index) {
-		jsExceptStr += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsES6.names.length - 1 ? ')' : ''))
+		jsES6 += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsES6.names.length - 1 ? ')' : ''))
 	});
 
 	del(
 		[
 			path.resolve(__dirname, settings.jsDir.output + '*'),
-			'!' + path.resolve(__dirname, settings.jsDir.output + '*' +jsExceptStr)
+			'!' + path.resolve(__dirname, settings.jsDir.output + '*' +jsES6)
 		]
 	).then(paths => {
 		cb();
@@ -190,16 +190,16 @@ const clearScripts = (cb) => {
 }
 
 const copyScripts = () => {
-	let jsExceptStr = '';
+	let jsES6 = '';
 
 	settings.jsES6.names.forEach(function(item, index) {
-		jsExceptStr += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsES6.names.length - 1 ? ')' : ''))
+		jsES6 += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsES6.names.length - 1 ? ')' : ''))
 	});
 
 	return gulp.src(
 		[
 			path.resolve(__dirname, settings.jsDir.entry + '*'),
-			'!' + path.resolve(__dirname, settings.jsDir.entry + '*' + jsExceptStr),
+			'!' + path.resolve(__dirname, settings.jsDir.entry + '*' + jsES6),
 			'!' + path.resolve(__dirname, settings.jsDir.entry + 'modules')
 		],
 		{
