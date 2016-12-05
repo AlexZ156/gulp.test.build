@@ -1,30 +1,22 @@
 'use strict';
 const gulp = require('gulp');
+const $ = require('gulp-load-plugins')({
+	pattern: ['gulp-*', 'gulp.*', 'webpack', 'autoprefixer', 'del']
+});
 const path = require('path');
-const del = require('del');
-const webpack = require('webpack');
 const webpackconfig = require('./webpack.config.js');
 const browserSync = require('browser-sync').create();
-const sass = require('gulp-sass');
-const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-const csscomb = require('gulp-csscomb');
-const imagemin = require('gulp-imagemin');
 const settings = require('./gulp-settings.js');
-const gutil = require('gulp-util');
-const pug = require('gulp-pug');
-const sourcemaps = require('gulp-sourcemaps');
-const cache = require('gulp-cached');
 const postcssPlagins = [
-	autoprefixer({
+	$.autoprefixer({
 		browsers: ['last 2 version']
 	})
 ];
 // ES-2015 handler
 const webpackHandler = (dev, cb) => {
-	webpack(webpackconfig(dev), (err, stats) => {
-		if (err) throw new gutil.PluginError('webpack', err);
-		gutil.log('[webpack]', stats.toString({
+	$.webpack(webpackconfig(dev), (err, stats) => {
+		if (err) throw new $.util.PluginError('webpack', err);
+		$.util.log('[webpack]', stats.toString({
 			// output options
 		}));
 		cb();
@@ -41,8 +33,8 @@ const allSass = () => {
 			base: path.resolve(__dirname, settings.scssDir.entry)
 		}
 	)
-	.pipe(sass().on('error', sass.logError))
-	.pipe(postcss(postcssPlagins))
+	.pipe($.sass().on('error', $.sass.logError))
+	.pipe($.postcss(postcssPlagins))
 	.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.output)));
 };
 
@@ -55,10 +47,10 @@ const mainSass = () => {
 			base: scssUrl
 		}
 	)
-	.pipe(sourcemaps.init())
-	.pipe(sass().on('error', sass.logError))
-	.pipe(postcss(postcssPlagins))
-	.pipe(sourcemaps.write('./', {includeContent: true}))
+	.pipe($.sourcemaps.init())
+	.pipe($.sass().on('error', $.sass.logError))
+	.pipe($.postcss(postcssPlagins))
+	.pipe($.sourcemaps.write('./', {includeContent: true}))
 	.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.mainFileOutput + settings.scssDir.mainFileName)))
 	.pipe(browserSync.stream());
 };
@@ -70,7 +62,6 @@ const mainSass = () => {
 gulp.task('sassTask', gulp.series(allSass, mainSass));
 
 // compile ES-2015 to ES5;
-// gulp.task('webpackDev', webpackHandler(true));
 gulp.task(function webpackDev(cb) {
 	webpackHandler(true, cb);
 });
@@ -83,7 +74,7 @@ gulp.task(function pugTask() {
 				base: path.resolve(__dirname, settings.pugDir.entry)
 			}
 		)
-		.pipe(pug(
+		.pipe($.pug(
 			{
 				pretty: '\t'
 			}
@@ -104,7 +95,6 @@ gulp.task(function copyImages() {
 	).pipe(gulp.dest(path.resolve(__dirname, settings.imagesDir.output)));
 });
 
-// copy js files
 gulp.task(function watch(cb) {
 	let jsES6 = '';
 
@@ -179,11 +169,14 @@ const clearScripts = (cb) => {
 		jsES6 += ((index !== 0 ? '|' : '(') + item + '.js' + (index === settings.jsES6.names.length - 1 ? ')' : ''))
 	});
 
-	del(
+	$.del(
 		[
 			path.resolve(__dirname, settings.jsDir.output + '*'),
 			'!' + path.resolve(__dirname, settings.jsDir.output + '*' +jsES6)
-		]
+		],
+		{
+			read: false
+		}
 	).then(paths => {
 		cb();
 	});
@@ -224,7 +217,7 @@ const beautifyMainCss = () => {
 				base: path.resolve(__dirname, settings.scssDir.output)
 			}
 		)
-		.pipe(csscomb())
+		.pipe($.csscomb())
 		.pipe(gulp.dest(cssUrl));
 };
 
@@ -240,7 +233,7 @@ const beautifyOtherCss = () => {
 				base: cssUrl
 			}
 		)
-		.pipe(csscomb())
+		.pipe($.csscomb())
 		.pipe(gulp.dest(cssUrl));
 };
 
@@ -259,8 +252,8 @@ gulp.task(function imagesOptimize() {
 				base: path.resolve(__dirname, settings.imagesDir.entry)
 			}
 		)
-		.pipe(cache('imagesOptimize'))
-		.pipe(imagemin())
+		.pipe($.cached('imagesOptimize'))
+		.pipe($.imagemin())
 		.pipe(gulp.dest(output));
 });
 
@@ -270,11 +263,14 @@ gulp.task(function webpackDist(cb) {
 });
 
 gulp.task(function removeScssSourceMap(cb) {
-	del(
+	$.del(
 		[
 			path.resolve(settings.scssDir.output, '**/*.css.map'),
 			path.resolve(__dirname, settings.scssDir.mainFileOutput + '*.css.map')
-		]
+		],
+		{
+			read: false
+		}
 	).then(paths => {
 		cb();
 	});
@@ -284,7 +280,7 @@ gulp.task(function removeScssSourceMap(cb) {
  * run main development tasks
 */
 gulp.task('clear', done => {
-	cache.caches = {};
+	$.cached.caches = {};
 	done();
 });
 gulp.task('dist', gulp.series('build', 'webpackDist', 'imagesOptimize', 'removeScssSourceMap', 'beautify'));
