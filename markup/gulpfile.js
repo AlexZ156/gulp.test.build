@@ -33,8 +33,11 @@ const allSass = () => {
 			base: path.resolve(__dirname, settings.scssDir.entry)
 		}
 	)
+	.pipe($.debug({title: 'src'}))
 	.pipe($.sass().on('error', $.sass.logError))
+	.pipe($.debug({title: 'sass'}))
 	.pipe($.postcss(postcssPlagins))
+	.pipe($.debug({title: 'autoprefixer'}))
 	.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.output)));
 };
 
@@ -47,9 +50,12 @@ const mainSass = () => {
 			base: scssUrl
 		}
 	)
+	.pipe($.debug({title: 'src'}))
 	.pipe($.sourcemaps.init())
 	.pipe($.sass().on('error', $.sass.logError))
+	.pipe($.debug({title: 'sass'}))
 	.pipe($.postcss(postcssPlagins))
+	.pipe($.debug({title: 'autoprefixer'}))
 	.pipe($.sourcemaps.write('./', {includeContent: true}))
 	.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.mainFileOutput + settings.scssDir.mainFileName)))
 	.pipe(browserSync.stream());
@@ -74,6 +80,7 @@ gulp.task(function pugTask() {
 				base: path.resolve(__dirname, settings.pugDir.entry)
 			}
 		)
+		.pipe($.debug({title: 'src'}))
 		.pipe($.pug(
 			{
 				pretty: '\t'
@@ -82,6 +89,7 @@ gulp.task(function pugTask() {
 			console.log(err);
 			cb();
 		}))
+		.pipe($.debug({title: 'pug'}))
 		.pipe(gulp.dest(path.resolve(__dirname, settings.pugDir.output)));
 });
 
@@ -92,7 +100,9 @@ gulp.task(function copyImages() {
 		{
 			base: path.resolve(__dirname, settings.imagesDir.entry)
 		}
-	).pipe(gulp.dest(path.resolve(__dirname, settings.imagesDir.output)));
+	)
+	.pipe($.debug({title: 'img'}))
+	.pipe(gulp.dest(path.resolve(__dirname, settings.imagesDir.output)));
 });
 
 gulp.task(function watch(cb) {
@@ -191,7 +201,7 @@ const copyScripts = () => {
 
 	return gulp.src(
 		[
-			path.resolve(__dirname, settings.jsDir.entry + '*'),
+			path.resolve(__dirname, settings.jsDir.entry + '**/*'),
 			'!' + path.resolve(__dirname, settings.jsDir.entry + '*' + jsES6),
 			'!' + path.resolve(__dirname, settings.jsDir.entry + 'modules')
 		],
@@ -217,7 +227,9 @@ const beautifyMainCss = () => {
 				base: path.resolve(__dirname, settings.scssDir.output)
 			}
 		)
+		.pipe($.debug({title: 'src'}))
 		.pipe($.csscomb())
+		.pipe($.debug({title: 'beautify'}))
 		.pipe(gulp.dest(cssUrl));
 };
 
@@ -233,7 +245,9 @@ const beautifyOtherCss = () => {
 				base: cssUrl
 			}
 		)
+		.pipe($.debug({title: 'src'}))
 		.pipe($.csscomb())
+		.pipe($.debug({title: 'beautify'}))
 		.pipe(gulp.dest(cssUrl));
 };
 

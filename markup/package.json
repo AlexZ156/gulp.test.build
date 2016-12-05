@@ -21,6 +21,7 @@
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-cached": "^1.1.0",
     "gulp-csscomb": "^3.0.8",
+    "gulp-debug": "^3.0.0",
     "gulp-imagemin": "^3.0.3",
     "gulp-load-plugins": "^1.4.0",
     "gulp-postcss": "^6.0.1",
