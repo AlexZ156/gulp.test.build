@@ -143,8 +143,8 @@ gulp.task(function watch(cb) {
 	);
 
 	gulp.watch(
-		path.resolve(__dirname, settings.imagesDir.entry + '**/*'),
-		gulp.series('copyImages')
+		path.resolve(__dirname, settings.assetsDir + '**/*'),
+		gulp.series('assets')
 	);
 
 	gulp.watch(
@@ -167,7 +167,7 @@ gulp.task(function reloadPage(cb) {
 const serve = (cb) => (
 	browserSync.init({
 		server: {
-			baseDir: './',
+			baseDir: settings.publicDir,
 			port: 3010,
 			directory: true,
 			notify: false
@@ -293,13 +293,20 @@ gulp.task(function removeScssSourceMap(cb) {
 	});
 });
 
-/*
- * run main development tasks
-*/
-gulp.task('clear', done => {
-	$.cached.caches = {};
-	done();
+gulp.task('assets', (cb) => {
+	return gulp.src(
+			path.resolve(settings.assetsDir + '**'),
+			{
+				base: path.resolve(settings.assetsDir)
+			}
+		)
+		.pipe(gulp.dest(path.resolve(settings.publicDir)));
 });
+
 gulp.task('dist', gulp.series('build', 'webpackDist', 'imagesOptimize', 'removeScssSourceMap', 'beautify'));
-gulp.task('default', gulp.parallel('clear', 'build', 'webpackDev', 'sassTask', 'copyImages', 'pugTask', 'watch', serve));
-// gulp.task('default', gulp.parallel('copyImages', 'watch'));
+gulp.task('default', gulp.series(
+	'assets',
+	gulp.parallel('build', 'webpackDev', 'sassTask', 'pugTask'),
+	gulp.parallel('watch', serve)
+));
+// gulp.task('default', gulp.series('assets', gulp.parallel('watch')));
