@@ -25,6 +25,7 @@ module.exports = function(dev) {
 					exclude: /(node_modules|bower_components)/,
 					loader: 'babel-loader',
 					query: {
+						plugins: ['transform-object-assign'],
 						presets: ['es2015', 'stage-0'],
 						compact: false
 					}

@@ -95,10 +95,13 @@ gulp.task(function pugTask() {
 
 // copy images
 gulp.task(function copyImages() {
+	const baseDir = settings.imagesDir.entry;
+
 	return gulp.src(
-		path.resolve(__dirname, settings.imagesDir.entry + '**/*'),
+		path.resolve(__dirname, baseDir + '**/*'),
 		{
-			base: path.resolve(__dirname, settings.imagesDir.entry)
+			base: path.resolve(__dirname, baseDir)/*,
+			since: gulp.lastRun('copyImages')*/
 		}
 	)
 	.pipe($.debug({title: 'img'}))
@@ -299,3 +302,4 @@ gulp.task('clear', done => {
 });
 gulp.task('dist', gulp.series('build', 'webpackDist', 'imagesOptimize', 'removeScssSourceMap', 'beautify'));
 gulp.task('default', gulp.parallel('clear', 'build', 'webpackDev', 'sassTask', 'copyImages', 'pugTask', 'watch', serve));
+// gulp.task('default', gulp.parallel('copyImages', 'watch'));
