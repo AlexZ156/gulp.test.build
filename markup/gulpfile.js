@@ -3,6 +3,7 @@ const gulp = require('gulp');
 const $ = require('gulp-load-plugins')({
 	pattern: ['gulp-*', 'gulp.*', 'webpack', 'autoprefixer', 'del']
 });
+// const gulpPug = require('gulp-pug');
 let isDevelopment = true;
 const path = require('path');
 const webpackconfig = require('./webpack.config.js');
@@ -34,13 +35,10 @@ const allSass = () => {
 			base: path.resolve(__dirname, entryDir)
 		}
 	)
-	.pipe($.cached('allSass'))
-	.pipe($.debug({title: 'src'}))
 	.pipe($.sass().on('error', $.sass.logError))
-	.pipe($.debug({title: 'sass'}))
 	.pipe($.postcss(postcssPlagins))
-	.pipe($.debug({title: 'autoprefixer'}))
-	.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.output)));
+	.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.output)))
+	.pipe($.count('## files sass to css compiled', {logFiles: true}));
 };
 
 const mainSass = () => {
@@ -52,12 +50,18 @@ const mainSass = () => {
 			base: entryDir
 		}
 	)
+	.pipe($.plumber(function(error) {
+		$.util.log($.util.colors.bold.red(error.message));
+		$.util.beep();
+		this.emit('end');
+	}))
 	.pipe($.if(isDevelopment, $.sourcemaps.init()))
 	.pipe($.sass().on('error', $.sass.logError))
 	.pipe($.postcss(postcssPlagins))
-	.pipe($.debug({title: 'sass'}))
 	.pipe($.if(isDevelopment, $.sourcemaps.write('./', {includeContent: true})))
+	.pipe($.plumber.stop())
 	.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.mainFileOutput + settings.scssDir.mainFileName)))
+	.pipe($.count('## files sass to css compiled', {logFiles: true}))
 	.pipe(browserSync.stream());
 };
 
@@ -70,36 +74,62 @@ const reloadPage = (cb) => {
 gulp.task('sassTask', gulp.parallel(allSass, mainSass));
 
 // compile from pug to html
-gulp.task('pugTask', function() {
+gulp.task('pugPages', function(cb) {
 	return gulp.src(
-			path.resolve(__dirname, settings.pugDir.entry + '*.pug'),
+			[
+				path.resolve(__dirname, settings.pugDir.entry + '**/*.pug'),
+				'!' + path.resolve(__dirname, settings.pugDir.entry + '**/_*.pug')
+			],
 			{
 				base: path.resolve(__dirname, settings.pugDir.entry)
 			}
 		)
-		.pipe($.cached('pug'))
+		.pipe($.cached('pugPages'))
 		.pipe($.pug({pretty: '\t'})
-		.pipe($.debug({title: 'pug'}))
 		.on('error', err => {
 			console.log(err);
 			cb();
 		}))
-		.pipe(gulp.dest(path.resolve(__dirname, settings.pugDir.output)));
+		.pipe(gulp.dest(path.resolve(__dirname, settings.pugDir.output)))
+		.pipe($.count('## pug files compiled', {logFiles: true}));
+});
+
+gulp.task('pugAll', function(cb) {
+	return gulp.src(
+			[
+				path.resolve(__dirname, settings.pugDir.entry + '*.pug')
+			],
+			{
+				base: path.resolve(__dirname, settings.pugDir.entry)
+			}
+		)
+		.pipe($.pug({pretty: '\t'})
+		.on('error', err => {
+			console.log(err);
+			cb();
+		}))
+		.pipe(gulp.dest(path.resolve(__dirname, settings.pugDir.output)))
+		.pipe($.count('## pug files compiled', {logFiles: true}));
 });
 
 gulp.task('watch', function(cb) {
 	gulp.watch(
 		path.resolve(__dirname, settings.scssDir.entry + '**/*.scss'),
 		gulp.series('sassTask')
+	);
+
+	gulp.watch(
+		path.resolve(__dirname, settings.pugDir.entry + '*.pug'),
+		gulp.series('pugPages')
 	).on('unlink', function(filePath) {
-		delete $.cached.caches.assets[path.resolve(filePath)];
+		delete $.cached.caches.pugPages[path.resolve(filePath)];
 	});
 
 	gulp.watch(
-		path.resolve(__dirname, settings.pugDir.entry + '**/*.pug'),
-		gulp.series('pugTask')
+		path.resolve(__dirname, settings.pugDir.entry + '**/_*.pug'),
+		gulp.series('pugAll')
 	).on('unlink', function(filePath) {
-		delete $.cached.caches.assets[path.resolve(filePath)];
+		// delete $.cached.caches.pugPages[path.resolve(filePath)];
 	});
 
 	gulp.watch(
@@ -109,7 +139,7 @@ gulp.task('watch', function(cb) {
 		],
 		gulp.series(copyScripts)
 	).on('unlink', function(filePath) {
-		delete $.cached.caches.assets[path.resolve(filePath)];
+		delete $.cached.caches.copyScripts[path.resolve(filePath)];
 	});
 
 	gulp.watch(
@@ -158,8 +188,8 @@ const copyScripts = () => {
 		}
 	)
 	.pipe($.cached('copyScripts'))
-	.pipe($.debug({title: 'copyScripts'}))
-	.pipe(gulp.dest(settings.jsDir.output));
+	.pipe(gulp.dest(settings.jsDir.output))
+	.pipe($.count('## JS files was copied', {logFiles: true}));
 }
 
 const beautifyMainCss = () => {
@@ -172,8 +202,8 @@ const beautifyMainCss = () => {
 			}
 		)
 		.pipe($.csscomb())
-		.pipe($.debug({title: 'beautify'}))
-		.pipe(gulp.dest(cssUrl));
+		.pipe(gulp.dest(cssUrl))
+		.pipe($.count('beautified css files', {logFiles: true}));
 };
 
 const beautifyOtherCss = () => {
@@ -189,8 +219,8 @@ const beautifyOtherCss = () => {
 			}
 		)
 		.pipe($.csscomb())
-		.pipe($.debug({title: 'beautify'}))
-		.pipe(gulp.dest(cssUrl));
+		.pipe(gulp.dest(cssUrl))
+		.pipe($.count('beautified css files', {logFiles: true}));
 };
 
 // image optimization
@@ -205,7 +235,8 @@ gulp.task(function imagesOptimize() {
 			}
 		)
 		.pipe($.imagemin())
-		.pipe(gulp.dest(output));
+		.pipe(gulp.dest(output))
+		.pipe($.count('## images was optimize', {logFiles: true}));
 });
 
 // css beautify
@@ -219,8 +250,8 @@ gulp.task('assets', (cb) => {
 			}
 		)
 		.pipe($.cached('assets'))
-		.pipe($.debug({title: 'assets'}))
-		.pipe(gulp.dest(path.resolve(settings.publicDir)));
+		.pipe(gulp.dest(path.resolve(settings.publicDir)))
+		.pipe($.count('## assets files copied', {logFiles: true}));
 });
 
 gulp.task('clear', (cb) => {
@@ -234,7 +265,7 @@ gulp.task('build', gulp.parallel(
 	copyScripts,
 	webpackHandler,
 	'sassTask',
-	'pugTask'
+	'pugPages'
 ));
 gulp.task('dist', gulp.series(
 	(cb) => {
