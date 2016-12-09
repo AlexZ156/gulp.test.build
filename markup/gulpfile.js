@@ -42,10 +42,11 @@ const allSass = () => {
 };
 
 const mainSass = () => {
-	const entryDir = path.resolve(__dirname, settings.scssDir.entry + settings.scssDir.mainFileName);
+	// const entryDir = path.resolve(__dirname, settings.scssDir.entry + settings.scssDir.mainFileName);
+	const entryDir = settings.scssDir.entry;
 
 	return gulp.src(
-		entryDir + '.scss',
+		path.resolve(__dirname, entryDir + '*.scss'),
 		{
 			base: entryDir
 		}
@@ -58,9 +59,20 @@ const mainSass = () => {
 	.pipe($.if(isDevelopment, $.sourcemaps.init()))
 	.pipe($.sass().on('error', $.sass.logError))
 	.pipe($.postcss(postcssPlagins))
-	.pipe($.if(isDevelopment, $.sourcemaps.write('./', {includeContent: true})))
+	.pipe($.if(isDevelopment, $.sourcemaps.write()))
 	.pipe($.plumber.stop())
-	.pipe(gulp.dest(path.resolve(__dirname, settings.scssDir.mainFileOutput + settings.scssDir.mainFileName)))
+	.pipe(gulp.dest(function(file) {
+		// return file.extname ===
+		// console.log(file)
+		console.log(file.stem)
+		// console.log(Object.keys(file))
+		console.log('==================')
+		return file.stem === settings.scssDir.mainFileName || file.basename === settings.scssDir.mainFileName ?
+			path.resolve(__dirname, settings.scssDir.mainFileOutput) :
+			path.resolve(__dirname, settings.scssDir.output);
+		// return path.resolve(__dirname, settings.scssDir.mainFileOutput + settings.scssDir.mainFileName)
+		// return path.resolve(__dirname, settings.scssDir.mainFileOutput)
+	}))
 	.pipe($.count('## files sass to css compiled', {logFiles: true}))
 	.pipe(browserSync.stream());
 };
@@ -71,7 +83,8 @@ const reloadPage = (cb) => {
 }
 
 // compile from sass to css
-gulp.task('sassTask', gulp.parallel(allSass, mainSass));
+// gulp.task('sassTask', gulp.parallel(allSass, mainSass));
+gulp.task('sassTask', gulp.parallel(mainSass));
 
 // compile from pug to html
 gulp.task('pugPages', function(cb) {
