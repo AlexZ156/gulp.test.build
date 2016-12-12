@@ -4,7 +4,7 @@ const path = require('path');
 let entryObj = {};
 
 settings.jsES6.names.forEach(function(item) {
-	entryObj[item] = path.resolve(__dirname, settings.jsES6.entry + item);
+	entryObj[item] = path.resolve(__dirname, settings.jsES6.entry + '/' + item);
 });
 
 module.exports = function(dev) {
