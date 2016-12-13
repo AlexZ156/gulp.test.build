@@ -3,7 +3,6 @@ const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')({
 	pattern: ['gulp-*', 'gulp.*', 'webpack', 'autoprefixer', 'del']
 });
-// const gulpPug = require('gulp-pug');
 const gcmq = require('gulp-group-css-media-queries');
 let isDevelopment = true;
 const path = require('path');
@@ -34,11 +33,13 @@ gulp.task('allSass', () => {
 	const entryDir = settings.scssDir.entry;
 
 	return gulp.src(
-		path.resolve(__dirname, entryDir + '/*.scss'),
+		path.resolve(__dirname, entryDir + '/**/*.scss'),
 		{
 			base: entryDir
 		}
 	)
+	.pipe(plugins.cached('allSass'))
+	.pipe(plugins.sassMultiInheritance({dir: entryDir + '/'}))
 	.pipe(plugins.plumber(function(error) {
 		plugins.util.log(plugins.util.colors.bold.red(error.message));
 		plugins.util.beep();
@@ -203,7 +204,9 @@ gulp.task('watch', function(cb) {
 	gulp.watch(
 		path.resolve(__dirname, settings.scssDir.entry + '/**/*.scss'),
 		gulp.series('allSass')
-	);
+	).on('unlink', function(filePath) {
+		delete plugins.cached.caches.allSass[path.resolve(filePath)];
+	});
 
 	gulp.watch(
 		path.resolve(__dirname, settings.pugDir.entry + '/*.pug'),
