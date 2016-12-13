@@ -55,7 +55,7 @@ gulp.task('allSass', () => {
 			path.resolve(__dirname, settings.scssDir.output);
 	}))
 	.pipe(plugins.count('## files sass to css compiled', {logFiles: true}))
-	.pipe(browserSync.stream());
+	.pipe(browserSync.stream({match: '**/*.css'}));
 });
 
 // compile from pug to html
