@@ -34,5 +34,9 @@
     "gulp-sourcemaps": "^2.1.1",
     "gulp-util": "^3.0.7",
     "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "promise-polyfill": "^6.0.2",
+    "whatwg-fetch": "^2.0.1"
   }
 }
