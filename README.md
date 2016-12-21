@@ -4,19 +4,18 @@
 например
 `npm version`
 При необходимости обновляем ноду до последней [https://nodejs.org](https://nodejs.org).
-Сам npm можно обновить так `npm -g install npm@3`
+Сам npm можно обновить так `npm -g install npm@4`
 ![](https://s3.amazonaws.com/scrstorage/6sd3230pu2u1445667.jpg)
 
-На данный момент работают эти версии Gulp.
+На данный момент работают эти версии Gulp. `npm install gulpjs/gulp-cli -g`
 ![](https://s3.amazonaws.com/scrstorage/5h28018x17r5v87dyv47.jpg)
-`npm install gulpjs/gulp-cli -g`
 
-Далее качаем себе сборку. Когда скачаете сборку то увидите такое:
-![](https://s3.amazonaws.com/scrstorage/632so7633k92606n0.jpg)
-удаляем этот файлик
-![](https://s3.amazonaws.com/scrstorage/632805yb279w3utt673.jpg)
-и подобные этому 
-![](https://s3.amazonaws.com/scrstorage/6328ixu6f07373513.jpg)
+Далее качаем себе сборку. Когда скачаете сборку, то увидите такое:  
+![](https://s3.amazonaws.com/scrstorage/632so7633k92606n0.jpg)  
+удаляем этот файлик  
+![](https://s3.amazonaws.com/scrstorage/632805yb279w3utt673.jpg)  
+и подобные этому  
+![](https://s3.amazonaws.com/scrstorage/6328ixu6f07373513.jpg)  
 
 Следующим шагом будет - это установить модули, т.е в корне папки, так где gulpfile.js, запускаем в консоле `npm i`;
 Пакеты устанавливаются лишь один раз для конкретной сборки.
