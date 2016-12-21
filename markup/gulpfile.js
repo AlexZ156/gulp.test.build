@@ -110,7 +110,7 @@ gulp.task('pugAll', function(cb) {
 });
 
 // server
-const serve = (cb) => (
+gulp.task('server', cb => {
 	browserSync.init({
 		server: {
 			baseDir: settings.publicDir,
@@ -118,8 +118,8 @@ const serve = (cb) => (
 			directory: true,
 			notify: false
 		}
-	}, cb)
-);
+	}, cb);
+});
 
 gulp.task('copyScripts', () => {
 	return gulp.src(
@@ -276,7 +276,7 @@ gulp.task('dist', gulp.series(
 	gulp.parallel('imagesOptimize', 'beautify')
 ));
 gulp.task('default', gulp.series(
-	gulp.parallel(serve, gulp.parallel('build')),
+	gulp.parallel('server', gulp.parallel('build')),
 	'watch'
 ));
 
