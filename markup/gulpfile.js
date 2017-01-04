@@ -190,13 +190,13 @@ gulp.task('beautify', gulp.parallel(beautifyMainCss, beautifyOtherCss));
 
 gulp.task('assets', (cb) => {
 	return gulp.src(
-			path.resolve(settings.assetsDir + '/**'),
+			path.resolve(__dirname, settings.assetsDir + '/**'),
 			{
-				base: path.resolve(settings.assetsDir)
+				base: path.resolve(__dirname, settings.assetsDir)
 			}
 		)
 		.pipe(plugins.cached('assets'))
-		.pipe(gulp.dest(path.resolve(settings.publicDir)))
+		.pipe(gulp.dest(path.resolve(__dirname, settings.publicDir)))
 		.pipe(plugins.count('## assets files copied', {logFiles: true}));
 });
 
@@ -254,7 +254,7 @@ gulp.task('watch', function(cb) {
 });
 
 gulp.task('clear', (cb) => {
-	plugins.del(path.resolve(settings.publicDir), {read: false}).then(paths => {
+	plugins.del(path.resolve(__dirname, settings.publicDir), {read: false}).then(paths => {
 		cb();
 	});
 });
