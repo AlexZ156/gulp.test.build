@@ -1,0 +1,85 @@
+// forms
+form,
+fieldset {
+  margin: 0;
+  padding: 0;
+  border-style: none;
+}
+
+input[type='text'],
+input[type='tel'],
+input[type='email'],
+input[type='search'],
+input[type='password'],
+//input[type='url'],
+// input[type='date'],
+textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border-radius: $input-border-radius;
+  box-sizing: border-box;
+  border: $input-border;
+  padding: $input-padding;
+  font-size: $input-font-size;
+  line-height: $input-line-height;
+
+  &:not(textarea) {
+    height: $input-height;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $input-focus-border-color;
+  }
+
+  @include placeholder {
+    color: $placeholder-color;
+  }
+}
+
+select {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border-radius: $input-border-radius;
+  box-sizing: border-box;
+  height: $select-height;
+  border: $select-border;
+  padding: $select-padding;
+  font-size: $select-font-size;
+  line-height: $select-line-height;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+textarea {
+  resize: vertical;
+  vertical-align: top;
+}
+
+button,
+input[type='button'],
+input[type='reset'],
+input[type='file'],
+input[type='submit'] {
+  @include animate(background);
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border-radius: $input-border-radius;
+  cursor: pointer;
+  background: $submit-background;
+  color: $submit-color;
+  border: $btn-border;
+  outline: none;
+  height: $input-height;
+  padding: $input-padding;
+  font-size: $input-font-size;
+  line-height: $input-line-height;
+
+  &:hover {
+    background: $submit-hover-background;
+    color: $submit-hover-color;
+  }
+}
+

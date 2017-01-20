@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "gulpfile.js",
   "scripts": {
-    "build": "gulp"
+    "start": "npm i && gulp",
+    "dist": "gulp dist"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",

@@ -1,0 +1,575 @@
+extends pug/common/_head
+block content
+	main#main
+		.container
+			#content
+				h1 Header one
+				h2 Header two
+				h3 Header three
+				h4 Header four
+				h5 Header five
+				h6 Header six
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+				p
+					img.alignleft(src='http://placehold.it/100x100', alt='image description')
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+				p
+					img.alignright(src='http://placehold.it/100x100', alt='image description')
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+				p
+					img.aligncenter(src='http://placehold.it/350x250', alt='image description')
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+				.wp-caption.aligncenter(style='width: 350px;')
+					img(src='http://placehold.it/350x150', alt='image description')
+					p Sapiente, minus, provident, possimus
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+				p
+					iframe(width='560', height='315', src='http://www.youtube.com/embed/nwe-H6l4beM?wmode=transparent', frameborder='0', allowfullscreen='')
+				p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+				// Blockquotes
+				p Single line blockquote:
+				blockquote Stay hungry. Stay foolish.
+				p Multi line blockquote with a cite reference:
+				blockquote
+					p People think focus means saying yes to the thing you've got to focus on. But that's not what it means at all. It means saying no to the hundred other good ideas that there are. You have to pick carefully. I'm actually as proud of the things we haven't done as the things I have done. Innovation is saying no to 1,000 things.
+					cite Steve Jobs - Apple Worldwide Developers' Conference, 1997
+				// Tables
+				table
+					tbody
+						tr
+							th Employee
+							th.views Salary
+							th
+						tr.odd
+							td
+								a(href='http://example.com/') Jane
+							td $1
+							td Because that's all Steve Job' needed for a salary.
+						tr.even
+							td
+								a(href='http://example.com/') John
+							td $100K
+							td For all the blogging he does.
+						tr.odd
+							td
+								a(href='http://example.com/') Jane
+							td $100M
+							td Pictures are worth a thousand words, right? So Tom x 1,000.
+						tr.even
+							td
+								a(href='http://example.com/') Jane
+							td $100B
+							td With hair like that?! Enough said...
+				// Definition Lists
+				dl
+					dt Definition List Title:
+					dd Definition list division.
+					dt Startup:
+					dd A startup company or startup is a company or temporary organization designed to search for a repeatable and scalable business model.
+					dt #dowork:
+					dd Coined by Rob Dyrdek and his personal body guard Christopher "Big Black" Boykins, "Do Work" works as a self motivator, to motivating your friends.
+					dt Do It Live:
+					dd
+						| I'll let Bill O'Reilly will
+						a(title="We'll Do It Live", href='https://www.youtube.com/watch?v=O_HyZ5aW76c') explain
+						|  this one.
+				// Unordered Lists (Nested)
+				ul
+					li List item one
+						ul
+							li List item one
+								ul
+									li List item one
+									li List item two
+									li List item three
+									li List item four
+							li List item two
+							li List item three
+							li List item four
+					li List item two
+					li List item three
+					li List item four
+				// Ordered List (Nested)
+				ol
+					li List item one
+						ol
+							li List item one
+								ol
+									li List item one
+									li List item two
+									li List item three
+									li List item four
+							li List item two
+							li List item three
+							li List item four
+					li List item two
+					li List item three
+					li List item four
+				// Ordered-Unordered-Ordered List
+				ol
+					li ordered item
+					li ordered item
+						ul
+							li
+								strong unordered
+							li
+								strong unordered
+								ol
+									li ordered item
+									li ordered item
+					li ordered item
+					li ordered item
+				// Ordered-Unordered-Unordered List
+				ol
+					li ordered item
+					li ordered item
+						ul
+							li
+								strong unordered
+							li
+								strong unordered
+								ul
+									li unordered item
+									li unordered item
+					li ordered item
+					li ordered item
+				// Unordered-Ordered-Unordered List
+				ul
+					li unordered item
+					li unordered item
+						ol
+							li ordered
+							li ordered
+								ul
+									li unordered item
+									li unordered item
+					li unordered item
+					li unordered item
+				// Unordered-Unordered-Ordered List
+				ul
+					li unordered item
+					li unordered item
+						ul
+							li unordered
+							li unordered
+								ol
+									li
+										strong ordered item
+									li
+										strong ordered item
+					li unordered item
+					li unordered item
+				// HTML Tags
+				strong Address Tag
+				p
+					address 1 Infinite Loop Cupertino, CA 95014 United States
+					|  example text
+				strong Anchor Tag (aka. Link)
+				p
+					| This is an example of a
+					a(title='Apple', href='http://apple.com/') link
+					| .
+				strong Cite Tag
+				p
+					| "Code is poetry." --
+					cite Automattic
+				strong Code Tag
+				p
+					| You will learn later on in these tests that
+					code word-wrap: break-word;
+					|  will be your best friend.
+				strong Delete Tag
+				p
+					| This tag will let you
+					del strikeout text
+					| , but this tag is no longer supported in HTML5 (use the &lt;strike&gt; instead).
+				strong Emphasize Tag
+				p
+					| The emphasize tag should
+					em italicize
+					|  text.
+				strong Keyboard Tag
+				p
+					| This scarcely known tag emulates
+					kbd  keyboard text
+					| , which is usually styled like the &lt;code&gt; tag.
+				strong Preformatted Tag
+				p This tag styles large blocks of code.
+				pre.
+					.post-title {
+						tmargin: 0 0 5px;
+						tfont-weight: bold;
+						tfont-size: 38px;
+						tline-height: 1.2;
+					}
+				strong Quote Tag
+				p
+					q Developers, developers, developers...
+					|  --Steve Ballmer
+				strong Strong Tag
+				p
+					| This tag shows
+					strong
+						| bold
+						strong  text.
+				strong Subscript Tag
+				p
+					| Getting our science styling on with H
+					sub 2
+					| O, which should push the "2" down.
+				strong Superscript Tag
+				p
+					| Still sticking with science and Isaac Newton's E = MC
+					sup 2
+					| , which should lift the 2 up.
+				// pagination
+				nav.navigation.pagination(role='navigation')
+					h2.screen-reader-text Posts navigation
+					.nav-links
+						a.prev.page-numbers(href='#') Previous page
+						a.page-numbers(href='#') 1
+						span.page-numbers.current 2
+						span.page-numbers.dots …
+						a.page-numbers(href='#') 3
+						a.page-numbers(href='#') 4
+						a.next.page-numbers(href='#') Next page
+				.navigation-single
+					.next
+						a(href='#') Next page
+					.prev
+						a(href='#') Previous page
+				.navigation-comments
+					a.prev.page-numbers(href='#') « Previous
+					a.page-numbers(href='#') 1
+					span.page-numbers.current 2
+					a.page-numbers(href='#') 3
+					a.page-numbers(href='#') 4
+					a.next.page-numbers(href='#') Next »
+				// Search Form
+				form#searchform.search-form(action='#', method='get', role='search')
+					input#s(name='s', type='search', placeholder='')
+					input#searchsubmit(value='Search', type='submit')
+				// Password Form
+				form.post-password-form(method='post', action='#')
+					p This content is password protected. To view it please enter your password below:
+					p
+						label(for='pwbox-1168') Password:
+						input#pwbox-1168(type='password', size='20', name='post_password')
+						input(type='submit', value='Submit', name='Submit')
+				// Comment List
+				.section.comments
+					h2 6 Responses to "Hello world!"
+					.commentlist
+						.commentlist-item
+							#comment-1.comment.even.thread-even.depth-1
+								.avatar-holder
+									img.avatar.avatar-48.photo.avatar-default(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAADo0lEQVRo3u2ZXU/qTBDH/1u3pS8uUg2uEC6AG0qa6Pf/AH4BbhQv1MQLgtE0VkwaSttzVVL69HVb8JzkmWSTgdJldvbXmdkpub+/j/APC42if9p+SIQQAAAhBGk961r8ua5e9D9NdFr0x6LGHnuupP4/Qr+t73cgiqL9l+ldabpLyfvb1mma0yx2s4whhFTSjx5G095vy6uUUsiyDEIIfN/HdruttfCqeiWEqoqu6+CcwzRNdDqdg2u+78NxHKzXa2w2G0RR9PcgJMsyxuMx+v1+7r2KooBzjuvraziOg+fn5/2uNIpCoh6P79E0Dbe3t3vjk57N0gkhME0Td3d3YIyV/r5Ml4p+lDWSxquqCtu297jU2npKMZ/PcX5+3gghKRnz6wxJkjCbzaAoCkTnoJRiNpvh7OxMeA6paJVZ1+LPnHMYhiG89bHe6XQwGo2EH+ZShNLXYhkOh60lo5ubG0iSJOQEKpJsGGNQVbW9ZEQpTNPE5+dn8yhUBaGLi4vG0SOtd7tdoV2k6chSpRZKer+t2kbTNJTZUjmRlUkcNdoU0TmFEArDsHWEgiA4HUKe57WOkOd5p0PIdd3WERKdUwgh13Wx3W5bQygIAjiOI5bIylaYdYyLogir1ao1hN7f3/fPgNAO5FWbecUcAKxWK3ieJ1zDxMP3fby9vQk7QCrzft7BPggCLJdL7HY7YYTCMMTT0xN83292HqiKTlp+fn7w8PCA3W5X24NhGGK5XMJ13UadCWGEYvn+/sZiscDX19d/WjJ5Y7PZYLFYwHGcxs+QMELp4k6SpFoIxaV4K10JUYRM08R4PIamabW6FowxMMYwGo3w+vq6D6EinQlapW2StbjpdArOeaOEpus65vM51us1Xl5eEIZhbYRolRyQbLlQSmFZFhhjws2udOOLcw5d1/H4+Fg7ItWKQpRS2LadaXxTnTEG27Yhy/JxohAhBJZlwTCMxskrbxiGAcuyDnaptSg0mUzQ7XZbLaGzdMYYJpNJuwiZpgnOuVC5K6LH7clWEIojzrGwyRvT6fQgtwgjNBgMDhq1x0Yo2S8aDAbNECKEHPR/ToVQrA+Hw9K3Q4WJ7OrqCoqi/Nr7L0VRcHl5iY+PDzGE+v1+rneOjVCsxzbURohSil6vlzv5KRACgF6vB0ppfYSSFeZvCiEEjLHcM7NUtIAi75wKobQtlctpwzBOikqRnjw7VC6nVVU9yWvSKlLUi81FKK4K/waEkrak5Q/Blfve769PRgAAAABJRU5ErkJggg==', alt='', height='48', width='48')
+								.commentlist-holder
+									p.edit-link
+										a.comment-edit-link(href='#') Edit
+									p.meta
+										| November 28, 2013 at 9:35 am,
+										a.url(rel='external nofollow', href='http://wordpress.org/') Mr WordPress
+										|  said:
+									p
+										| Hi, this is a comment.
+										br
+										| To delete a comment, just log in and view the post's comments. There you will have the option to edit or delete them.
+									p
+										a.comment-reply-link(onclick='return addComment.moveForm("comment-1", "1", "respond", "1")', href='https://flow-attachments.s3.amazonaws.com/?p=1&replytocom=1#respond') Reply
+							.commentlist-item
+								#comment-2.comment.byuser.comment-author-admin.bypostauthor.odd.alt.depth-2
+									.avatar-holder
+										img.avatar.avatar-48.photo(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAADo0lEQVRo3u2ZXU/qTBDH/1u3pS8uUg2uEC6AG0qa6Pf/AH4BbhQv1MQLgtE0VkwaSttzVVL69HVb8JzkmWSTgdJldvbXmdkpub+/j/APC42if9p+SIQQAAAhBGk961r8ua5e9D9NdFr0x6LGHnuupP4/Qr+t73cgiqL9l+ldabpLyfvb1mma0yx2s4whhFTSjx5G095vy6uUUsiyDEIIfN/HdruttfCqeiWEqoqu6+CcwzRNdDqdg2u+78NxHKzXa2w2G0RR9PcgJMsyxuMx+v1+7r2KooBzjuvraziOg+fn5/2uNIpCoh6P79E0Dbe3t3vjk57N0gkhME0Td3d3YIyV/r5Ml4p+lDWSxquqCtu297jU2npKMZ/PcX5+3gghKRnz6wxJkjCbzaAoCkTnoJRiNpvh7OxMeA6paJVZ1+LPnHMYhiG89bHe6XQwGo2EH+ZShNLXYhkOh60lo5ubG0iSJOQEKpJsGGNQVbW9ZEQpTNPE5+dn8yhUBaGLi4vG0SOtd7tdoV2k6chSpRZKer+t2kbTNJTZUjmRlUkcNdoU0TmFEArDsHWEgiA4HUKe57WOkOd5p0PIdd3WERKdUwgh13Wx3W5bQygIAjiOI5bIylaYdYyLogir1ao1hN7f3/fPgNAO5FWbecUcAKxWK3ieJ1zDxMP3fby9vQk7QCrzft7BPggCLJdL7HY7YYTCMMTT0xN83292HqiKTlp+fn7w8PCA3W5X24NhGGK5XMJ13UadCWGEYvn+/sZiscDX19d/WjJ5Y7PZYLFYwHGcxs+QMELp4k6SpFoIxaV4K10JUYRM08R4PIamabW6FowxMMYwGo3w+vq6D6EinQlapW2StbjpdArOeaOEpus65vM51us1Xl5eEIZhbYRolRyQbLlQSmFZFhhjws2udOOLcw5d1/H4+Fg7ItWKQpRS2LadaXxTnTEG27Yhy/JxohAhBJZlwTCMxskrbxiGAcuyDnaptSg0mUzQ7XZbLaGzdMYYJpNJuwiZpgnOuVC5K6LH7clWEIojzrGwyRvT6fQgtwgjNBgMDhq1x0Yo2S8aDAbNECKEHPR/ToVQrA+Hw9K3Q4WJ7OrqCoqi/Nr7L0VRcHl5iY+PDzGE+v1+rneOjVCsxzbURohSil6vlzv5KRACgF6vB0ppfYSSFeZvCiEEjLHcM7NUtIAi75wKobQtlctpwzBOikqRnjw7VC6nVVU9yWvSKlLUi81FKK4K/waEkrak5Q/Blfve769PRgAAAABJRU5ErkJggg==', alt='', height='48', width='48')
+									.commentlist-holder
+										p.edit-link
+											a.comment-edit-link(href='#') Edit
+										p.meta November 29, 2013 at 11:42 am, admin said:
+										p > comment to comment 1
+										p
+											a.comment-reply-link(onclick='return addComment.moveForm("comment-2", "2", "respond", "1")', href='https://flow-attachments.s3.amazonaws.com/?p=1&replytocom=2#respond') Reply
+							.commentlist-item
+								#comment-2.comment.byuser.comment-author-admin.bypostauthor.odd.alt.depth-2
+									.avatar-holder
+										img.avatar.avatar-48.photo(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAADo0lEQVRo3u2ZXU/qTBDH/1u3pS8uUg2uEC6AG0qa6Pf/AH4BbhQv1MQLgtE0VkwaSttzVVL69HVb8JzkmWSTgdJldvbXmdkpub+/j/APC42if9p+SIQQAAAhBGk961r8ua5e9D9NdFr0x6LGHnuupP4/Qr+t73cgiqL9l+ldabpLyfvb1mma0yx2s4whhFTSjx5G095vy6uUUsiyDEIIfN/HdruttfCqeiWEqoqu6+CcwzRNdDqdg2u+78NxHKzXa2w2G0RR9PcgJMsyxuMx+v1+7r2KooBzjuvraziOg+fn5/2uNIpCoh6P79E0Dbe3t3vjk57N0gkhME0Td3d3YIyV/r5Ml4p+lDWSxquqCtu297jU2npKMZ/PcX5+3gghKRnz6wxJkjCbzaAoCkTnoJRiNpvh7OxMeA6paJVZ1+LPnHMYhiG89bHe6XQwGo2EH+ZShNLXYhkOh60lo5ubG0iSJOQEKpJsGGNQVbW9ZEQpTNPE5+dn8yhUBaGLi4vG0SOtd7tdoV2k6chSpRZKer+t2kbTNJTZUjmRlUkcNdoU0TmFEArDsHWEgiA4HUKe57WOkOd5p0PIdd3WERKdUwgh13Wx3W5bQygIAjiOI5bIylaYdYyLogir1ao1hN7f3/fPgNAO5FWbecUcAKxWK3ieJ1zDxMP3fby9vQk7QCrzft7BPggCLJdL7HY7YYTCMMTT0xN83292HqiKTlp+fn7w8PCA3W5X24NhGGK5XMJ13UadCWGEYvn+/sZiscDX19d/WjJ5Y7PZYLFYwHGcxs+QMELp4k6SpFoIxaV4K10JUYRM08R4PIamabW6FowxMMYwGo3w+vq6D6EinQlapW2StbjpdArOeaOEpus65vM51us1Xl5eEIZhbYRolRyQbLlQSmFZFhhjws2udOOLcw5d1/H4+Fg7ItWKQpRS2LadaXxTnTEG27Yhy/JxohAhBJZlwTCMxskrbxiGAcuyDnaptSg0mUzQ7XZbLaGzdMYYJpNJuwiZpgnOuVC5K6LH7clWEIojzrGwyRvT6fQgtwgjNBgMDhq1x0Yo2S8aDAbNECKEHPR/ToVQrA+Hw9K3Q4WJ7OrqCoqi/Nr7L0VRcHl5iY+PDzGE+v1+rneOjVCsxzbURohSil6vlzv5KRACgF6vB0ppfYSSFeZvCiEEjLHcM7NUtIAi75wKobQtlctpwzBOikqRnjw7VC6nVVU9yWvSKlLUi81FKK4K/waEkrak5Q/Blfve769PRgAAAABJRU5ErkJggg==', alt='', height='48', width='48')
+									.commentlist-holder
+										p.edit-link
+											a.comment-edit-link(href='#') Edit
+										p.meta November 29, 2013 at 11:42 am, admin said:
+										p > comment to comment 2
+										p
+											a.comment-reply-link(onclick='return addComment.moveForm("comment-2", "2", "respond", "1")', href='https://flow-attachments.s3.amazonaws.com/?p=1&replytocom=2#respond') Reply
+								.commentlist-item
+									#comment-3.comment.byuser.comment-author-admin.bypostauthor.even.depth-3
+										.avatar-holder
+											img.avatar.avatar-48.photo(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAADo0lEQVRo3u2ZXU/qTBDH/1u3pS8uUg2uEC6AG0qa6Pf/AH4BbhQv1MQLgtE0VkwaSttzVVL69HVb8JzkmWSTgdJldvbXmdkpub+/j/APC42if9p+SIQQAAAhBGk961r8ua5e9D9NdFr0x6LGHnuupP4/Qr+t73cgiqL9l+ldabpLyfvb1mma0yx2s4whhFTSjx5G095vy6uUUsiyDEIIfN/HdruttfCqeiWEqoqu6+CcwzRNdDqdg2u+78NxHKzXa2w2G0RR9PcgJMsyxuMx+v1+7r2KooBzjuvraziOg+fn5/2uNIpCoh6P79E0Dbe3t3vjk57N0gkhME0Td3d3YIyV/r5Ml4p+lDWSxquqCtu297jU2npKMZ/PcX5+3gghKRnz6wxJkjCbzaAoCkTnoJRiNpvh7OxMeA6paJVZ1+LPnHMYhiG89bHe6XQwGo2EH+ZShNLXYhkOh60lo5ubG0iSJOQEKpJsGGNQVbW9ZEQpTNPE5+dn8yhUBaGLi4vG0SOtd7tdoV2k6chSpRZKer+t2kbTNJTZUjmRlUkcNdoU0TmFEArDsHWEgiA4HUKe57WOkOd5p0PIdd3WERKdUwgh13Wx3W5bQygIAjiOI5bIylaYdYyLogir1ao1hN7f3/fPgNAO5FWbecUcAKxWK3ieJ1zDxMP3fby9vQk7QCrzft7BPggCLJdL7HY7YYTCMMTT0xN83292HqiKTlp+fn7w8PCA3W5X24NhGGK5XMJ13UadCWGEYvn+/sZiscDX19d/WjJ5Y7PZYLFYwHGcxs+QMELp4k6SpFoIxaV4K10JUYRM08R4PIamabW6FowxMMYwGo3w+vq6D6EinQlapW2StbjpdArOeaOEpus65vM51us1Xl5eEIZhbYRolRyQbLlQSmFZFhhjws2udOOLcw5d1/H4+Fg7ItWKQpRS2LadaXxTnTEG27Yhy/JxohAhBJZlwTCMxskrbxiGAcuyDnaptSg0mUzQ7XZbLaGzdMYYJpNJuwiZpgnOuVC5K6LH7clWEIojzrGwyRvT6fQgtwgjNBgMDhq1x0Yo2S8aDAbNECKEHPR/ToVQrA+Hw9K3Q4WJ7OrqCoqi/Nr7L0VRcHl5iY+PDzGE+v1+rneOjVCsxzbURohSil6vlzv5KRACgF6vB0ppfYSSFeZvCiEEjLHcM7NUtIAi75wKobQtlctpwzBOikqRnjw7VC6nVVU9yWvSKlLUi81FKK4K/waEkrak5Q/Blfve769PRgAAAABJRU5ErkJggg==', alt='', height='48', width='48')
+										.commentlist-holder
+											p.edit-link
+												a.comment-edit-link(href='#') Edit
+											p.meta November 29, 2013 at 11:43 am, admin said:
+											p > comment to comment to comment 1
+											p
+												a.comment-reply-link(onclick='return addComment.moveForm("comment-3", "3", "respond", "1")', href='https://flow-attachments.s3.amazonaws.com/?p=1&replytocom=3#respond') Reply
+						.commentlist-item
+							#comment-4.comment.byuser.comment-author-admin.bypostauthor.odd.alt.thread-odd.thread-alt.depth-1
+								.avatar-holder
+									img.avatar.avatar-48.photo(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAADo0lEQVRo3u2ZXU/qTBDH/1u3pS8uUg2uEC6AG0qa6Pf/AH4BbhQv1MQLgtE0VkwaSttzVVL69HVb8JzkmWSTgdJldvbXmdkpub+/j/APC42if9p+SIQQAAAhBGk961r8ua5e9D9NdFr0x6LGHnuupP4/Qr+t73cgiqL9l+ldabpLyfvb1mma0yx2s4whhFTSjx5G095vy6uUUsiyDEIIfN/HdruttfCqeiWEqoqu6+CcwzRNdDqdg2u+78NxHKzXa2w2G0RR9PcgJMsyxuMx+v1+7r2KooBzjuvraziOg+fn5/2uNIpCoh6P79E0Dbe3t3vjk57N0gkhME0Td3d3YIyV/r5Ml4p+lDWSxquqCtu297jU2npKMZ/PcX5+3gghKRnz6wxJkjCbzaAoCkTnoJRiNpvh7OxMeA6paJVZ1+LPnHMYhiG89bHe6XQwGo2EH+ZShNLXYhkOh60lo5ubG0iSJOQEKpJsGGNQVbW9ZEQpTNPE5+dn8yhUBaGLi4vG0SOtd7tdoV2k6chSpRZKer+t2kbTNJTZUjmRlUkcNdoU0TmFEArDsHWEgiA4HUKe57WOkOd5p0PIdd3WERKdUwgh13Wx3W5bQygIAjiOI5bIylaYdYyLogir1ao1hN7f3/fPgNAO5FWbecUcAKxWK3ieJ1zDxMP3fby9vQk7QCrzft7BPggCLJdL7HY7YYTCMMTT0xN83292HqiKTlp+fn7w8PCA3W5X24NhGGK5XMJ13UadCWGEYvn+/sZiscDX19d/WjJ5Y7PZYLFYwHGcxs+QMELp4k6SpFoIxaV4K10JUYRM08R4PIamabW6FowxMMYwGo3w+vq6D6EinQlapW2StbjpdArOeaOEpus65vM51us1Xl5eEIZhbYRolRyQbLlQSmFZFhhjws2udOOLcw5d1/H4+Fg7ItWKQpRS2LadaXxTnTEG27Yhy/JxohAhBJZlwTCMxskrbxiGAcuyDnaptSg0mUzQ7XZbLaGzdMYYJpNJuwiZpgnOuVC5K6LH7clWEIojzrGwyRvT6fQgtwgjNBgMDhq1x0Yo2S8aDAbNECKEHPR/ToVQrA+Hw9K3Q4WJ7OrqCoqi/Nr7L0VRcHl5iY+PDzGE+v1+rneOjVCsxzbURohSil6vlzv5KRACgF6vB0ppfYSSFeZvCiEEjLHcM7NUtIAi75wKobQtlctpwzBOikqRnjw7VC6nVVU9yWvSKlLUi81FKK4K/waEkrak5Q/Blfve769PRgAAAABJRU5ErkJggg==', alt='', height='48', width='48')
+								.commentlist-holder
+									p.edit-link
+										a.comment-edit-link(href='#') Edit
+									p.meta November 29, 2013 at 11:43 am, admin said:
+									p comment 2
+									p
+										a.comment-reply-link(onclick='return addComment.moveForm("comment-4", "4", "respond", "1")', href='https://flow-attachments.s3.amazonaws.com/?p=1&replytocom=4#respond') Reply
+						.commentlist-item
+							#comment-5.comment.byuser.comment-author-admin.bypostauthor.even.thread-even.depth-1
+								.avatar-holder
+									img.avatar.avatar-48.photo(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAADo0lEQVRo3u2ZXU/qTBDH/1u3pS8uUg2uEC6AG0qa6Pf/AH4BbhQv1MQLgtE0VkwaSttzVVL69HVb8JzkmWSTgdJldvbXmdkpub+/j/APC42if9p+SIQQAAAhBGk961r8ua5e9D9NdFr0x6LGHnuupP4/Qr+t73cgiqL9l+ldabpLyfvb1mma0yx2s4whhFTSjx5G095vy6uUUsiyDEIIfN/HdruttfCqeiWEqoqu6+CcwzRNdDqdg2u+78NxHKzXa2w2G0RR9PcgJMsyxuMx+v1+7r2KooBzjuvraziOg+fn5/2uNIpCoh6P79E0Dbe3t3vjk57N0gkhME0Td3d3YIyV/r5Ml4p+lDWSxquqCtu297jU2npKMZ/PcX5+3gghKRnz6wxJkjCbzaAoCkTnoJRiNpvh7OxMeA6paJVZ1+LPnHMYhiG89bHe6XQwGo2EH+ZShNLXYhkOh60lo5ubG0iSJOQEKpJsGGNQVbW9ZEQpTNPE5+dn8yhUBaGLi4vG0SOtd7tdoV2k6chSpRZKer+t2kbTNJTZUjmRlUkcNdoU0TmFEArDsHWEgiA4HUKe57WOkOd5p0PIdd3WERKdUwgh13Wx3W5bQygIAjiOI5bIylaYdYyLogir1ao1hN7f3/fPgNAO5FWbecUcAKxWK3ieJ1zDxMP3fby9vQk7QCrzft7BPggCLJdL7HY7YYTCMMTT0xN83292HqiKTlp+fn7w8PCA3W5X24NhGGK5XMJ13UadCWGEYvn+/sZiscDX19d/WjJ5Y7PZYLFYwHGcxs+QMELp4k6SpFoIxaV4K10JUYRM08R4PIamabW6FowxMMYwGo3w+vq6D6EinQlapW2StbjpdArOeaOEpus65vM51us1Xl5eEIZhbYRolRyQbLlQSmFZFhhjws2udOOLcw5d1/H4+Fg7ItWKQpRS2LadaXxTnTEG27Yhy/JxohAhBJZlwTCMxskrbxiGAcuyDnaptSg0mUzQ7XZbLaGzdMYYJpNJuwiZpgnOuVC5K6LH7clWEIojzrGwyRvT6fQgtwgjNBgMDhq1x0Yo2S8aDAbNECKEHPR/ToVQrA+Hw9K3Q4WJ7OrqCoqi/Nr7L0VRcHl5iY+PDzGE+v1+rneOjVCsxzbURohSil6vlzv5KRACgF6vB0ppfYSSFeZvCiEEjLHcM7NUtIAi75wKobQtlctpwzBOikqRnjw7VC6nVVU9yWvSKlLUi81FKK4K/waEkrak5Q/Blfve769PRgAAAABJRU5ErkJggg==', alt='', height='48', width='48')
+								.commentlist-holder
+									p.edit-link
+										a.comment-edit-link(href='#') Edit
+									p.meta November 29, 2013 at 11:43 am, admin said:
+									p comment 3
+									p
+										a.comment-reply-link(onclick='return addComment.moveForm("comment-5", "5", "respond", "1")', href='https://flow-attachments.s3.amazonaws.com/?p=1&replytocom=5#respond') Reply
+						.commentlist-item
+							#comment-6.comment.byuser.comment-author-admin.bypostauthor.odd.alt.thread-odd.thread-alt.depth-1
+								.avatar-holder
+									img.avatar.avatar-48.photo(src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAADo0lEQVRo3u2ZXU/qTBDH/1u3pS8uUg2uEC6AG0qa6Pf/AH4BbhQv1MQLgtE0VkwaSttzVVL69HVb8JzkmWSTgdJldvbXmdkpub+/j/APC42if9p+SIQQAAAhBGk961r8ua5e9D9NdFr0x6LGHnuupP4/Qr+t73cgiqL9l+ldabpLyfvb1mma0yx2s4whhFTSjx5G095vy6uUUsiyDEIIfN/HdruttfCqeiWEqoqu6+CcwzRNdDqdg2u+78NxHKzXa2w2G0RR9PcgJMsyxuMx+v1+7r2KooBzjuvraziOg+fn5/2uNIpCoh6P79E0Dbe3t3vjk57N0gkhME0Td3d3YIyV/r5Ml4p+lDWSxquqCtu297jU2npKMZ/PcX5+3gghKRnz6wxJkjCbzaAoCkTnoJRiNpvh7OxMeA6paJVZ1+LPnHMYhiG89bHe6XQwGo2EH+ZShNLXYhkOh60lo5ubG0iSJOQEKpJsGGNQVbW9ZEQpTNPE5+dn8yhUBaGLi4vG0SOtd7tdoV2k6chSpRZKer+t2kbTNJTZUjmRlUkcNdoU0TmFEArDsHWEgiA4HUKe57WOkOd5p0PIdd3WERKdUwgh13Wx3W5bQygIAjiOI5bIylaYdYyLogir1ao1hN7f3/fPgNAO5FWbecUcAKxWK3ieJ1zDxMP3fby9vQk7QCrzft7BPggCLJdL7HY7YYTCMMTT0xN83292HqiKTlp+fn7w8PCA3W5X24NhGGK5XMJ13UadCWGEYvn+/sZiscDX19d/WjJ5Y7PZYLFYwHGcxs+QMELp4k6SpFoIxaV4K10JUYRM08R4PIamabW6FowxMMYwGo3w+vq6D6EinQlapW2StbjpdArOeaOEpus65vM51us1Xl5eEIZhbYRolRyQbLlQSmFZFhhjws2udOOLcw5d1/H4+Fg7ItWKQpRS2LadaXxTnTEG27Yhy/JxohAhBJZlwTCMxskrbxiGAcuyDnaptSg0mUzQ7XZbLaGzdMYYJpNJuwiZpgnOuVC5K6LH7clWEIojzrGwyRvT6fQgtwgjNBgMDhq1x0Yo2S8aDAbNECKEHPR/ToVQrA+Hw9K3Q4WJ7OrqCoqi/Nr7L0VRcHl5iY+PDzGE+v1+rneOjVCsxzbURohSil6vlzv5KRACgF6vB0ppfYSSFeZvCiEEjLHcM7NUtIAi75wKobQtlctpwzBOikqRnjw7VC6nVVU9yWvSKlLUi81FKK4K/waEkrak5Q/Blfve769PRgAAAABJRU5ErkJggg==', alt='', height='48', width='48')
+								.commentlist-holder
+									p.edit-link
+										a.comment-edit-link(href='#') Edit
+									p.meta
+										| November 29, 2013 at 11:43 am,
+										a.url(rel='external nofollow', href='http://wordpress.org/') Mr WordPress
+										|  said:
+									p comment 4
+									p
+										a.comment-reply-link(onclick='return addComment.moveForm("comment-6", "6", "respond", "1")', href='https://flow-attachments.s3.amazonaws.com/?p=1&replytocom=6#respond') Reply
+				// Comment Form
+				.comment-respond
+					h3#reply-title.comment-reply-title
+						| Leave a Reply
+						small
+							a#cancel-comment-reply-link(style='display:none;', href='https://flow-attachments.s3.amazonaws.com/?p=1#respond', rel='nofollow') Cancel reply
+					form#commentform.comment-form(method='post', action='http://twitter.staging.com/wp-comments-post.php')
+						p.comment-notes
+							| Your email address will not be published. Required fields are marked
+							span.required *
+						p.comment-form-author
+							label(for='author')
+								| Name
+								span.required *
+							input#author(aria-required='true', size='30', name='author', type='text')
+						p.comment-form-email
+							label(for='email')
+								| Email
+								span.required *
+							input#email(aria-required='true', size='30', name='email', type='text')
+						p.comment-form-url
+							label(for='url') Website
+							input#url(size='30', name='url', type='text')
+						p.comment-form-comment
+							label(for='comment') Comment
+							textarea#comment(aria-required='true', rows='8', cols='45', name='comment')
+						p.form-allowed-tags
+							| You may use these
+							abbr(title='HyperText Markup Language') HTML
+							|  tags and attributes:
+							code
+								| &lt;a
+								| href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt;
+								| &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del
+								| datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt;
+								| &lt;strong&gt;
+						p.form-submit
+							input#submit(value='Post Comment', name='submit', type='submit')
+							input#comment_post_ID(value='1', name='comment_post_ID', type='hidden')
+							input#comment_parent(value='0', name='comment_parent', type='hidden')
+				// Comment Form (logged)
+				.comment-respond
+					h3#reply-title.comment-reply-title
+						| Leave a Reply
+						small
+							a#cancel-comment-reply-link(style='display:none;', href='#', rel='nofollow') Cancel reply
+					form#commentform.comment-form(method='post', action='http://twitter.staging.com/wp-comments-post.php')
+						p.logged-in-as
+							| Logged in as
+							a(href='http://twitter.staging.com/wp-admin/profile.php') admin
+							| .
+							a(title='Log out of this account', href='http://twitter.staging.com/wp-login.php?action=logout&redirect_to=http%3A%2F%2Ftwitter.staging.com%2F%3Fp%3D1&_wpnonce=7b75421b19') Log out?
+						p.comment-form-comment
+							label(for='comment') Comment
+							textarea#comment(aria-required='true', rows='8', cols='45', name='comment')
+						p.form-allowed-tags
+							| You may use these
+							abbr(title='HyperText Markup Language') HTML
+							|  tags and attributes:
+							code
+								| &lt;a
+								| href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt;
+								| &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del
+								| datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt;
+								| &lt;strong&gt;
+						p.form-submit
+							input#submit(value='Post Comment', name='submit', type='submit')
+							input#comment_post_ID(value='1', name='comment_post_ID', type='hidden')
+							input#comment_parent(value='0', name='comment_parent', type='hidden')
+						input#_wp_unfiltered_html_comment_disabled(value='0cbd77c2aa', name='_wp_unfiltered_html_comment', type='hidden')
+						script.
+							(function(){if(window===window.parent){document.getElementById('_wp_unfiltered_html_comment_disabled').name='_wp_unfiltered_html_comment';}})();
+			aside#sidebar
+				.widget.widget_meta
+					h3 Meta
+					ul
+						li
+							a(href='http://widgets.demo.w3.ua/wp-login.php') Log in
+						li
+							a(title='Syndicate this site using RSS 2.0', href='#')
+								| Entries
+								abbr(title='Really Simple Syndication') RSS
+						li
+							a(title='The latest comments to all posts in RSS', href='#')
+								| Comments
+								abbr(title='Really Simple Syndication') RSS
+						li
+							a(title='Powered by WordPress, state-of-the-art semantic personal publishing platform.', href='https://wordpress.org/') WordPress.org
+				.widget.widget_categories
+					h3 Categories (dropdown)
+					select#cat.postform(name='cat')
+						option(value='-1') Select Category
+						option.level-0(value='1') Uncategorized
+				.widget.widget_categories
+					h3 Categories (hierarchy)
+					ul
+						li.cat-item.cat-item-1
+							a(href='#') Uncategorized
+						li.cat-item.cat-item-2
+							a(href='#') Category 2
+				.widget.widget_categories
+					h3 Categories (counts)
+					ul
+						li.cat-item.cat-item-1
+							a(href='#') Uncategorized
+							|  (3)
+						li.cat-item.cat-item-2
+							a(href='#') Category 2
+							|  (15)
+				.widget.widget_archive
+					h3 Archives_counts
+					ul
+						li
+							a(href='#') June 2014
+							|  (1)
+						li
+							a(href='#') May 2014
+							|  (1)
+						li
+							a(href='#') April 2014
+							|  (1)
+				.widget.widget_archive
+					h3 Archives
+					select(name='archive-dropdown')
+						option(value='') Select Month
+						option(value='')  June 2014
+						option(value='')  May 2014
+						option(value='')  April 2014
+				.widget.widget_recent_comments
+					h3 Recent Comments
+					ul#recentcomments
+						li.recentcomments
+							a.url(rel='external nofollow', href='https://wordpress.org/') Mr WordPress
+							|  on
+							a(href='#') Hello world!
+						li.recentcomments
+							a.url(rel='external nofollow', href='https://wordpress.org/') Mr WordPress
+							|  on
+							a(href='#') Hello world2.
+				#text-2.widget.widget_text
+					h3 Text
+					p
+						| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+				.widget.widget_search
+					h3 Search
+					form.search-form(action='#', method='get')
+						fieldset
+							input(type='search', placeholder='Enter search terms...', name='s')
+							input(type='submit', value='Search')
+				.widget.widget_calendar
+					h3 Calendar
+					#calendar_wrap
+						table#wp-calendar
+							caption May 2014
+							thead
+								tr
+									th(title='Monday', scope='col') M
+									th(title='Tuesday', scope='col') T
+									th(title='Wednesday', scope='col') W
+									th(title='Thursday', scope='col') T
+									th(title='Friday', scope='col') F
+									th(title='Saturday', scope='col') S
+									th(title='Sunday', scope='col') S
+							tfoot
+								tr
+									td#prev(colspan='3')
+										a(title='View posts for April 2014', href='#') « Apr
+									td.pad
+									td#next(colspan='3')
+										a(title='View posts for June 2014', href='#') Jun »
+							tbody
+								tr
+									td.pad(colspan='3')
+									td 1
+									td 2
+									td 3
+									td 4
+								tr
+									td 5
+									td 6
+									td 7
+									td 8
+									td 9
+									td 10
+									td 11
+								tr
+									td 12
+									td 13
+									td 14
+									td 15
+									td 16
+									td 17
+									td 18
+								tr
+									td 19
+									td 20
+									td 21
+									td 22
+									td 23
+									td 24
+									td 25
+								tr
+									td
+										a(title='post', href='#') 26
+									td 27
+									td 28
+									td 29
+									td 30
+									td 31
+									td.pad(colspan='1')
+				.widget.widget_pages
+					h3 Pages
+					ul
+						li.page_item.page-item-2
+							a(href='#') Sample Page
+						li.page_item.page-item-3
+							a(href='#') Sample Page2
+				#tag_cloud-2.widget.widget_tag_cloud
+					h3 Tag
+					.tagcloud
+						a.tag-link-2(style='font-size: 8px;', title='1 topic', href='#') test
+						a.tag-link-3(style='font-size: 16px;', title='1 topic', href='#') test_2
+						a.tag-link-5(style='font-size: 12px;', title='1 topic', href='#') test_4
+						a.tag-link-6(style='font-size: 20px;', title='1 topic', href='#') test_5
+						a.tag-link-4(style='font-size: 8px;', title='1 topic', href='#') test__3

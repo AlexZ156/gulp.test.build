@@ -275,8 +275,5 @@ gulp.task('dist', gulp.series(
 	'build',
 	gulp.parallel('imagesOptimize', 'beautify')
 ));
-gulp.task('default', gulp.series(
-	gulp.parallel('server', gulp.parallel('build')),
-	'watch'
-));
+gulp.task('default', gulp.series('build', 'server', 'watch'));
 

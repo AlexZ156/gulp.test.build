@@ -1,0 +1,127 @@
+// Colors
+// Color calculator - http://razorjam.github.io/sasscolourfunctioncalculator/
+// Color names - http://name-of-color.com/
+
+$gray: #999;
+$black: #1f1f1f;
+$white: #fff;
+$blue: #5b759e;
+
+$base-font-sans-serif: 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+$base-font-serif: 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
+$add-ff:  $base-font-sans-serif;
+
+// Body
+$base-text-color: $black !default;
+$base-background-color: $white !default;
+$font-size-base: 16px !default;
+$font-size-base-lagre: 18px !default;
+$line-height-base: 1.2 !default;
+$base-font-family: $base-font-sans-serif !default;
+$base-min-width: 320px;
+
+$max-width-center-container: 1200px;
+$padding-container: 0 15px;
+
+// default margins
+$vertical-rhythm: $font-size-base + 4;
+$widget-margin: 20px;
+
+// Liks
+$base-link-color: $blue;
+$base-link-hover-color: $black;
+$text-decoration: none;
+$text-decoration-hover: none;
+
+// Headers size
+$title-palette: (
+	mobile: (
+	    'h1': 20,
+	    'h2': 16,
+	    'h3': 15,
+	    'h4': 14,
+	    'h5': 14,
+	    'h6': 14
+	),
+	tablet: (
+	    'h1': 40,
+	    'h2': 30,
+	    'h3': 28,
+	    'h4': 20,
+	    'h5': 18,
+	    'h6': 16
+	),
+	desktop: (
+	    'h1': 40,
+	    'h2': 30,
+	    'h3': 28,
+	    'h4': 20,
+	    'h5': 18,
+	    'h6': 16
+	),
+	widescreen: (
+	    'h1': 40,
+	    'h2': 30,
+	    'h3': 28,
+	    'h4': 20,
+	    'h5': 18,
+	    'h6': 16
+	)
+);
+$headings-font-family: $base-font-family;
+$headings-color: inherit !default;
+
+// Buttons 
+$btn-color: $white !default;
+$btn-background: $gray !default;
+$btn-border: 1px solid $black; 
+$btn-padding: 4px 10px !default;
+$btn-font-size: $font-size-base - 2 !default;
+$btn-line-height: $font-size-base + 2;
+// hover
+$btn-hover-background: $black !default;
+$btn-hover-color: $white !default;
+
+// Forms
+$input-font-size: $btn-font-size; // font size for forms elements
+$input-line-height: $btn-line-height; // line height for forms elements
+$input-padding: $btn-padding !default; // padding for forms elements
+$input-border: 1px solid $black !default; // border for forms elements
+$input-border-radius: 0 !default; // border radius for forms elements
+$input-height: $font-size-base + 14px; // height for forms elements
+//submit
+$submit-background: $btn-background;
+$submit-color: $btn-color;
+$submit-height: $input-height;
+$submit-border: $btn-border;
+$submit-padding: $input-padding;
+$submit-font-size: $input-font-size;
+$submit-line-height: $input-line-height;
+// submit hover 
+$submit-hover-background: $btn-hover-background; // submit background hover 
+$submit-hover-color: $btn-hover-color; // submit color hover
+//focus
+$input-focus-border-color: $black !default; // border color for forms elements
+//placeholder
+$placeholder-color: $gray !default;
+// select
+$select-height: $input-height;
+$select-border: $input-border;
+$select-padding: $input-padding;
+$select-font-size: $input-font-size;
+$select-line-height: $input-line-height;
+
+
+// nav
+$nav-color: $black;
+$mobile-nav-drop-bg: $black;
+$mobile-nav-drop-color: $white;
+
+$animation-speed: 0.3s;
+
+
+
+
+
+
+

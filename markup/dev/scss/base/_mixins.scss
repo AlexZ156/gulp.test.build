@@ -46,7 +46,6 @@
   }
 }
 
-
 // vertical align el
 // usage: @include vertical-align-el;
 //
@@ -256,4 +255,19 @@ $animation-speed: .3s !default;
 @mixin rem-font-size($pxSize) {
   font-size: $pxSize;
   font-size: ($pxSize / 10px) + rem;
+}
+
+//font-face
+@mixin font-face($font-name, $font-path, $weight, $style){
+ @font-face {
+  font-family: '#{$font-name}';
+  src:url('fonts/#{$font-path}.eot');
+  src:url('fonts/#{$font-path}.eot?#iefix') format('embedded-opentype'),
+  url('fonts/#{$font-path}.woff2') format('woff'),
+  url('fonts/#{$font-path}.woff') format('woff'),
+  url('fonts/#{$font-path}.ttf') format('truetype'),
+  url('fonts/#{$font-path}.svg##{$font-name}') format('svg');
+  font-weight: $weight;
+  font-style: $style;
+}
 }

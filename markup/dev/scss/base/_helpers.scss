@@ -57,3 +57,18 @@
   overflow: hidden;
 }
 
+.btn {
+  @include animate(background);
+  
+  background: $btn-background;
+  color: $btn-color;
+  border: $btn-border;
+  padding: $btn-padding;
+  font-size: $btn-font-size;
+  line-height: $btn-line-height;
+
+  &:hover {
+    background: $btn-hover-background;
+    color: $btn-hover-color;
+  }
+}
