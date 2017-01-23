@@ -4,7 +4,8 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "npm i && gulp",
-    "dist": "gulp dist"
+    "dist": "gulp dist",
+    "update": "npm up"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
