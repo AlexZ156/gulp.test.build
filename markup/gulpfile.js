@@ -3,7 +3,6 @@ const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')({
 	pattern: ['gulp-*', 'gulp.*', 'webpack', 'autoprefixer', 'del']
 });
-const gcmq = require('gulp-group-css-media-queries');
 let isDevelopment = true;
 const path = require('path');
 const webpackconfig = require('./webpack.config.js');
@@ -161,7 +160,6 @@ const beautifyMainCss = () => {
 				base: path.resolve(__dirname, settings.scssDir.output)
 			}
 		)
-		.pipe(gcmq())
 		.pipe(plugins.csscomb())
 		.pipe(gulp.dest(cssUrl))
 		.pipe(plugins.count('beautified css files', {logFiles: true}));
@@ -179,7 +177,6 @@ const beautifyOtherCss = () => {
 				base: cssUrl
 			}
 		)
-		.pipe(gcmq())
 		.pipe(plugins.csscomb())
 		.pipe(gulp.dest(cssUrl))
 		.pipe(plugins.count('beautified css files', {logFiles: true}));
