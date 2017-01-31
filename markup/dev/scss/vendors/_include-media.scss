@@ -555,6 +555,6 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
       @include media(slice($conditions, 2)...) {
         @content;
       }
-    }    
+    }
   }
 }

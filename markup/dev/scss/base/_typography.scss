@@ -1,20 +1,26 @@
 // Typography
 
-@include titleSize('≥');
+@include title-size('≥');
 
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6,
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
 .h {
   font-family: $headings-font-family;
   color: $headings-color;
   font-weight: bold;
   margin: 0 0 10px;
 
-  @include media("≥tablet") {
+  @include media('≥tablet') {
     margin-bottom: 20px;
   }
 }

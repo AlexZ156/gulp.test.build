@@ -35,38 +35,38 @@ $text-decoration-hover: none;
 
 // Headers size
 $title-palette: (
-	mobile: (
-	    'h1': 20,
-	    'h2': 16,
-	    'h3': 15,
-	    'h4': 14,
-	    'h5': 14,
-	    'h6': 14
-	),
-	tablet: (
-	    'h1': 40,
-	    'h2': 30,
-	    'h3': 28,
-	    'h4': 20,
-	    'h5': 18,
-	    'h6': 16
-	),
-	desktop: (
-	    'h1': 40,
-	    'h2': 30,
-	    'h3': 28,
-	    'h4': 20,
-	    'h5': 18,
-	    'h6': 16
-	),
-	widescreen: (
-	    'h1': 40,
-	    'h2': 30,
-	    'h3': 28,
-	    'h4': 20,
-	    'h5': 18,
-	    'h6': 16
-	)
+  mobile: (
+    'h1': 20,
+    'h2': 16,
+    'h3': 15,
+    'h4': 14,
+    'h5': 14,
+    'h6': 14
+  ),
+  tablet: (
+    'h1': 40,
+    'h2': 30,
+    'h3': 28,
+    'h4': 20,
+    'h5': 18,
+    'h6': 16
+  ),
+  desktop: (
+    'h1': 40,
+    'h2': 30,
+    'h3': 28,
+    'h4': 20,
+    'h5': 18,
+    'h6': 16
+  ),
+  widescreen: (
+    'h1': 40,
+    'h2': 30,
+    'h3': 28,
+    'h4': 20,
+    'h5': 18,
+    'h6': 16
+  )
 );
 $headings-font-family: $base-font-family;
 $headings-color: inherit !default;
@@ -118,10 +118,3 @@ $mobile-nav-drop-bg: $black;
 $mobile-nav-drop-color: $white;
 
 $animation-speed: 0.3s;
-
-
-
-
-
-
-

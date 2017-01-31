@@ -23,7 +23,7 @@
     float: left;
     margin-right: 5px;
 
-    &[type="submit"] {
+    &[type='submit'] {
       margin: 0;
     }
   }
@@ -53,7 +53,7 @@
 
 .nav-links,
 .navigation-comments,
-.navigation-single{
+.navigation-single {
   margin-bottom: $vertical-rhythm;
   display: flex;
   align-items: center;
@@ -90,7 +90,7 @@
     margin: 0 4px 0 0;
     width: 100%;
 
-    @include media("≥tablet") {
+    @include media('≥tablet') {
       max-width: 300px;
     }
 
@@ -110,9 +110,11 @@
 
 .commentlist {
   margin: 0 0 1.2em;
+
   .edit-link {
     margin: 0;
   }
+
   .avatar-holder {
     float: left;
     margin: 0 1.2em 4px 0;
@@ -122,7 +124,7 @@
 .commentlist-item {
   .commentlist-item {
     padding: 0;
-    @include media("≥tablet") {
+    @include media('≥tablet') {
       padding: 0 0 0 2em;
     }
   }
@@ -139,7 +141,8 @@
 }
 
 .widget_calendar {
-  th, td {
+  th,
+  td {
     text-align: center;
   }
 
@@ -169,13 +172,15 @@
   }
 }
 
-div.aligncenter {
+.aligncenter {
   margin: 0 auto $vertical-rhythm;
 }
 
-img.aligncenter {
-  display: block;
-  margin: 0 auto;
+img {
+  &.aligncenter {
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 .alignleft {
