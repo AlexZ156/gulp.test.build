@@ -227,10 +227,10 @@ gulp.task('watch', function(cb) {
 		delete plugins.cached.caches.copyScripts[path.resolve(filePath)];
 	});
 
-	gulp.watch(
-		path.resolve(__dirname, settings.jsES6.entry + '/**/*.js'),
-		gulp.series('webpack')
-	);
+	// gulp.watch(
+	// 	path.resolve(__dirname, settings.jsES6.entry + '/**/*.js'),
+	// 	gulp.series('webpack')
+	// );
 
 	gulp.watch(
 		path.resolve(__dirname, settings.assetsDir + '/**'),
@@ -256,10 +256,19 @@ gulp.task('clear', (cb) => {
 	});
 });
 
+/*
 gulp.task('build', gulp.parallel(
 	'assets',
 	'copyScripts',
 	'webpack',
+	'allSass',
+	'pugPages'
+));
+*/
+
+gulp.task('build', gulp.parallel(
+	'assets',
+	'copyScripts',
 	'allSass',
 	'pugPages'
 ));
