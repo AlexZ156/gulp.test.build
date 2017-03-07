@@ -22,8 +22,8 @@ frameset {
 
 blockquote {
   border-left: 4px solid $gray;
-  padding-left: 0;
-  margin-left: 0; 
+  padding-left: 10px;
+  margin-left: 0;
 }
 
 
@@ -47,7 +47,7 @@ ol {
 
 ul ul,
 ul ol,
-ol ul, 
+ol ul,
 ol ol {
   padding-left: 20px;
   margin: 0;
