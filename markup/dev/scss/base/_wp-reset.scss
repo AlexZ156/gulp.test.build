@@ -33,7 +33,7 @@
 .navigation-comments {
   position: relative;
   vertical-align: middle;
-  margin: 0 -3px $vertical-rhythm; 
+  margin: 0 -3px $vertical-rhythm;
 
   .screen-reader-text {
     position: absolute;
@@ -185,12 +185,12 @@ img {
 
 .alignleft {
   float: left;
-  margin: 0 1.2em 4px 0; 
+  margin: 0 1.2em 4px 0;
 }
 
 .alignright {
   float: right;
-  margin: 0 0 4px 1.2em; 
+  margin: 0 0 4px 1.2em;
 }
 
 .mejs-container {
@@ -204,4 +204,22 @@ img {
 .sticky,
 .bypostauthor {
   height: auto;
+}
+
+.gallery {
+  .gallery-item {
+    padding: 0 10px;
+
+    img {
+      max-width: none;
+      width: 100%;
+    }
+
+    dt {
+      float: none;
+      width: 100%;
+      margin: 0 0 10px;
+      padding: 0;
+    }
+  }
 }

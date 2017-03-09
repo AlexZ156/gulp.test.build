@@ -22,6 +22,7 @@ textarea {
   padding: $input-padding;
   font-size: $input-font-size;
   line-height: $input-line-height;
+  font-family: $base-font;
 
   &:not(textarea) {
     height: $input-height;
@@ -36,6 +37,8 @@ textarea {
     color: $placeholder-color;
   }
 }
+
+input[type='search']::-webkit-search-cancel-button {-webkit-appearance: none;}
 
 select {
   -webkit-appearance: none;
