@@ -77,6 +77,14 @@
 .navigation-single {
   justify-content: space-between;
   align-items: stretch;
+
+  .next,
+  .prev {
+    margin: 0;
+    max-width: 49%;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .comment-form {
