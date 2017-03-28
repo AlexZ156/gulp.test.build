@@ -1,3 +1,21 @@
+// #main {
+//  @extend %clearfix;
+// }
+
+// #content {
+//  float: left;
+//  width: 70%;
+//  &:only-child{
+//    float:none;
+//    width:100%;
+//  }
+// }
+
+// #sidebar {
+//  float: right;
+//  width: 25%;
+// }
+
 .widget {
   @extend %clearfix;
   margin-bottom: $widget-margin;

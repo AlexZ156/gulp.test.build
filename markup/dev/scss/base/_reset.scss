@@ -12,6 +12,22 @@ html {
   max-height: 1000000px;
 }
 
+//- HTML5 display-role reset for older browsers
+main,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
 body {
   color: $base-text-color;
   background: $base-background-color;
