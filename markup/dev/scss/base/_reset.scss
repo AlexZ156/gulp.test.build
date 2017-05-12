@@ -30,7 +30,7 @@ section {
 
 body {
   color: $base-text-color;
-  background: $base-background-color;
+  background: $base-background-body;
   font: #{$font-size-base}/#{$line-height-base} $base-font-family;
   min-width: $base-min-width;
   -webkit-font-smoothing: antialiased;
@@ -40,6 +40,10 @@ body {
   @include media('≥tablet') {
     font-size: $font-size-base-lagre;
   }
+}
+
+#wrapper {
+  background: $base-background-color;
 }
 
 // adaptive images

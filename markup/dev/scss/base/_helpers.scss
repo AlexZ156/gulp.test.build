@@ -18,7 +18,6 @@
   @extend %clearfix;
 }
 
-
 // transition
 %transition {
   transition: all 0.3s ease-in-out;
@@ -46,8 +45,6 @@
   }
 }
 
-
-
 /// * Helper class to truncate and add ellipsis to a string too long for it to fit
 /// * on a single line.
 /// * 1. Prevent content from wrapping, forcing it on a single line.
@@ -57,20 +54,4 @@
   white-space: nowrap; /* 1 */
   text-overflow: ellipsis; /* 2 */
   overflow: hidden;
-}
-
-.btn {
-  @include animate(background);
-  
-  background: $btn-background;
-  color: $btn-color;
-  border: $btn-border;
-  padding: $btn-padding;
-  font-size: $btn-font-size;
-  line-height: $btn-line-height;
-
-  &:hover {
-    background: $btn-hover-background;
-    color: $btn-hover-color;
-  }
 }

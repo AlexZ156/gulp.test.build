@@ -19,7 +19,7 @@ $breakpoints: (
   desktop: 1024px,
   widescreen: 1300px
 );
- 
+
 // keywords
 $media-expressions: (
   'screen': 'screen',
@@ -45,16 +45,7 @@ $media-expressions: (
 @import 'base/wp-reset';
 @import 'base/typography';
 
-#wrapper {
-  overflow: hidden;
-  width: 100%;
-}
-
-.container {
-  max-width: $max-width-center-container;
-  padding: $padding-container;
-  margin: 0 auto;
-}
+@import 'components/buttons';
 
 @import 'layout/header';
 @import 'layout/common';

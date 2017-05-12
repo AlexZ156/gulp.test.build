@@ -40,6 +40,10 @@ textarea {
 
 input[type='search']::-webkit-search-cancel-button {-webkit-appearance: none;}
 
+input[type="search"] {
+  -webkit-appearance: textfield;
+}
+
 select {
   -webkit-appearance: none;
   -webkit-border-radius: 0;

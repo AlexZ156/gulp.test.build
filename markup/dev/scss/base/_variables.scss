@@ -16,6 +16,8 @@ $base-font:                   $base-font-sans-serif;
 // Body
 $base-text-color:             $black !default;
 $base-background-color:       $white !default;
+$base-background-body:        $white !default;
+$base-background-footer:      $base-background-body !default;
 $font-size-base:              16px !default;
 $font-size-base-lagre:        18px !default;
 $line-height-base:            1.2 !default;
