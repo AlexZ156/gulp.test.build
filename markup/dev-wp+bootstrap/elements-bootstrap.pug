@@ -1,0 +1,1947 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title Bootstrap test page
+  link(rel='stylesheet', href='css/bootstrap-extended.css')
+  link(rel='stylesheet', href='style.css')
+  script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', defer='')
+  script.
+    window.jQuery || document.write('<script src="js/jquery-1.12.4.min.js"><\/script>')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
+  script(src='js/jquery.main.js', defer='')
+body
+  #wrapper
+    include pug/common/_header
+    main#main
+      .container
+        .row
+          .col-xs-12
+            h3 Headings
+          .col-xs-12
+            h1 h1. Bootstrap heading Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint earum, qui error adipisci?
+            h2 h2. Bootstrap heading Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis libero, accusamus rerum rem nobis animi?
+            h3 h3. Bootstrap heading Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptatem repudiandae tempora laboriosam quos impedit.
+            h4 h4. Bootstrap heading Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni vitae numquam blanditiis voluptate, praesentium possimus!
+            h5 h5. Bootstrap heading Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed in doloremque excepturi, perferendis ea quod. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, magnam.
+            h6 h6. Bootstrap heading Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto explicabo beatae, labore, quae voluptatum officiis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, recusandae.
+        .row
+          .col-xs-12
+            h3 Body
+          .col-xs-12
+            .bs-example(data-example-id='body-copy')
+              p Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.
+              p Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.
+              p Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+              h4 Marked text
+              p
+                | You can use the mark tag to
+                mark highlight
+                |  text.
+              h4 Deleted text
+              p
+                del This line of text is meant to be treated as deleted text.
+              h4 Strikethrough text
+              p
+                s This line of text is meant to be treated as no longer accurate.
+              h4 Inserted text
+              p
+                ins This line of text is meant to be treated as an addition to the document.
+              h4 Small text
+              p
+                small This line of text is meant to be treated as fine print.
+              h4 Bold
+              p
+                strong rendered as bold text
+              h4 Italics
+              p
+                em rendered as italicized text
+              h4 Underlined text
+              p
+                u This line of text will render as underlined
+              h4 Alignment classes
+              p.text-left Left aligned text.
+              p.text-center Center aligned text.
+              p.text-right Right aligned text.
+              p.text-justify Justified text.
+              p.text-nowrap No wrap text.
+              h4 Transformation classes
+              p.text-lowercase Lowercased text.
+              p.text-uppercase Uppercased text.
+              p.text-capitalize Capitalized text.
+              p
+                abbr(title='attribute') attr
+        .row
+          .col-xs-12
+            .btn-toolbar(role='toolbar')
+              .btn-group
+                button.btn.btn-default(type='button', aria-label='Left Align')
+                  span.glyphicon.glyphicon-align-left(aria-hidden='true')
+                button.btn.btn-default(type='button', aria-label='Center Align')
+                  span.glyphicon.glyphicon-align-center(aria-hidden='true')
+                button.btn.btn-default(type='button', aria-label='Right Align')
+                  span.glyphicon.glyphicon-align-right(aria-hidden='true')
+                button.btn.btn-default(type='button', aria-label='Justify')
+                  span.glyphicon.glyphicon-align-justify(aria-hidden='true')
+        .row
+          .col-xs-12
+            .btn-toolbar(role='toolbar')
+              button.btn.btn-default.btn-lg(type='button')
+                span.glyphicon.glyphicon-star(aria-hidden='true')
+                |  Star
+              button.btn.btn-default(type='button')
+                span.glyphicon.glyphicon-star(aria-hidden='true')
+                |  Star
+              button.btn.btn-default.btn-sm(type='button')
+                span.glyphicon.glyphicon-star(aria-hidden='true')
+                |  Star
+              button.btn.btn-default.btn-xs(type='button')
+                span.glyphicon.glyphicon-star(aria-hidden='true')
+                |  Star
+        .row
+          .col-xs-12
+            .alert.alert-danger(role='alert')
+              span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
+              span.sr-only Error:
+              |  Enter a valid email address
+        .row
+          .col-xs-12
+            h2 Dropdowns
+        .row
+          .col-md-2
+            .dropdown.clearfix
+              button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                | Dropdown
+                span.caret
+              ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+          .col-md-2
+            .dropup.clearfix
+              button#dropdownMenu2.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                | Dropup
+                span.caret
+              ul.dropdown-menu(aria-labelledby='dropdownMenu2')
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+          .col-md-2
+            .dropdown.clearfix
+              button#dropdownMenu3.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                | Dropdown
+                span.caret
+              ul.dropdown-menu(aria-labelledby='dropdownMenu3')
+                li.dropdown-header Dropdown header
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+                li.dropdown-header Dropdown header
+                li
+                  a(href='#') Separated link
+          .col-md-2
+            .dropdown.clearfix
+              button#dropdownMenuDivider.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                | Dropdown
+                span.caret
+              ul.dropdown-menu(aria-labelledby='dropdownMenuDivider')
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+                li.divider(role='separator')
+                li
+                  a(href='#') Separated link
+          .col-md-2
+            .dropdown.clearfix
+              button#dropdownMenu4.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                | Dropdown
+                span.caret
+              ul.dropdown-menu(aria-labelledby='dropdownMenu4')
+                li
+                  a(href='#') Regular link
+                li.disabled
+                  a(href='#') Disabled link
+                li
+                  a(href='#') Another link
+        .row
+          .col-xs-12
+            h2 Button groups
+        .row
+          .col-xs-12
+            .btn-group(role='group', aria-label='Basic example')
+              button.btn.btn-default(type='button') Left
+              button.btn.btn-default(type='button') Middle
+              button.btn.btn-default(type='button') Right
+        .row
+          .col-xs-12
+            h3 Button toolbar
+            .bs-example(data-example-id='simple-button-toolbar')
+              .btn-toolbar(role='toolbar', aria-label='Toolbar with button groups')
+                .btn-group(role='group', aria-label='First group')
+                  button.btn.btn-default(type='button') 1
+                  button.btn.btn-default(type='button') 2
+                  button.btn.btn-default(type='button') 3
+                  button.btn.btn-default(type='button') 4
+                .btn-group(role='group', aria-label='Second group')
+                  button.btn.btn-default(type='button') 5
+                  button.btn.btn-default(type='button') 6
+                  button.btn.btn-default(type='button') 7
+                .btn-group(role='group', aria-label='Third group')
+                  button.btn.btn-default(type='button') 8
+        .row
+          .col-xs-12
+            h3 Sizing
+            .bs-example(data-example-id='button-group-sizing')
+              .btn-group.btn-group-lg(role='group', aria-label='Large button group')
+                button.btn.btn-default(type='button') Left
+                button.btn.btn-default(type='button') Middle
+                button.btn.btn-default(type='button') Right
+              br
+              br
+              .btn-group(role='group', aria-label='Default button group')
+                button.btn.btn-default(type='button') Left
+                button.btn.btn-default(type='button') Middle
+                button.btn.btn-default(type='button') Right
+              br
+              br
+              .btn-group.btn-group-sm(role='group', aria-label='Small button group')
+                button.btn.btn-default(type='button') Left
+                button.btn.btn-default(type='button') Middle
+                button.btn.btn-default(type='button') Right
+              br
+              br
+              .btn-group.btn-group-xs(role='group', aria-label='Extra-small button group')
+                button.btn.btn-default(type='button') Left
+                button.btn.btn-default(type='button') Middle
+                button.btn.btn-default(type='button') Right
+        .row
+          .col-xs-12
+            h3 Nesting
+            .btn-group(role='group', aria-label='Button group with nested dropdown')
+              button.btn.btn-default(type='button') 1
+              button.btn.btn-default(type='button') 2
+              .btn-group(role='group')
+                button#btnGroupDrop1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Dropdown
+                  span.caret
+                ul.dropdown-menu(aria-labelledby='btnGroupDrop1')
+                  li
+                    a(href='#') Dropdown link
+                  li
+                    a(href='#') Dropdown link
+        .row
+          .col-xs-12
+            h3 Vertical variation
+            .btn-group-vertical(role='group', aria-label='Vertical button group')
+              button.btn.btn-default(type='button') Button
+              button.btn.btn-default(type='button') Button
+              .btn-group(role='group')
+                button#btnGroupVerticalDrop1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Dropdown
+                  span.caret
+                ul.dropdown-menu(aria-labelledby='btnGroupVerticalDrop1')
+                  li
+                    a(href='#') Dropdown link
+                  li
+                    a(href='#') Dropdown link
+              button.btn.btn-default(type='button') Button
+              button.btn.btn-default(type='button') Button
+              .btn-group(role='group')
+                button#btnGroupVerticalDrop2.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Dropdown
+                  span.caret
+                ul.dropdown-menu(aria-labelledby='btnGroupVerticalDrop2')
+                  li
+                    a(href='#') Dropdown link
+                  li
+                    a(href='#') Dropdown link
+              .btn-group(role='group')
+                button#btnGroupVerticalDrop3.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Dropdown
+                  span.caret
+                ul.dropdown-menu(aria-labelledby='btnGroupVerticalDrop3')
+                  li
+                    a(href='#') Dropdown link
+                  li
+                    a(href='#') Dropdown link
+              .btn-group(role='group')
+                button#btnGroupVerticalDrop4.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Dropdown
+                  span.caret
+                ul.dropdown-menu(aria-labelledby='btnGroupVerticalDrop4')
+                  li
+                    a(href='#') Dropdown link
+                  li
+                    a(href='#') Dropdown link
+        .row
+          .col-xs-12
+            h2 Justified button groups
+        .row
+          .col-xs-12
+            h3
+              | With
+              code &lt;a&gt;
+              |  elements
+            .btn-group.btn-group-justified(role='group', aria-label='Justified button group')
+              a.btn.btn-default(href='#', role='button') Left
+              |
+              a.btn.btn-default(href='#', role='button') Middle
+              |
+              a.btn.btn-default(href='#', role='button') Right
+            br
+            .btn-group.btn-group-justified(role='group', aria-label='Justified button group with nested dropdown')
+              a.btn.btn-default(href='#', role='button') Left
+              |
+              a.btn.btn-default(href='#', role='button') Middle
+              .btn-group(role='group')
+                a.btn.btn-default.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                  | Dropdown
+                  span.caret
+                ul.dropdown-menu.dropdown-menu-right
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider(role='separator')
+                  li
+                    a(href='#') Separated link
+        .row
+          .col-xs-12
+            h3
+              | With
+              code &lt;button&gt;
+              |  elements
+            .btn-group.btn-group-justified(role='group', aria-label='Justified button group')
+              .btn-group(role='group')
+                button.btn.btn-default(type='button') Left
+              .btn-group(role='group')
+                button.btn.btn-default(type='button') Middle
+              .btn-group(role='group')
+                button.btn.btn-default(type='button') Right
+        .row
+          .col-xs-12
+            h2 Button dropdowns
+        .row
+          .col-xs-12
+            h3 Single button dropdowns
+            .btn-group
+              button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                | Default
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+                li.divider(role='separator')
+                li
+                  a(href='#') Separated link
+            .btn-group
+              button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                | Primary
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+                li.divider(role='separator')
+                li
+                  a(href='#') Separated link
+            .btn-group
+              button.btn.btn-success.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                | Success
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+                li.divider(role='separator')
+                li
+                  a(href='#') Separated link
+            .btn-group
+              button.btn.btn-info.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                | Info
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+                li.divider(role='separator')
+                li
+                  a(href='#') Separated link
+            .btn-group
+              button.btn.btn-warning.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                | Warning
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+                li.divider(role='separator')
+                li
+                  a(href='#') Separated link
+            .btn-group
+              button.btn.btn-danger.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                | Danger
+                span.caret
+              ul.dropdown-menu.dropdown-menu-right
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+                li.divider(role='separator')
+                li
+                  a(href='#') Separated link
+        .row
+          .col-xs-12
+            h3 Split button dropdowns
+            .btn-group
+              button.btn.btn-default(type='button') Default
+              |
+              button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                span.caret
+                span.sr-only Toggle Dropdown
+              ul.dropdown-menu
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+                li.divider(role='separator')
+                li
+                  a(href='#') Separated link
+            .btn-group
+              button.btn.btn-primary(type='button') Primary
+              button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                span.caret
+                span.sr-only Toggle Dropdown
+              ul.dropdown-menu
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+                li.divider(role='separator')
+                li
+                  a(href='#') Separated link
+            .btn-group
+              button.btn.btn-success(type='button') Success
+              button.btn.btn-success.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                span.caret
+                span.sr-only Toggle Dropdown
+              ul.dropdown-menu
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+                li.divider(role='separator')
+                li
+                  a(href='#') Separated link
+            .btn-group
+              button.btn.btn-info(type='button') Info
+              button.btn.btn-info.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                span.caret
+                span.sr-only Toggle Dropdown
+              ul.dropdown-menu
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+                li.divider(role='separator')
+                li
+                  a(href='#') Separated link
+            .btn-group
+              button.btn.btn-warning(type='button') Warning
+              button.btn.btn-warning.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                span.caret
+                span.sr-only Toggle Dropdown
+              ul.dropdown-menu
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+                li.divider(role='separator')
+                li
+                  a(href='#') Separated link
+            .btn-group
+              button.btn.btn-danger(type='button') Danger
+              button.btn.btn-danger.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                span.caret
+                span.sr-only Toggle Dropdown
+              ul.dropdown-menu.dropdown-menu-right
+                li
+                  a(href='#') Action
+                li
+                  a(href='#') Another action
+                li
+                  a(href='#') Something else here
+                li.divider(role='separator')
+                li
+                  a(href='#') Separated link
+        .row
+          .col-xs-12
+            h3 Sizing
+            .btn-toolbar(role='toolbar')
+              .btn-group
+                button.btn.btn-default.btn-lg.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Large button
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider(role='separator')
+                  li
+                    a(href='#') Separated link
+            .btn-toolbar(role='toolbar')
+              .btn-group
+                button.btn.btn-default.btn-sm.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Small button
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider(role='separator')
+                  li
+                    a(href='#') Separated link
+            .btn-toolbar(role='toolbar')
+              .btn-group
+                button.btn.btn-default.btn-xs.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  | Extra small button
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider(role='separator')
+                  li
+                    a(href='#') Separated link
+        .row
+          .col-xs-12
+            h3 Dropup variation
+            .btn-toolbar(role='toolbar')
+              .btn-group.dropup
+                button.btn.btn-default(type='button') Dropup
+                button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  span.caret
+                  span.sr-only Toggle Dropdown
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider(role='separator')
+                  li
+                    a(href='#') Separated link
+              .btn-group.dropup
+                button.btn.btn-primary(type='button') Right dropup
+                button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  span.caret
+                  span.sr-only Toggle Dropdown
+                ul.dropdown-menu.dropdown-menu-right
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider(role='separator')
+                  li
+                    a(href='#') Separated link
+        .row
+          .col-xs-12
+            h2 Forms
+        .row
+          .col-xs-12
+            form
+              .form-group
+                label(for='exampleInputEmail1') Email address
+                input#exampleInputEmail1.form-control(placeholder='Email', type='email')
+              .form-group
+                label(for='exampleInputPassword1') Password
+                input#exampleInputPassword1.form-control(placeholder='Password', type='password')
+              .form-group
+                label(for='exampleInputText1') Text
+                input#exampleInputText1.form-control(type='text', placeholder='Text input')
+              .form-group
+                label Select
+                select.form-control
+                  option 1
+                  option 2
+                  option 3
+                  option 4
+                  option 5
+              .form-group
+                label Multiple select
+                select.form-control(multiple='')
+                  option 1
+                  option 2
+                  option 3
+                  option 4
+                  option 5
+                  option 6
+                  option 7
+                  option 8
+                  option 9
+              .form-group
+                label(for='exampleInputTextarea1') Textarea
+                textarea#exampleInputTextarea1.form-control(placeholder='Textarea', rows='3')
+              .checkbox
+                label
+                  input(type='checkbox', value='')
+                  | Option one is this and that&mdash;be sure to include why it&apos;s great
+              .checkbox.disabled
+                label
+                  input(type='checkbox', value='', disabled='')
+                  | Option two is disabled
+              .radio
+                label
+                  input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
+                  | Option one is this and that&mdash;be sure to include why it&apos;s great
+              .radio
+                label
+                  input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
+                  | Option two can be something else and selecting it will deselect option one
+              .radio.disabled
+                label
+                  input#optionsRadios3(type='radio', name='optionsRadios', value='option3', disabled='')
+                  | Option three is disabled
+              button.btn.btn-default(type='submit') Submit
+        .row
+          .col-xs-12
+            h2 Navs
+        .row
+          .col-xs-12
+            h3 Tabs
+          .col-xs-12
+            ul.nav.nav-tabs
+              li.active(role='presentation')
+                a(href='#') Home
+              li(role='presentation')
+                a(href='#') Profile
+              li(role='presentation')
+                a(href='#') Messages
+        .row
+          .col-xs-12
+            h3 Pills
+          .col-xs-12
+            ul.nav.nav-pills
+              li.active(role='presentation')
+                a(href='#') Home
+              li(role='presentation')
+                a(href='#') Profile
+              li(role='presentation')
+                a(href='#') Messages
+        br
+        .row
+          .col-xs-12
+            ul.nav.nav-pills.nav-stacked.nav-pills-stacked-example
+              li.active(role='presentation')
+                a(href='#') Home
+              li(role='presentation')
+                a(href='#') Profile
+              li(role='presentation')
+                a(href='#') Messages
+        .row
+          .col-xs-12
+            h3 Justified
+          .col-xs-12
+            ul.nav.nav-tabs.nav-justified
+              li.active(role='presentation')
+                a(href='#') Home
+              li(role='presentation')
+                a(href='#') Profile
+              li(role='presentation')
+                a(href='#') Messages
+            br
+            ul.nav.nav-pills.nav-justified
+              li.active(role='presentation')
+                a(href='#') Home
+              li(role='presentation')
+                a(href='#') Profile
+              li(role='presentation')
+                a(href='#') Messages
+        .row
+          .col-xs-12
+            h2 Disabled links
+        .row
+          .col-xs-12
+            ul.nav.nav-pills
+              li(role='presentation')
+                a(href='#') Clickable link
+              li(role='presentation')
+                a(href='#') Clickable link
+              li.disabled(role='presentation')
+                a(href='#') Disabled link
+        .row
+          .col-xs-12
+            h2 Navbar
+        .row
+          .col-xs-12
+            h3 Default navbar
+          .col-xs-12
+            nav.navbar.navbar-default
+              .container-fluid
+                .navbar-header
+                  button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                  a.navbar-brand(href='#') Brand
+                #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                  ul.nav.navbar-nav
+                    li.active
+                      a(href='#')
+                        | Link
+                        span.sr-only (current)
+                    li
+                      a(href='#') Link
+                    li.dropdown
+                      a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                        | Dropdown
+                        span.caret
+                      ul.dropdown-menu
+                        li
+                          a(href='#') Action
+                        li
+                          a(href='#') Another action
+                        li
+                          a(href='#') Something else here
+                        li.divider(role='separator')
+                        li
+                          a(href='#') Separated link
+                        li.divider(role='separator')
+                        li
+                          a(href='#') One more separated link
+                  form.navbar-form.navbar-left(role='search')
+                    .form-group
+                      input.form-control(type='text', placeholder='Search')
+                    button.btn.btn-default(type='submit') Submit
+                  ul.nav.navbar-nav.navbar-right
+                    li
+                      a(href='#') Link
+                    li.dropdown
+                      a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                        | Dropdown
+                        span.caret
+                      ul.dropdown-menu
+                        li
+                          a(href='#') Action
+                        li
+                          a(href='#') Another action
+                        li
+                          a(href='#') Something else here
+                        li.divider(role='separator')
+                        li
+                          a(href='#') Separated link
+        .row
+          .col-xs-12
+            h2 Breadcrumbs
+        .row
+          .col-xs-12
+            ol.breadcrumb
+              li.active Home
+            ol.breadcrumb
+              li
+                a(href='#') Home
+              li.active Library
+            ol.breadcrumb
+              li
+                a(href='#') Home
+              li
+                a(href='#') Library
+              li.active Data
+        .row
+          .col-xs-12
+            h2 Pagination
+        .row
+          .col-xs-12
+            h3 Default pagination
+          .col-xs-12
+            nav
+              ul.pagination
+                li
+                  a(href='#', aria-label='Previous')
+                    span(aria-hidden='true') &laquo;
+                li
+                  a(href='#') 1
+                li
+                  a(href='#') 2
+                li
+                  a(href='#') 3
+                li
+                  a(href='#') 4
+                li
+                  a(href='#') 5
+                li
+                  a(href='#', aria-label='Next')
+                    span(aria-hidden='true') &raquo;
+        .row
+          .col-xs-12
+            h3 Disabled and active states
+          .col-xs-12
+            nav
+              ul.pagination
+                li.disabled
+                  a(href='#', aria-label='Previous')
+                    span(aria-hidden='true') &laquo;
+                li.active
+                  a(href='#')
+                    | 1
+                    span.sr-only (current)
+                li
+                  a(href='#') 2
+                li
+                  a(href='#') 3
+                li
+                  a(href='#') 4
+                li
+                  a(href='#') 5
+                li
+                  a(href='#', aria-label='Next')
+                    span(aria-hidden='true') &raquo;
+        .row
+          .col-xs-12
+            h3 Sizing
+          .col-xs-12
+            nav
+              ul.pagination.pagination-lg
+                li
+                  a(href='#', aria-label='Previous')
+                    span(aria-hidden='true') &laquo;
+                li
+                  a(href='#') 1
+                li
+                  a(href='#') 2
+                li
+                  a(href='#') 3
+                li
+                  a(href='#') 4
+                li
+                  a(href='#') 5
+                li
+                  a(href='#', aria-label='Next')
+                    span(aria-hidden='true') &raquo;
+            nav
+              ul.pagination
+                li
+                  a(href='#', aria-label='Previous')
+                    span(aria-hidden='true') &laquo;
+                li
+                  a(href='#') 1
+                li
+                  a(href='#') 2
+                li
+                  a(href='#') 3
+                li
+                  a(href='#') 4
+                li
+                  a(href='#') 5
+                li
+                  a(href='#', aria-label='Next')
+                    span(aria-hidden='true') &raquo;
+            nav
+              ul.pagination.pagination-sm
+                li
+                  a(href='#', aria-label='Previous')
+                    span(aria-hidden='true') &laquo;
+                li
+                  a(href='#') 1
+                li
+                  a(href='#') 2
+                li
+                  a(href='#') 3
+                li
+                  a(href='#') 4
+                li
+                  a(href='#') 5
+                li
+                  a(href='#', aria-label='Next')
+                    span(aria-hidden='true') &raquo;
+        .row
+          .col-xs-12
+            h2 Pager
+        .row
+          .col-xs-12
+            h3 Default example
+          .col-xs-12
+            nav
+              ul.pager
+                li
+                  a(href='#') Previous
+                li
+                  a(href='#') Next
+        .row
+          .col-xs-12
+            h3 Aligned links
+          .col-xs-12
+            nav
+              ul.pager
+                li.previous
+                  a(href='#')
+                    span(aria-hidden='true') &larr;
+                    |  Older
+                li.next
+                  a(href='#')
+                    | Newer
+                    span(aria-hidden='true') &rarr;
+        .row
+          .col-xs-12
+            h3 Optional disabled state
+          .col-xs-12
+            nav
+              ul.pager
+                li.previous.disabled
+                  a(href='#')
+                    span(aria-hidden='true') &larr;
+                    |  Older
+                li.next
+                  a(href='#')
+                    | Newer
+                    span(aria-hidden='true') &rarr;
+        .row
+          .col-xs-12
+            h2 Labels
+        .row
+          .col-xs-12
+            h1
+              | Example heading
+              span.label.label-default New
+            h2
+              | Example heading
+              span.label.label-default New
+            h3
+              | Example heading
+              span.label.label-default New
+            h4
+              | Example heading
+              span.label.label-default New
+            h5
+              | Example heading
+              span.label.label-default New
+            h6
+              | Example heading
+              span.label.label-default New
+        .row
+          .col-xs-12
+            h3 Available variations
+          .col-xs-12
+            span.label.label-default Default
+            span.label.label-primary Primary
+            span.label.label-success Success
+            span.label.label-info Info
+            span.label.label-warning Warning
+            span.label.label-danger Danger
+        .row
+          .col-xs-12
+            h2 Badges
+        .row
+          .col-xs-12
+            a(href='#')
+              | Inbox
+              span.badge 42
+            br
+            br
+            button.btn.btn-primary(type='button')
+              | Messages
+              span.badge 4
+        .row
+          .col-xs-12
+            h3 Adapts to active nav states
+          .col-xs-12
+            ul.nav.nav-pills(role='tablist')
+              li.active(role='presentation')
+                a(href='#')
+                  | Home
+                  span.badge 42
+              li(role='presentation')
+                a(href='#') Profile
+              li(role='presentation')
+                a(href='#')
+                  | Messages
+                  span.badge 3
+        .row
+          .col-xs-12
+            h2 Jumbotron
+        .row
+          .col-xs-12
+            .jumbotron
+              h1 Hello, world!
+              p
+                | This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+              p
+                a.btn.btn-primary.btn-lg(href='#', role='button') Learn more
+        .row
+          .col-xs-12
+            h2 Page header
+        .row
+          .col-xs-12
+            .page-header
+              h1
+                | Example page header
+                small Subtext for header
+        .row
+          .col-xs-12
+            h2 Thumbnails
+        .row
+          .col-xs-12
+            h3 Default example
+          .col-xs-12
+            .row
+              .col-xs-6.col-md-3
+                a.thumbnail(href='#')
+                  img(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUwMjNkYmUxMjUgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTAyM2RiZTEyNSI+PHJlY3Qgd2lkdGg9IjE3MSIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI2MSIgeT0iOTQuNSI+MTcxeDE4MDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder thumbnail')
+              .col-xs-6.col-md-3
+                a.thumbnail(href='#')
+                  img(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUwMjNkYmUxMjUgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTAyM2RiZTEyNSI+PHJlY3Qgd2lkdGg9IjE3MSIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI2MSIgeT0iOTQuNSI+MTcxeDE4MDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder thumbnail')
+              .col-xs-6.col-md-3
+                a.thumbnail(href='#')
+                  img(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUwMjNkYmUxMjUgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTAyM2RiZTEyNSI+PHJlY3Qgd2lkdGg9IjE3MSIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI2MSIgeT0iOTQuNSI+MTcxeDE4MDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder thumbnail')
+              .col-xs-6.col-md-3
+                a.thumbnail(href='#')
+                  img(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUwMjNkYmUxMjUgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTAyM2RiZTEyNSI+PHJlY3Qgd2lkdGg9IjE3MSIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI2MSIgeT0iOTQuNSI+MTcxeDE4MDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder thumbnail')
+        .row
+          .col-xs-12
+            h3 Custom content
+          .col-sm-6.col-md-4
+            .thumbnail
+              img(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDI0MiAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUwMjNkYzQxYmUgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTAyM2RjNDFiZSI+PHJlY3Qgd2lkdGg9IjI0MiIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI4OS44NTkzNzUiIHk9IjEwNS4xIj4yNDJ4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+', alt='Generic placeholder thumbnail')
+              .caption
+                h3 Thumbnail label
+                p
+                  | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                p
+                  a.btn.btn-primary(href='#', role='button') Button
+                  a.btn.btn-default(href='#', role='button') Button
+          .col-sm-6.col-md-4
+            .thumbnail
+              img(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDI0MiAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUwMjNkYzQxYmUgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTAyM2RjNDFiZSI+PHJlY3Qgd2lkdGg9IjI0MiIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI4OS44NTkzNzUiIHk9IjEwNS4xIj4yNDJ4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+', alt='Generic placeholder thumbnail')
+              .caption
+                h3 Thumbnail label
+                p
+                  | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                p
+                  a.btn.btn-primary(href='#', role='button') Button
+                  a.btn.btn-default(href='#', role='button') Button
+          .col-sm-6.col-md-4
+            .thumbnail
+              img(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDI0MiAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUwMjNkYzQxYmUgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTAyM2RjNDFiZSI+PHJlY3Qgd2lkdGg9IjI0MiIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI4OS44NTkzNzUiIHk9IjEwNS4xIj4yNDJ4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+', alt='Generic placeholder thumbnail')
+              .caption
+                h3 Thumbnail label
+                p
+                  | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                p
+                  a.btn.btn-primary(href='#', role='button') Button
+                  a.btn.btn-default(href='#', role='button') Button
+        .row
+          .col-xs-12
+            h2 Alerts
+        .row
+          .col-xs-12
+            .alert.alert-success(role='alert')
+              strong Well done!
+              |  You successfully read this important alert message.
+            .alert.alert-info(role='alert')
+              strong Heads up!
+              |  This alert needs your attention, but it&apos;s not super important.
+            .alert.alert-warning(role='alert')
+              strong Warning!
+              |  Better check yourself, you&apos;re not looking too good.
+            .alert.alert-danger(role='alert')
+              strong Oh snap!
+              |  Change a few things up and try submitting again.
+        .row
+          .col-xs-12
+            h3 Dismissible alerts
+          .col-xs-12
+            .alert.alert-warning.alert-dismissible(role='alert')
+              button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') &times;
+              strong Warning!
+              |  Better check yourself, you&apos;re not looking too good.
+        .row
+          .col-xs-12
+            h3 Links in alerts
+          .col-xs-12
+            .alert.alert-success(role='alert')
+              strong Well done!
+              |  You successfully read
+              a.alert-link(href='#') this important alert message
+              | .
+            .alert.alert-info(role='alert')
+              strong Heads up!
+              |  This
+              a.alert-link(href='#') alert needs your attention
+              | , but it&apos;s not super important.
+            .alert.alert-warning(role='alert')
+              strong Warning!
+              |  Better check yourself, you&apos;re
+              a.alert-link(href='#') not looking too good
+              | .
+            .alert.alert-danger(role='alert')
+              strong Oh snap!
+              a.alert-link(href='#') Change a few things up
+              |  and try submitting again.
+        .row
+          .col-xs-12
+            h2 Progress bars
+        .row
+          .col-xs-12
+            .progress
+              .progress-bar(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100', style='width: 60%;')
+                span.sr-only 60% Complete
+        .row
+          .col-xs-12
+            h3 With label
+          .col-xs-12
+            .progress
+              .progress-bar(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100', style='width: 60%;')  60%
+        .row
+          .col-xs-12
+            .progress
+              .progress-bar(role='progressbar', aria-valuenow='0', aria-valuemin='0', aria-valuemax='100', style='min-width: 2em;')  0%
+            .progress
+              .progress-bar(role='progressbar', aria-valuenow='2', aria-valuemin='0', aria-valuemax='100', style='min-width: 2em; width: 2%;')  2%
+        .row
+          .col-xs-12
+            h3 Contextual alternatives
+          .col-xs-12
+            .progress
+              .progress-bar.progress-bar-success(role='progressbar', aria-valuenow='40', aria-valuemin='0', aria-valuemax='100', style='width: 40%')
+                span.sr-only 40% Complete (success)
+            .progress
+              .progress-bar.progress-bar-info(role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100', style='width: 20%')
+                span.sr-only 20% Complete
+            .progress
+              .progress-bar.progress-bar-warning(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100', style='width: 60%')
+                span.sr-only 60% Complete (warning)
+            .progress
+              .progress-bar.progress-bar-danger(role='progressbar', aria-valuenow='80', aria-valuemin='0', aria-valuemax='100', style='width: 80%')
+                span.sr-only 80% Complete (danger)
+        .row
+          .col-xs-12
+            h3 Striped
+          .col-xs-12
+            .progress
+              .progress-bar.progress-bar-success.progress-bar-striped(role='progressbar', aria-valuenow='40', aria-valuemin='0', aria-valuemax='100', style='width: 40%')
+                span.sr-only 40% Complete (success)
+            .progress
+              .progress-bar.progress-bar-info.progress-bar-striped(role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100', style='width: 20%')
+                span.sr-only 20% Complete
+            .progress
+              .progress-bar.progress-bar-warning.progress-bar-striped(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100', style='width: 60%')
+                span.sr-only 60% Complete (warning)
+            .progress
+              .progress-bar.progress-bar-danger.progress-bar-striped(role='progressbar', aria-valuenow='80', aria-valuemin='0', aria-valuemax='100', style='width: 80%')
+                span.sr-only 80% Complete (danger)
+        .row
+          .col-xs-12
+            h3 Animated
+          .col-xs-12
+            .bs-example(data-example-id='animated-progress-bar')
+              .progress
+                .progress-bar.progress-bar-striped(role='progressbar', aria-valuenow='45', aria-valuemin='0', aria-valuemax='100', style='width:45%')
+                  span.sr-only 45% Complete
+              button.btn.btn-default.bs-docs-activate-animated-progressbar(type='button', data-toggle='button', aria-pressed='false', autocomplete='off') Toggle animation
+        .row
+          .col-xs-12
+            h3 Stacked
+          .col-xs-12
+            .progress
+              .progress-bar.progress-bar-success(style='width: 35%')
+                span.sr-only 35% Complete (success)
+              .progress-bar.progress-bar-warning.progress-bar-striped(style='width: 20%')
+                span.sr-only 20% Complete (warning)
+              .progress-bar.progress-bar-danger(style='width: 10%')
+                span.sr-only 10% Complete (danger)
+        .row
+          .col-xs-12
+            h2 Media object
+        .row
+          .col-xs-12
+            h3 Default media
+          .col-xs-12
+            .media
+              .media-left
+                a(href='#')
+                  img.media-object(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTAyM2RkYWY1MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MDIzZGRhZjUwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder image')
+              .media-body
+                h4.media-heading Media heading
+                |  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            .media
+              .media-left
+                a(href='#')
+                  img.media-object(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTAyM2RkYWY1MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MDIzZGRhZjUwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder image')
+              .media-body
+                h4.media-heading Media heading
+                |  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                .media
+                  .media-left
+                    a(href='#')
+                      img.media-object(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTAyM2RkYWY1MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MDIzZGRhZjUwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder image')
+                  .media-body
+                    h4.media-heading Nested media heading
+                    |  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            .media
+              .media-body
+                h4.media-heading Media heading
+                |  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+              .media-right
+                a(href='#')
+                  img.media-object(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTAyM2RkYWY1MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MDIzZGRhZjUwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder image')
+            .media
+              .media-left
+                a(href='#')
+                  img.media-object(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTAyM2RkYWY1MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MDIzZGRhZjUwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder image')
+              .media-body
+                h4.media-heading Media heading
+                |  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+              .media-right
+                a(href='#')
+                  img.media-object(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTAyM2RkYWY1MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MDIzZGRhZjUwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder image')
+        .row
+          .col-xs-12
+            h3 Media alignment
+          .col-xs-12
+            .media
+              .media-left
+                a(href='#')
+                  img.media-object(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTAyM2RkYWY1MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MDIzZGRhZjUwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder image')
+              .media-body
+                h4.media-heading Top aligned media
+                p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                p Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            .media
+              .media-left.media-middle
+                a(href='#')
+                  img.media-object(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTAyM2RkYWY1MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MDIzZGRhZjUwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder image')
+              .media-body
+                h4.media-heading Middle aligned media
+                p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                p Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            .media
+              .media-left.media-bottom
+                a(href='#')
+                  img.media-object(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTAyM2RkYWY1MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MDIzZGRhZjUwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder image')
+              .media-body
+                h4.media-heading Bottom aligned media
+                p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                p Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        .row
+          .col-xs-12
+            h3 Media list
+          .col-xs-12
+            ul.media-list
+              li.media
+                .media-left
+                  a(href='#')
+                    img.media-object(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTAyM2RkYWY1MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MDIzZGRhZjUwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder image')
+                .media-body
+                  h4.media-heading Media heading
+                  p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                  .media
+                    .media-left
+                      a(href='#')
+                        img.media-object(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTAyM2RkYWY1MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MDIzZGRhZjUwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder image')
+                    .media-body
+                      h4.media-heading Nested media heading
+                      |  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                      .media
+                        .media-left
+                          a(href='#')
+                            img.media-object(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTAyM2RkYWY1MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MDIzZGRhZjUwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder image')
+                        .media-body
+                          h4.media-heading Nested media heading
+                          |  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                  .media
+                    .media-left
+                      a(href='#')
+                        img.media-object(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTAyM2RkYWY1MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1MDIzZGRhZjUwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxNC41IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==', alt='Generic placeholder image')
+                    .media-body
+                      h4.media-heading Nested media heading
+                      |  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+        .row
+          .col-xs-12
+            h2 List group
+        .row
+          .col-xs-12
+            ul.list-group
+              li.list-group-item Cras justo odio
+              li.list-group-item Dapibus ac facilisis in
+              li.list-group-item Morbi leo risus
+              li.list-group-item Porta ac consectetur ac
+              li.list-group-item Vestibulum at eros
+        .row
+          .col-xs-12
+            h3 Badges
+          .col-xs-12
+            ul.list-group
+              li.list-group-item
+                span.badge 14
+                |  Cras justo odio
+              li.list-group-item
+                span.badge 2
+                |  Dapibus ac facilisis in
+              li.list-group-item
+                span.badge 1
+                |  Morbi leo risus
+        .row
+          .col-xs-12
+            h3 Linked items
+          .col-xs-12
+            .list-group
+              a.list-group-item.active(href='#') Cras justo odio
+              a.list-group-item(href='#') Dapibus ac facilisis in
+              a.list-group-item(href='#') Morbi leo risus
+              a.list-group-item(href='#') Porta ac consectetur ac
+              a.list-group-item(href='#') Vestibulum at eros
+        .row
+          .col-xs-12
+            h3 Button items
+          .col-xs-12
+            .list-group
+              button.list-group-item(type='button') Cras justo odio
+              button.list-group-item(type='button') Dapibus ac facilisis in
+              button.list-group-item(type='button') Morbi leo risus
+              button.list-group-item(type='button') Porta ac consectetur ac
+              button.list-group-item(type='button') Vestibulum at eros
+        .row
+          .col-xs-12
+            h3 Disabled items
+          .col-xs-12
+            .list-group
+              a.list-group-item.disabled(href='#') Cras justo odio
+              a.list-group-item(href='#') Dapibus ac facilisis in
+              a.list-group-item(href='#') Morbi leo risus
+              a.list-group-item(href='#') Porta ac consectetur ac
+              a.list-group-item(href='#') Vestibulum at eros
+        .row
+          .col-xs-12
+            h3 Contextual classes
+        .row
+          .col-sm-6
+            ul.list-group
+              li.list-group-item.list-group-item-success Dapibus ac facilisis in
+              li.list-group-item.list-group-item-info Cras sit amet nibh libero
+              li.list-group-item.list-group-item-warning Porta ac consectetur ac
+              li.list-group-item.list-group-item-danger Vestibulum at eros
+          .col-sm-6
+            .list-group
+              a.list-group-item.list-group-item-success(href='#') Dapibus ac facilisis in
+              a.list-group-item.list-group-item-info(href='#') Cras sit amet nibh libero
+              a.list-group-item.list-group-item-warning(href='#') Porta ac consectetur ac
+              a.list-group-item.list-group-item-danger(href='#') Vestibulum at eros
+        .row
+          .col-xs-12
+            h3 Custom content
+          .col-xs-12
+            .list-group
+              a.list-group-item.active(href='#')
+                h4.list-group-item-heading List group item heading
+                p.list-group-item-text
+                  | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+              a.list-group-item(href='#')
+                h4.list-group-item-heading List group item heading
+                p.list-group-item-text
+                  | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+              a.list-group-item(href='#')
+                h4.list-group-item-heading List group item heading
+                p.list-group-item-text
+                  | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+        .row
+          .col-xs-12
+            h2 Panels
+        .row
+          .col-xs-12
+            .panel.panel-default
+              .panel-body  Basic panel example
+        .row
+          .col-xs-12
+            h3 Panel with heading
+          .col-xs-12
+            .panel.panel-default
+              .panel-heading Panel heading without title
+              .panel-body  Panel content
+            .panel.panel-default
+              .panel-heading
+                h3.panel-title Panel title
+              .panel-body  Panel content
+        .row
+          .col-xs-12
+            h3 Panel with footer
+          .col-xs-12
+            .panel.panel-default
+              .panel-body  Panel content
+              .panel-footer Panel footer
+        .row
+          .col-xs-12
+            h3 Contextual alternatives
+          .col-xs-12
+            .panel.panel-primary
+              .panel-heading
+                h3.panel-title Panel title
+              .panel-body  Panel content
+            .panel.panel-success
+              .panel-heading
+                h3.panel-title Panel title
+              .panel-body  Panel content
+            .panel.panel-info
+              .panel-heading
+                h3.panel-title Panel title
+              .panel-body  Panel content
+            .panel.panel-warning
+              .panel-heading
+                h3.panel-title Panel title
+              .panel-body  Panel content
+            .panel.panel-danger
+              .panel-heading
+                h3.panel-title Panel title
+              .panel-body  Panel content
+        .row
+          .col-xs-12
+            h3 With tables
+          .col-xs-12
+            .panel.panel-default
+              .panel-heading Panel heading
+              .panel-body
+                p
+                  | Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
+              .table-responsive
+                table.table
+                  thead
+                    tr
+                      th #
+                      th First Name
+                      th Last Name
+                      th Username
+                  tbody
+                    tr
+                      th(scope='row') 1
+                      td Mark
+                      td Otto
+                      td @mdo
+                    tr
+                      th(scope='row') 2
+                      td Jacob
+                      td Thornton
+                      td @fat
+                    tr
+                      th(scope='row') 3
+                      td Larry
+                      td the Bird
+                      td @twitter
+        .row
+          .col-xs-12
+            .panel.panel-default
+              .panel-heading Panel heading
+              table.table
+                thead
+                  tr
+                    th #
+                    th First Name
+                    th Last Name
+                    th Username
+                tbody
+                  tr
+                    th(scope='row') 1
+                    td Mark
+                    td Otto
+                    td @mdo
+                  tr
+                    th(scope='row') 2
+                    td Jacob
+                    td Thornton
+                    td @fat
+                  tr
+                    th(scope='row') 3
+                    td Larry
+                    td the Bird
+                    td @twitter
+        .row
+          .col-xs-12
+            h3 With list groups
+          .col-xs-12
+            .panel.panel-default
+              .panel-heading Panel heading
+              .panel-body
+                p
+                  | Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
+              ul.list-group
+                li.list-group-item Cras justo odio
+                li.list-group-item Dapibus ac facilisis in
+                li.list-group-item Morbi leo risus
+                li.list-group-item Porta ac consectetur ac
+                li.list-group-item Vestibulum at eros
+        .row
+          .col-xs-12
+            h2 Wells
+        .row
+          .col-xs-12
+            .well  Look, I&apos;m in a well!
+        .row
+          .col-xs-12
+            h3 Optional classes
+          .col-xs-12
+            .well.well-lg  Look, I&apos;m in a large well!
+        .row
+          .col-xs-12
+            .well.well-sm  Look, I&apos;m in a small well!
+        .row
+          .col-xs-12
+            h1 JavaScript
+        .row
+          .col-xs-12
+            h2 Modals
+        .row
+          .col-xs-12
+            h3 Static
+          .col-xs-12.bs-example-modal
+            .modal
+              .modal-dialog
+                .modal-content
+                  .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                      span(aria-hidden='true') &times;
+                    h4.modal-title Modal title
+                  .modal-body
+                    p One fine body&mldr;
+                  .modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal') Close
+                    button.btn.btn-primary(type='button') Save changes
+        .row
+          .col-xs-12
+            h3 Live demo
+          .col-xs-12
+            button.btn.btn-primary.btn-lg(type='button', data-toggle='modal', data-target='#myModal')  Launch demo modal
+          #myModal.modal.fade(role='dialog', tabindex='-1', aria-labelledby='myModalLabel', style='display: none;')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                  h4#myModalLabel.modal-title Modal title
+                .modal-body
+                  h4 Text in a modal
+                  p Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                  h4 Popover in a modal
+                  p
+                    | This
+                    a.btn.btn-default.popover-test(href='#', role='button', title='', data-content="And here's some amazing content. It's very engaging. right?", data-original-title='A Title') button
+                    | should trigger a popover on click.
+                  h4 Tooltips in a modal
+                  p
+                    a.tooltip-test(href='#', title='', data-original-title='Tooltip') This link
+                    | and
+                    a.tooltip-test(href='#', title='', data-original-title='Tooltip') that link
+                    | should have tooltips on hover.
+                  hr
+                  h4 Overflowing text to show scroll behavior
+                  p Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                  p Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                  p Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                  p Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                  p Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                  p Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                  p Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                  p Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                  p Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
+                .modal-footer
+                  button.btn.btn-default(type='button', data-dismiss='modal') Close
+                  button.btn.btn-primary(type='button') Save changes
+        .row
+          .col-xs-12
+            h3 Optional sizes
+          .col-xs-12
+            button.btn.btn-primary(type='button', data-toggle='modal', data-target='.bs-example-modal-lg') Large modal
+            button.btn.btn-primary(type='button', data-toggle='modal', data-target='.bs-example-modal-sm') Small modal
+        .row
+          .col-xs-12
+            .modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel')
+              .modal-dialog.modal-lg
+                .modal-content
+                  .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                      span(aria-hidden='true') &times;
+                    h4#myLargeModalLabel.modal-title Large modal
+                  .modal-body  ...
+            .modal.fade.bs-example-modal-sm(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel')
+              .modal-dialog.modal-sm
+                .modal-content
+                  .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                      span(aria-hidden='true') &times;
+                    h4#mySmallModalLabel.modal-title Small modal
+                  .modal-body  ...
+        .row
+          .col-xs-12
+            h3 Using the grid system
+          .col-xs-12
+            button.btn.btn-primary.btn-lg(type='button', data-toggle='modal', data-target='#gridSystemModal')  Launch demo modal
+          #gridSystemModal.modal.fade(role='dialog', tabindex='-1', aria-labelledby='gridModalLabel', style='display: none;')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                  h4#gridModalLabel.modal-title Modal title
+                .modal-body
+                  .row
+                    .col-md-4 .col-md-4
+                    .col-md-4.col-md-offset-4 .col-md-4 .col-md-offset-4
+                  .row
+                    .col-md-3.col-md-offset-3 .col-md-3 .col-md-offset-3
+                    .col-md-2.col-md-offset-4 .col-md-2 .col-md-offset-4
+                  .row
+                    .col-md-6.col-md-offset-3 .col-md-6 .col-md-offset-3
+                  .row
+                    .col-sm-9
+                      | Level 1: .col-sm-9
+                      .row
+                        .col-xs-8.col-sm-6 Level 2: .col-xs-8 .col-sm-6
+                        .col-xs-4.col-sm-6 Level 2: .col-xs-4 .col-sm-6
+                .modal-footer
+                  button.btn.btn-default(type='button', data-dismiss='modal') Close
+                  button.btn.btn-primary(type='button') Save changes
+        .row
+          .col-xs-12
+            h3 Varying modal content based on trigger button
+          .col-xs-12
+            button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal', data-whatever='@mdo') Open modal for @mdo
+            button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal', data-whatever='@fat') Open modal for @fat
+            button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal', data-whatever='@getbootstrap') Open modal for @getbootstrap
+            |  ...more buttons...
+            #exampleModal.modal.fade(role='dialog', tabindex='-1', aria-labelledby='exampleModalLabel', style='display: none;')
+              .modal-dialog(role='document')
+                .modal-content
+                  .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                      span(aria-hidden='true') &times;
+                    h4#exampleModalLabel.modal-title New message to @getbootstrap
+                  .modal-body
+                    form
+                      .form-group
+                        label.control-label(for='recipient-name') Recipient:
+                        input#recipient-name.form-control
+                      .form-group
+                        label.control-label(for='message-text') Message:
+                        textarea#message-text.form-control
+                  .modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal') Close
+                    button.btn.btn-primary(type='button') Send message
+        .row
+          .col-xs-12
+            h2 Dropdowns
+        .row
+          .col-xs-12
+            h3 Within a navbar
+          .col-xs-12
+            nav#navbar-example.navbar.navbar-default.navbar-static
+              .container-fluid
+                .navbar-header
+                  button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='.bs-example-js-navbar-collapse')
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                  a.navbar-brand(href='#') Project Name
+                .collapse.navbar-collapse.bs-example-js-navbar-collapse
+                  ul.nav.navbar-nav
+                    li.dropdown
+                      a#drop1.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                        | Dropdown
+                        span.caret
+                      ul.dropdown-menu(aria-labelledby='drop1')
+                        li
+                          a(href='#') Action
+                        li
+                          a(href='#') Another action
+                        li
+                          a(href='#') Something else here
+                        li.divider(role='separator')
+                        li
+                          a(href='#') Separated link
+                    li.dropdown
+                      a#drop2.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                        | Dropdown
+                        span.caret
+                      ul.dropdown-menu(aria-labelledby='drop2')
+                        li
+                          a(href='#') Action
+                        li
+                          a(href='#') Another action
+                        li
+                          a(href='#') Something else here
+                        li.divider(role='separator')
+                        li
+                          a(href='#') Separated link
+                  ul.nav.navbar-nav.navbar-right
+                    li#fat-menu.dropdown
+                      a#drop3.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                        | Dropdown
+                        span.caret
+                      ul.dropdown-menu(aria-labelledby='drop3')
+                        li
+                          a(href='#') Action
+                        li
+                          a(href='#') Another action
+                        li
+                          a(href='#') Something else here
+                        li.divider(role='separator')
+                        li
+                          a(href='#') Separated link
+        .row
+          .col-xs-12
+            h2 ScrollSpy
+        .row
+          .col-xs-12
+            .bs-example(data-example-id='embedded-scrollspy')
+              nav#navbar-example2.navbar.navbar-default.navbar-static
+                .container-fluid
+                  .navbar-header
+                    button.collapsed.navbar-toggle(type='button', data-toggle='collapse', data-target='.bs-example-js-navbar-scrollspy')
+                      span.sr-only Toggle navigation
+                      span.icon-bar
+                      span.icon-bar
+                      span.icon-bar
+                    a.navbar-brand(href='#') Project Name
+                  .collapse.navbar-collapse.bs-example-js-navbar-scrollspy
+                    ul.nav.navbar-nav
+                      li.active
+                        a(href='#fat') @fat
+                      li
+                        a(href='#mdo') @mdo
+                      li.dropdown
+                        a#navbarDrop1.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                          | Dropdown
+                          span.caret
+                        ul.dropdown-menu(aria-labelledby='navbarDrop1')
+                          li
+                            a(href='#one') one
+                          li
+                            a(href='#two') two
+                          li.divider(role='separator')
+                          li
+                            a(href='#three') three
+              .scrollspy-example(data-spy='scroll', data-target='#navbar-example2', data-offset='0')
+                h4#fat(style='') @fat
+                p Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney&apos;s photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven&apos;t heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.
+                h4#mdo(style='') @mdo
+                p Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney&apos;s vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney&apos;s quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.
+                h4#one(style='') one
+                p Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next level locavore single-origin coffee in magna veniam. High life id vinyl, echo park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable delectus consectetur fanny pack iphone.
+                h4#two(style='') two
+                p In incididunt echo park, officia deserunt mcsweeney&apos;s proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven&apos;t heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland before they sold out four loko. Locavore enim nostrud mlkshk brooklyn nesciunt.
+                h4#three(style='') three
+                p Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney&apos;s photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven&apos;t heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.
+                p Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven&apos;t heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.
+        .row
+          .col-xs-12
+            h2 Togglable tabs
+        .row
+          .col-xs-12
+            ul#myTabs.nav.nav-tabs(role='tablist')
+              li.active(role='presentation')
+                a#home-tab(href='#home', role='tab', data-toggle='tab', aria-controls='home', aria-expanded='true') Home
+              li(role='presentation')
+                a#profile-tab(href='#profile', role='tab', data-toggle='tab', aria-controls='profile') Profile
+              li.dropdown(role='presentation')
+                a#myTabDrop1.dropdown-toggle(href='#', data-toggle='dropdown', aria-controls='myTabDrop1-contents')
+                  | Dropdown
+                  span.caret
+                ul#myTabDrop1-contents.dropdown-menu(aria-labelledby='myTabDrop1')
+                  li
+                    a#dropdown1-tab(href='#dropdown1', role='tab', data-toggle='tab', aria-controls='dropdown1') @fat
+                  li
+                    a#dropdown2-tab(href='#dropdown2', role='tab', data-toggle='tab', aria-controls='dropdown2') @mdo
+            #myTabContent.tab-content
+              #home.tab-pane.fade.in.active(role='tabpanel', aria-labelledby='home-tab')
+                p Raw denim you probably haven&apos;t heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+              #profile.tab-pane.fade(role='tabpanel', aria-labelledby='profile-tab')
+                p Food truck fixie locavore, accusamus mcsweeney&apos;s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+              #dropdown1.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown1-tab')
+                p Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney&apos;s organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven&apos;t heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.
+              #dropdown2.tab-pane.fade(role='tabpanel', aria-labelledby='dropdown2-tab')
+                p Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.
+        .row
+          .col-xs-12
+            h2 Tooltips
+        .row
+          .col-xs-12
+            .tooltip-demo
+              p
+                | Tight pants next level keffiyeh
+                a(href='#', data-toggle='tooltip', title='', data-original-title='Default tooltip') you probably
+                |  haven&apos;t heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney&apos;s fixie sustainable quinoa 8-bit american apparel
+                a(href='#', data-toggle='tooltip', title='Another tooltip') have a
+                |  terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney&apos;s cleanse vegan chambray. A really ironic artisan
+                a(href='#', data-toggle='tooltip', title='', data-original-title='Another one here too') whatever keytar
+                |  , scenester farm-to-table banksy Austin
+                a(href='#', data-toggle='tooltip', title='The last tip!') twitter handle
+                |  freegan cred raw denim single-origin coffee viral.
+        .row
+          .col-xs-12
+            h3 Static tooltip
+          .col-xs-12
+            .bs-example.bs-example-tooltip(data-example-id='static-tooltips')
+              .tooltip.left(role='tooltip')
+                .tooltip-arrow
+                .tooltip-inner  Tooltip on the left
+              .tooltip.top(role='tooltip')
+                .tooltip-arrow
+                .tooltip-inner  Tooltip on the top
+              .tooltip.bottom(role='tooltip')
+                .tooltip-arrow
+                .tooltip-inner  Tooltip on the bottom
+              .tooltip.right(role='tooltip')
+                .tooltip-arrow
+                .tooltip-inner  Tooltip on the right
+        .row
+          .col-xs-12
+            h3 Four directions
+          .col-xs-12
+            .bs-example-tooltips
+              button.btn.btn-default(type='button', data-toggle='tooltip', data-placement='left', title='', data-original-title='Tooltip on left') Tooltip on left
+              button.btn.btn-default(type='button', data-toggle='tooltip', data-placement='top', title='', data-original-title='Tooltip on top') Tooltip on top
+              button.btn.btn-default(type='button', data-toggle='tooltip', data-placement='bottom', title='', data-original-title='Tooltip on bottom') Tooltip on bottom
+              button.btn.btn-default(type='button', data-toggle='tooltip', data-placement='right', title='', data-original-title='Tooltip on right') Tooltip on right
+        .row
+          .col-xs-12
+            h2 Alert messages
+        .row
+          .col-xs-12
+            .alert.alert-warning.alert-dismissible.fade.in(role='alert')
+              button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') &times;
+              strong Holy guacamole!
+              |  Best check yo self, you&apos;re not looking too good.
+            .alert.alert-danger.alert-dismissible.fade.in(role='alert')
+              button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') &times;
+              h4 Oh snap! You got an error!
+              p
+                | Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+              p
+                button.btn.btn-danger(type='button') Take this action
+                |
+                button.btn.btn-default(type='button') Or do this
+        .row
+          .col-xs-12
+            h2 Checkbox / Radio
+        .row
+          .col-xs-12
+            .btn-group(data-toggle='buttons')
+              label.btn.btn-primary.active
+                input(type='checkbox', checked='', autocomplete='off')
+                |  Checkbox 1 (pre-checked)
+              label.btn.btn-primary
+                input(type='checkbox', autocomplete='off')
+                |  Checkbox 2
+              label.btn.btn-primary
+                input(type='checkbox', autocomplete='off')
+                |  Checkbox 3
+        br
+        .row
+          .col-xs-12
+            .btn-group(data-toggle='buttons')
+              label.btn.btn-primary.active
+                input#option1(type='radio', name='options', autocomplete='off', checked='')
+                |  Radio 1 (preselected)
+              label.btn.btn-primary
+                input#option2(type='radio', name='options', autocomplete='off')
+                |  Radio 2
+              label.btn.btn-primary
+                input#option3(type='radio', name='options', autocomplete='off')
+                |  Radio 3
+        .row
+          .col-xs-12
+            h2 Collapse
+        .row
+          .col-xs-12
+            p
+              a.btn.btn-primary(role='button', data-toggle='collapse', href='#collapseExample', aria-expanded='false', aria-controls='collapseExample') Link with href
+              button.btn.btn-primary(type='button', data-toggle='collapse', data-target='#collapseExample', aria-expanded='false', aria-controls='collapseExample')  Button with data-target
+            #collapseExample.collapse
+              .well
+                | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        .row
+          .col-xs-12
+            h3 Accordion example
+          .col-xs-12
+            #accordion.panel-group(role='tablist', aria-multiselectable='true')
+              .panel.panel-default
+                #headingOne.panel-heading(role='tab')
+                  h4.panel-title
+                    a(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne') Collapsible Group Item #1
+                #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
+                  .panel-body
+                    | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.
+              .panel.panel-default
+                #headingTwo.panel-heading(role='tab')
+                  h4.panel-title
+                    a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo') Collapsible Group Item #2
+                #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
+                  .panel-body
+                    | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.
+              .panel.panel-default
+                #headingThree.panel-heading(role='tab')
+                  h4.panel-title
+                    a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree') Collapsible Group Item #3
+                #collapseThree.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
+                  .panel-body
+                    | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus labore sustainable VHS.
+    include pug/common/_footer
+  script.
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })

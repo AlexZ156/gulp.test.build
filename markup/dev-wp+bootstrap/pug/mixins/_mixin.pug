@@ -1,0 +1,46 @@
+//- -var bodyClass= "home"; // add class on body
+  body(class= bodyClass)
+
+//- - var curentClass = 'home'
+  ul
+    li(class={active: curentClass === 'home'}): a(href="index.html") home
+    li(class={active: curentClass === 'about'}): a(href="about.html") about  us
+    li(class={active: curentClass === 'properties'}): a(href="properties.html") properties
+    li(class={active: curentClass === 'region'}): a(href="region.html") the region
+    li(class={active: curentClass === 'contact'}): a(href="contact.html") contact us
+
+//- social list, insert on the page
+  ul.social
+    each ico in ["icon-linkedin", "icon-youtube", "icon-twitter", "icon-pinterest", "icon-instagram2", "icon-facebook"]
+      li: a(href="#"): span(class=""+ico)
+
+//- +retina ({
+//-  imgName: 'img-01',
+//-  alt: 'logo'
+//- })
+mixin retina(obj)
+  picture
+    source(srcset='images/small-'+obj.imgName+'.jpg, images/small-'+obj.imgName+'-2x.jpg 2x, images/small-'+obj.imgName+'-3x.jpg 3x', media='(max-width: 767px)')
+    source(srcset='images/medium-'+obj.imgName+'.jpg, images/medium-'+obj.imgName+'-2x.jpg 2x, images/medium-'+obj.imgName+'-3x.jpg 3x', media='(max-width: 1024px)')
+    source(srcset='images/large-'+obj.imgName+'.jpg, images/large-'+obj.imgName+'-2x.jpg 2x, images/large-'+obj.imgName+'-3x.jpg 3x')
+    img(src='images/large-'+obj.imgName+'.jpg', alt= obj.alt || "image description")
+
+//- +newsPost({
+//-   imgName: "imgName",
+//-   datetime: "2015-10-18",
+//-   time: "18 Oct 2015",
+//-   name: "name",
+//-   description: "description"
+//- })
+mixin newsPost(obj)
+  .news-post
+    .image-blog
+      a(href="#")
+        img(src="images/images-content/" + obj.imgName, alt="image description")
+      span.label-img
+        time.event-date(datetime="" + obj.datetime)= obj.time
+    .body-post
+      h3
+        a(href="#")= obj.name
+      p= obj.description
+      a(href="#").btn.btn-default read more

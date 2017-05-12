@@ -1,0 +1,50 @@
+// Colors
+// Color calculator - http://razorjam.github.io/sasscolourfunctioncalculator/
+// Color names - http://name-of-color.com/
+
+$black:                  #000;
+$white:                  #fff;
+$gray:                   #999;
+
+//## Gray and brand colors for use across Bootstrap.
+
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+$brand-primary:          darken(#428bca, 6.5%) !default; // #337ab7
+$brand-success:          #5cb85c !default;
+$brand-info:             #5bc0de !default;
+$brand-warning:          #f0ad4e !default;
+$brand-danger:           #d9534f !default;
+
+
+$widget-margin:               20px;
+$vertical-rhythm:             20px;
+
+$wp-caption-border:           1px solid $black;
+
+$base-font-sans-serif:        'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+$base-font-serif:             'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
+$base-font:                   $base-font-sans-serif;
+
+$font-size-base:              16px !default;
+$line-height-base:            1.2 !default;
+
+$base-min-width:              320px;
+$max-width-center-container:  1200px;
+
+//== Breadcrumbs
+$breadcrumb-padding-vertical:   8px !default;
+$breadcrumb-padding-horizontal: 15px !default;
+//** Breadcrumb background color
+$breadcrumb-bg:                 #f5f5f5 !default;
+//** Breadcrumb text color
+$breadcrumb-color:              #ccc !default;
+//** Text color of current page in the breadcrumb
+$breadcrumb-active-color:       $gray-light !default;
+//** Textual separator for between breadcrumb elements
+$breadcrumb-separator:          '/' !default;
