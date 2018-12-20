@@ -13,6 +13,7 @@ const postcssPlagins = [
 		browsers: ['last 2 version']
 	})
 ];
+plugins.sass.compiler = require('node-sass');
 // ES-2015 handler
 gulp.task('webpack', (cb) => {
 	plugins.webpack(webpackconfig(isDevelopment), (err, stats) => {
@@ -199,28 +200,28 @@ gulp.task('assets', (cb) => {
 
 gulp.task('watch', function(cb) {
 	gulp.watch(
-		path.resolve(__dirname, settings.scssDir.entry + '/**/*.scss'),
+		settings.scssDir.entry + '/**/*.scss',
 		gulp.series('allSass')
 	).on('unlink', function(filePath) {
 		delete plugins.cached.caches.allSass[path.resolve(filePath)];
 	});
 
 	gulp.watch(
-		path.resolve(__dirname, settings.pugDir.entry + '/*.pug'),
+		settings.pugDir.entry + '/*.pug',
 		gulp.series('pugPages')
 	).on('unlink', function(filePath) {
 		delete plugins.cached.caches.pugPages[path.resolve(filePath)];
 	});
 
 	gulp.watch(
-		path.resolve(__dirname, settings.pugDir.entry + '/**/_*.pug'),
+		settings.pugDir.entry + '/**/_*.pug',
 		gulp.series('pugAll')
 	);
 
 	gulp.watch(
 		[
-			path.resolve(__dirname, settings.jsDir.entry + '/*'),
-			'!' + path.resolve(__dirname, settings.jsES6.entry)
+			settings.jsDir.entry + '/*',
+			'!' + settings.jsES6.entry
 		],
 		gulp.series('copyScripts')
 	).on('unlink', function(filePath) {
@@ -228,12 +229,12 @@ gulp.task('watch', function(cb) {
 	});
 
 	// gulp.watch(
-	// 	path.resolve(__dirname, settings.jsES6.entry + '/**/*.js'),
+	// 	settings.jsES6.entry + '/**/*.js'),
 	// 	gulp.series('webpack')
 	// );
 
 	gulp.watch(
-		path.resolve(__dirname, settings.assetsDir + '/**'),
+		settings.assetsDir + '/**',
 		gulp.series('assets')
 	).on('error', () => {})
 	.on('unlink', function(filePath) {
@@ -242,8 +243,8 @@ gulp.task('watch', function(cb) {
 
 	gulp.watch(
 		[
-			path.resolve(__dirname, settings.jsDir.output + '/*.js'),
-			path.resolve(__dirname, settings.publicDir + '/*.html')
+			settings.jsDir.output + '/*.js',
+			settings.publicDir + '/*.html'
 		],
 		gulp.series(reloadPage)
 	);
